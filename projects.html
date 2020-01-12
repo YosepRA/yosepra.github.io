@@ -4,17 +4,110 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap"
       rel="stylesheet"
-    />
+    /> -->
 
     <link rel="stylesheet" href="css/main.min.css" />
+    <link rel="stylesheet" href="css/projects.min.css" />
 
     <title>StudioYosepRA | Full-Stack Web Developer</title>
   </head>
   <body>
-    <h1>This is the projects page.</h1>
+    <nav class="mainNav">
+      <div class="container">
+        <section class="mainNav-brand">
+          <a href="./"><img src="images/logo.svg" alt="StudioYosepRA"/></a>
+        </section>
+
+        <section class="mainNav-menu">
+          <div class="menu-nav">
+            <a href="./" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link active">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+
+          <div class="menu-social">
+            <a href="https://github.com/YosepRA" class="social-link">
+              <img src="images/logo-github-transparent.png" alt="GitHub Link" />
+            </a>
+            <a href="https://www.instagram.com/studioyosepra/" class="social-link">
+              <img src="images/logo-instagram-transparent.png" alt="Instagram Link" />
+            </a>
+          </div>
+        </section>
+      </div>
+    </nav>
+
+    <main class="main-container">
+      <div class="container">
+        <header class="page-header">
+          <h1>Projects</h1>
+        </header>
+
+        <section class="page-section tags">
+          <button class="tag selected">HTML</button>
+          <button class="tag">CSS</button>
+          <button class="tag">JavaScript</button>
+        </section>
+
+        <section class="page-section projects">
+          <div class="project project1">
+            <header class="project-title">
+              <h2>Project #1</h2>
+            </header>
+
+            <section class="project-content">
+              <header class="content-header">
+                <h2 class="title">Project #1</h2>
+                <h3 class="technologies">Using: HTML, CSS, JavaScript</h3>
+              </header>
+
+              <section class="content-text">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt vero provident
+                  unde et excepturi ab praesentium accusamus alias autem ratione.
+                </p>
+              </section>
+
+              <footer class="content-action">
+                <a href="#" class="action-btn details">Details</a>
+                <a href="#" class="action-btn code">Source code</a>
+                <a href="#" class="action-btn demo">Demo</a>
+              </footer>
+            </section>
+          </div>
+          <div class="project project2">
+            <header class="project-title">
+              <h2>Project #2</h2>
+            </header>
+          </div>
+          <div class="project project3">
+            <header class="project-title">
+              <h2>Project #3</h2>
+            </header>
+          </div>
+          <div class="project project4">
+            <header class="project-title">
+              <h2>Project #4</h2>
+            </header>
+          </div>
+          <div class="project project5">
+            <header class="project-title">
+              <h2>Project #5</h2>
+            </header>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <a href="about.html" class="footer-link">
+        <span>About me</span>
+      </a>
+    </footer>
 
     <script src="js/main.js"></script>
   </body>
