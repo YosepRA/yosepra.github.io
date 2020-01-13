@@ -4,17 +4,100 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap"
       rel="stylesheet"
-    />
+    /> -->
+
     <link rel="stylesheet" href="css/main.min.css" />
+    <link rel="stylesheet" href="css/about.min.css" />
 
     <title>StudioYosepRA | Full-Stack Web Developer</title>
   </head>
   <body>
-    <h1>This is the about page.</h1>
+    <nav class="mainNav">
+      <div class="container">
+        <section class="mainNav-brand">
+          <a href="./"><img src="images/logo.svg" alt="StudioYosepRA"/></a>
+        </section>
+
+        <section class="mainNav-menu">
+          <div class="menu-nav">
+            <a href="./" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link active">About</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+
+          <div class="menu-social">
+            <a href="https://github.com/YosepRA" class="social-link">
+              <img src="images/logo-github-transparent.png" alt="GitHub Link" />
+            </a>
+            <a href="https://www.instagram.com/studioyosepra/" class="social-link">
+              <img src="images/logo-instagram-transparent.png" alt="Instagram Link" />
+            </a>
+          </div>
+        </section>
+      </div>
+    </nav>
+
+    <main class="main-container">
+      <div class="container">
+        <header class="page-header">
+          <h1>About</h1>
+        </header>
+
+        <section class="page-section skills">
+          <header class="section-title">
+            <h2>Skills</h2>
+          </header>
+
+          <section class="carousel">
+            <div class="carousel-roller">
+              <div class="roller-item">
+                <section class="content">
+                  <header class="skill-name">
+                    <h3>Node js</h3>
+                  </header>
+
+                  <section class="skill-description">
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ullam
+                      exercitationem, cum voluptatibus architecto voluptatem sunt veritatis.
+                      Accusamus, tenetur sunt?
+                    </p>
+                  </section>
+                </section>
+
+                <section class="image">
+                  <img src="images/logo-nodejs.png" alt="Logo Node js" />
+                </section>
+              </div>
+            </div>
+
+            <div class="carousel-controls">
+              <button class="side-control control-left"></button>
+              <ul class="control-bottom">
+                <li class="item-control" data-index="0"></li>
+                <li class="item-control" data-index="1"></li>
+                <li class="item-control" data-index="2"></li>
+                <li class="item-control active" data-index="3"></li>
+                <li class="item-control" data-index="4"></li>
+              </ul>
+              <button class="side-control control-right"></button>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <footer class="page-footer">
+      <a href="projects.html" class="footer-link">
+        <span>Projects</span>
+      </a>
+    </footer>
 
     <script src="js/main.js"></script>
+    <!-- <script src="js/about.js"></script> -->
   </body>
 </html>
