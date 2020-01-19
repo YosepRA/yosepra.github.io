@@ -15,7 +15,7 @@ class Carousel {
     this.roller.style.width = this.frameWidth * this.itemsAmount + 'px';
     // Assign event to side controls.
     for (const control of this.sideControls)
-      control.addEventListener('click', e => this.slideOnce(e));
+      control.addEventListener('click', event => this.slideOnce(event));
 
     // Generating bottom control based on the amount of item.
     for (let index = 0; index < this.itemsAmount; index++) {
@@ -32,7 +32,7 @@ class Carousel {
     }
     this.bottomControls = this.bottomControlContainer.children;
     // Assign click event on bottom control container.
-    this.bottomControlContainer.addEventListener('click', e => this.slideTo(e));
+    this.bottomControlContainer.addEventListener('click', event => this.slideTo(event));
   }
 
   slideOnce(event) {
@@ -71,7 +71,7 @@ class Carousel {
     event.stopPropagation();
     let button = event.target;
     if (button.tagName !== 'LI') return;
-    let buttonIndex = button.dataset.index;
+    let buttonIndex = Number(button.dataset.index);
     let scrollPos = -(this.frameWidth * buttonIndex);
 
     this.bottomControlActiveSwitch(buttonIndex);
@@ -91,32 +91,21 @@ class Carousel {
     this.bottomControls[this.currentSlideIndex].classList.remove('active');
     this.bottomControls[nextIndex].classList.add('active');
   }
+  // 'windowResize'
+  // → To update both roller and item's sizes on window resize.
+  windowResize() {
+    this.frameWidth = this.carousel.clientWidth;
+    for (const item of this.roller.children) item.style.width = `${this.frameWidth}px`;
+    this.roller.style.width = this.frameWidth * this.itemsAmount + 'px';
+  }
 }
 
-window.addEventListener('load', () => {
-  new Carousel(document.querySelector('.carousel'));
+docReady(() => {
+  let carousel = new Carousel(document.querySelector('.carousel'));
+
+  window.addEventListener('resize', () => {
+    carousel.windowResize();
+    carousel.bottomControlActiveSwitch(0);
+    carousel.moveSlideAndUpdate(0, 0);
+  });
 });
-
-/* ======================================================================================================== */
-
-// SANDBOX
-// let carousel = document.querySelector('.carousel');
-// let roller = document.querySelector('.carousel-roller');
-// let rollItem = roller.children[0];
-// let rollPos = 0;
-
-// Translate version
-// for (const item of roller.children) item.style.width = `${carousel.clientWidth}px`;
-// roller.style.width = Array.from(roller.children).reduce((a, c) => a + c.clientWidth, 0) + 'px';
-// roller.style.transform = 'translateX(-300px)';
-// setInterval(() => {
-//   let nextPos = rollPos + rollItem.clientWidth;
-
-//   if (nextPos >= roller.scrollWidth) {
-//     roller.style.transform = '';
-//     rollPos = 0;
-//   } else {
-//     roller.style.transform = `translateX(-${rollPos + rollItem.clientWidth}px`;
-//     rollPos += rollItem.clientWidth;
-//   }
-// }, 2000);
