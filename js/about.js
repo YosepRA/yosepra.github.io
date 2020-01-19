@@ -20,7 +20,7 @@ class Carousel {
     // Generating bottom control based on the amount of item.
     for (let index = 0; index < this.itemsAmount; index++) {
       this.bottomControlContainer.appendChild(
-        elt(
+        eltAttr(
           'li',
           {
             class: this.currentSlideIndex === index ? 'item-control active' : 'item-control',
