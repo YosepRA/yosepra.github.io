@@ -13,6 +13,7 @@
     "@fortawesome/react-fontawesome": "^0.1.15",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "contentful": "^8.5.3",
     "formik": "^2.2.9",
     "react": "^17.0.0",
     "react-bootstrap": "^1.6.1",

@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Card, Modal, Button } from 'react-bootstrap';
 
-import { generateProjects, capitalizeFirstLetter } from '../utils/helpers';
-
-const fakeProjects = generateProjects(5);
+import { capitalizeFirstLetter, handlePromise } from '../utils/helpers';
+import createContentfulClient, {
+  contentfulSpaceId,
+  contentfulAccessToken,
+} from './data/Contentful';
 
 function createProjectCard(projects, handleModalOpen) {
   return projects.map((project) => {
-    const { id, name, body } = project;
+    const {
+      sys: { id },
+      fields: { name, images },
+    } = project;
 
     return (
       <Col key={id} md={6} lg={4} as="article">
         <Card className="bg-dark text-white">
-          <Card.Img
-            src="https://via.placeholder.com/430x240/181a1a.png"
-            alt="Card image"
-          />
+          <Card.Img src={images[0]} alt="Card image" />
           <Card.ImgOverlay>
             <Card.Title>{capitalizeFirstLetter(name)}</Card.Title>
-            <Card.Text>{`${body.substring(0, 100)}...`}</Card.Text>
             <Button variant="primary" onClick={() => handleModalOpen(project)}>
               Open modal
             </Button>
@@ -34,10 +35,15 @@ function createProjectCard(projects, handleModalOpen) {
   2. It must know which project card is clicked.
 */
 function ProjectDetails({ project, show, handleModalClose }) {
+  const {
+    sys: { id },
+    fields: { name },
+  } = project;
+
   return (
     <Modal show={show} onHide={handleModalClose}>
       <Modal.Header closeButton>
-        <Modal.Title>{`${project.id} - ${project.name}`}</Modal.Title>
+        <Modal.Title>{`${id} - ${name}`}</Modal.Title>
       </Modal.Header>
       <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
       <Modal.Footer>
@@ -54,7 +60,21 @@ function ProjectDetails({ project, show, handleModalClose }) {
 
 function Projects() {
   const [show, setShow] = useState(false);
-  const [activeProject, setActiveProject] = useState({});
+  const [projects, setProjects] = useState([]);
+  const [activeProject, setActiveProject] = useState(null);
+
+  useEffect(async () => {
+    const contentfulClient = await createContentfulClient(
+      contentfulSpaceId,
+      contentfulAccessToken,
+    );
+    const contentfulPromise = contentfulClient.getEntries({
+      content_type: 'project',
+    });
+    const [data, error] = await handlePromise(contentfulPromise);
+
+    setProjects(data.items);
+  }, []);
 
   const handleModalOpen = (project) => {
     setActiveProject(project);
@@ -62,7 +82,9 @@ function Projects() {
   };
   const handleModalClose = () => setShow(false);
 
-  const projectCards = createProjectCard(fakeProjects, handleModalOpen);
+  if (projects.length === 0) return null;
+
+  const projectCards = createProjectCard(projects, handleModalOpen);
 
   return (
     <Row>
@@ -77,11 +99,13 @@ function Projects() {
             <Row>{projectCards}</Row>
           </div>
 
-          <ProjectDetails
-            show={show}
-            handleModalClose={handleModalClose}
-            project={activeProject}
-          />
+          {activeProject !== null && (
+            <ProjectDetails
+              show={show}
+              handleModalClose={handleModalClose}
+              project={activeProject}
+            />
+          )}
         </section>
       </Col>
     </Row>
