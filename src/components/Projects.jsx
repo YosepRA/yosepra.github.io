@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Card, Modal, Button } from 'react-bootstrap';
 
-import { capitalizeFirstLetter, handlePromise } from '../utils/helpers';
-import createContentfulClient, {
-  contentfulSpaceId,
-  contentfulAccessToken,
-} from './data/Contentful';
+import { handlePromise } from '../utils/helpers';
+import contentfulClient from './data/Contentful';
 
-function createProjectCard(projects, handleModalOpen) {
+function createProjectCards(projects, handleModalOpen) {
   return projects.map((project) => {
     const {
       sys: { id },
@@ -19,7 +16,7 @@ function createProjectCard(projects, handleModalOpen) {
         <Card className="bg-dark text-white">
           <Card.Img src={images[0]} alt="Card image" />
           <Card.ImgOverlay>
-            <Card.Title>{capitalizeFirstLetter(name)}</Card.Title>
+            <Card.Title>{name}</Card.Title>
             <Button variant="primary" onClick={() => handleModalOpen(project)}>
               Open modal
             </Button>
@@ -64,10 +61,6 @@ function Projects() {
   const [activeProject, setActiveProject] = useState(null);
 
   useEffect(async () => {
-    const contentfulClient = await createContentfulClient(
-      contentfulSpaceId,
-      contentfulAccessToken,
-    );
     const contentfulPromise = contentfulClient.getEntries({
       content_type: 'project',
     });
@@ -84,7 +77,7 @@ function Projects() {
 
   if (projects.length === 0) return null;
 
-  const projectCards = createProjectCard(projects, handleModalOpen);
+  const projectCards = createProjectCards(projects, handleModalOpen);
 
   return (
     <Row>
