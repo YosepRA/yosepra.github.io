@@ -1,0 +1,62 @@
+@import './config';
+
+.project {
+  margin-bottom: 1rem;
+
+  &:hover {
+    .project {
+      &-overlay {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &-overlay {
+    @include flexCenter();
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba($main-color-dark-1, 0.8);
+    @include allTransition();
+
+    &-btn {
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  &-modal {
+    &-header {
+      margin-bottom: 1rem;
+      color: white;
+
+      &.modal-header-override {
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    &-slider {
+      margin-bottom: 1.4rem;
+    }
+
+    &-title {
+      font-size: 1.4rem;
+    }
+
+    &-meta-data {
+      margin-bottom: 1.2rem;
+    }
+
+    &-link-btn {
+      display: inline-block;
+      width: 90px;
+      font-size: 0.8rem;
+
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}

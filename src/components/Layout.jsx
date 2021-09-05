@@ -1,15 +1,12 @@
 import React from 'react';
 
-import Header from './Header';
-import Footer from './Footer';
+import Footer from './Footer.jsx';
 
 function Layout(props) {
   const { children } = props;
 
   return (
     <div className="layout">
-      <Header />
-
       <main className="content">{children}</main>
 
       <Footer />

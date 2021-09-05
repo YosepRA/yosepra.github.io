@@ -11,7 +11,7 @@ import {
 
 function Header() {
   return (
-    <Navbar bg="light" expand="md">
+    <Navbar bg="dark" variant="dark" expand="md">
       <Container>
         <Navbar.Brand href="#home">StudioYosepRA</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

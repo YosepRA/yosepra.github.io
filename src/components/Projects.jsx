@@ -1,30 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col, Card, Modal, Button } from 'react-bootstrap';
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Modal,
+  Carousel,
+  Image,
+} from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import cn from 'classnames';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
-import { handlePromise } from '../utils/helpers';
-import contentfulClient from './data/Contentful';
+import mainStyles from '../styles/main.module.scss';
+import projectStyles from '../styles/project.module.scss';
 
-function createProjectCards(projects, handleModalOpen) {
-  return projects.map((project) => {
-    const {
-      sys: { id },
-      fields: { name, images },
-    } = project;
+import { handlePromise } from '../utils/helpers.js';
+import contentfulClient from './data/Contentful.js';
 
-    return (
-      <Col key={id} md={6} lg={4} as="article">
-        <Card className="bg-dark text-white">
-          <Card.Img src={images[0]} alt="Card image" />
-          <Card.ImgOverlay>
-            <Card.Title>{name}</Card.Title>
-            <Button variant="primary" onClick={() => handleModalOpen(project)}>
-              Open modal
-            </Button>
-          </Card.ImgOverlay>
-        </Card>
-      </Col>
-    );
-  });
+function createImagesCarousel(images, projectName) {
+  const carouselItems = images.map((imgUrl) => (
+    <Carousel.Item key={imgUrl}>
+      <Image src={imgUrl} alt={projectName} fluid />
+    </Carousel.Item>
+  ));
+
+  return (
+    <Carousel interval={null} className="project-slider">
+      {carouselItems}
+    </Carousel>
+  );
 }
 
 /*  Project modals.
@@ -33,26 +38,117 @@ function createProjectCards(projects, handleModalOpen) {
 */
 function ProjectDetails({ project, show, handleModalClose }) {
   const {
-    sys: { id },
-    fields: { name },
+    fields: { name, images, githubLink, liveLink, body },
   } = project;
 
+  const imagesCarousel = createImagesCarousel(images, name);
+  const bodyComponent = documentToReactComponents(body);
+
   return (
-    <Modal show={show} onHide={handleModalClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>{`${id} - ${name}`}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={handleModalClose}>
-          Close
-        </Button>
-        <Button variant="primary" onClick={handleModalClose}>
-          Save Changes
-        </Button>
-      </Modal.Footer>
+    <Modal show={show} onHide={handleModalClose} className="project-modal">
+      <Modal.Header
+        closeButton
+        className={cn(
+          projectStyles.projectModalHeader,
+          projectStyles.modalHeaderOverride,
+        )}
+      />
+
+      <Container>
+        <Row className={projectStyles.projectModalSlider}>
+          <Col>{imagesCarousel}</Col>
+        </Row>
+
+        <Row className={projectStyles.projectModalMetaData}>
+          <Col sm={12}>
+            <h2 className={projectStyles.projectModalTitle}>{name}</h2>
+          </Col>
+          <Col sm={12}>
+            <a
+              href={liveLink}
+              className={cn(
+                mainStyles.mainButtonLink,
+                projectStyles.projectModalLinkBtn,
+              )}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FontAwesomeIcon icon="play" /> Live
+            </a>
+
+            <a
+              href={githubLink}
+              className={cn(
+                mainStyles.mainButtonLink,
+                projectStyles.projectModalLinkBtn,
+              )}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={['fab', 'github']} /> Github
+            </a>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>{bodyComponent}</Col>
+        </Row>
+      </Container>
     </Modal>
   );
+}
+
+function createProjectCards(projects, handleModalOpen) {
+  return projects.map((project) => {
+    const {
+      sys: { id },
+      fields: { images, githubLink, liveLink },
+    } = project;
+
+    return (
+      <Col key={id} md={6} lg={4} as="article">
+        <Card className={`${projectStyles.project} bg-dark text-white`}>
+          <Card.Img src={images[0]} alt="Card image" />
+          <Card.ImgOverlay className={projectStyles.projectOverlay}>
+            <button
+              type="button"
+              className={cn(
+                mainStyles.mainButton,
+                projectStyles.projectOverlayBtn,
+              )}
+              onClick={() => handleModalOpen(project)}
+            >
+              <FontAwesomeIcon icon="info-circle" /> Details
+            </button>
+
+            <a
+              href={liveLink}
+              className={cn(
+                mainStyles.mainButtonLink,
+                projectStyles.projectOverlayBtn,
+              )}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FontAwesomeIcon icon="play" /> Live
+            </a>
+
+            <a
+              href={githubLink}
+              className={cn(
+                mainStyles.mainButtonLink,
+                projectStyles.projectOverlayBtn,
+              )}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={['fab', 'github']} /> Github
+            </a>
+          </Card.ImgOverlay>
+        </Card>
+      </Col>
+    );
+  });
 }
 
 function Projects() {
@@ -80,12 +176,16 @@ function Projects() {
   const projectCards = createProjectCards(projects, handleModalOpen);
 
   return (
-    <Row>
+    <Row className={mainStyles.contentSection}>
       <Col>
         <section className="projects">
-          <header className="section-header">
-            <h2 className="section-title">What I Have Built So Far</h2>
-            <h3 className="section-subtitle">and it keeps counting.</h3>
+          <header className={mainStyles.sectionHeader}>
+            <h2 className={mainStyles.sectionTitle}>
+              What I Have Built So Far
+            </h2>
+            <h3 className={mainStyles.sectionSubtitle}>
+              and it keeps counting.
+            </h3>
           </header>
 
           <div className="project-list">

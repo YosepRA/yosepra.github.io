@@ -1,0 +1,42 @@
+@import './config';
+
+.content-section {
+  &:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+}
+
+.section {
+  &-header {
+    margin-bottom: 1rem;
+  }
+
+  &-title {
+    font-size: 1.4rem;
+  }
+
+  &-subtitle {
+    @include Lato();
+    font-weight: 300;
+    font-size: 1.2rem;
+  }
+}
+
+.main-button {
+  @include mainButton();
+
+  &-link {
+    @extend .main-button;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.footer {
+  margin-top: 4rem;
+  text-align: center;
+}

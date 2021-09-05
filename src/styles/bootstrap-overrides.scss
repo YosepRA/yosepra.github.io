@@ -1,0 +1,45 @@
+@import './config';
+
+.why-web-application {
+  .carousel {
+    &-indicators {
+      margin: 0 auto;
+      @include carouselIndicators();
+    }
+
+    &-control {
+      &-prev,
+      &-next {
+        display: none;
+      }
+    }
+  }
+}
+
+.project {
+  &-modal {
+    .modal-content {
+      background-color: $main-color;
+      padding-bottom: 2rem;
+    }
+
+    .close {
+      color: white;
+      opacity: 1;
+    }
+
+    .carousel {
+      &-indicators {
+        margin: 0 auto 0.5rem;
+        @include carouselIndicators();
+      }
+
+      &-control {
+        &-prev,
+        &-next {
+          display: none;
+        }
+      }
+    }
+  }
+}

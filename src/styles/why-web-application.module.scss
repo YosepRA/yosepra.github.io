@@ -1,0 +1,9 @@
+@import './config';
+
+.carousel {
+  &-content {
+    width: 90%;
+    margin: 3rem auto;
+    font-size: 1.1rem;
+  }
+}

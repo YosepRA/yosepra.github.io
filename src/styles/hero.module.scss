@@ -1,0 +1,17 @@
+@import './config';
+
+.hero {
+  @include flexCenter();
+  flex-direction: column;
+  height: 380px;
+  margin-bottom: -4rem; // Offset section margin bottom.
+
+  &-logo {
+    // margin-bottom: 1rem;
+  }
+
+  &-subtitle {
+    font-weight: 300;
+    font-size: 1.1rem;
+  }
+}

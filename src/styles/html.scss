@@ -3,8 +3,21 @@
 html,
 body {
   height: 100%;
+  background-color: $main-color;
+  @include Lato();
+  font-weight: 300;
+  color: white;
 }
 
 #root {
   height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include CarterOne();
 }

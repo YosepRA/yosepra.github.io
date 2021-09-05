@@ -1,20 +1,25 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faEnvelope, faPlay } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEnvelope,
+  faPlay,
+  faInfoCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
-import Layout from './Layout';
-import Hero from './Hero';
-import WhyWebApplication from './WhyWebApplication';
-import Projects from './Projects';
-import Contacts from './Contacts';
+import Layout from './Layout.jsx';
+import Hero from './Hero.jsx';
+import WhyWebApplication from './WhyWebApplication.jsx';
+import Projects from './Projects.jsx';
+import Contacts from './Contacts.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/bootstrap-overrides.scss';
 import '../styles/html.scss';
 
 // Fontawesome library build up.
-library.add(faEnvelope, faPlay, faWhatsapp, faGithub);
+library.add(faEnvelope, faPlay, faWhatsapp, faGithub, faInfoCircle);
 
 function App() {
   return (

@@ -33,3 +33,38 @@ $grid-breakpoints: (
 @mixin CarterOne {
   font-family: 'Carter One', 'Lato', $font-family-sans-serif;
 }
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin allTransition {
+  transition: all 200ms ease-out;
+}
+
+@mixin mainButton {
+  display: block;
+  width: 140px;
+  background-color: $main-color;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid white;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+  @include allTransition();
+
+  &:hover {
+    background-color: $main-color-dark-1;
+  }
+}
+
+@mixin carouselIndicators {
+  li {
+    width: 8px;
+    height: 8px;
+    margin: 0 0.3rem;
+    border-radius: 50%;
+  }
+}
