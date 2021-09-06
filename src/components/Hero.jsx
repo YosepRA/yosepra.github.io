@@ -6,7 +6,7 @@ import heroStyles from '../styles/hero.module.scss';
 
 function Hero() {
   return (
-    <Row className={mainStyles.contentSection}>
+    <Row className={mainStyles.contentSection} as="section">
       <Col>
         <section className={heroStyles.hero}>
           <div className={heroStyles.heroLogo}>

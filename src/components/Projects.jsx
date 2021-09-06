@@ -54,16 +54,21 @@ function ProjectDetails({ project, show, handleModalClose }) {
         )}
       />
 
-      <Container>
+      <Container
+        className={cn(
+          projectStyles.projectModalContainer,
+          projectStyles.modalContainerOverride,
+        )}
+      >
         <Row className={projectStyles.projectModalSlider}>
           <Col>{imagesCarousel}</Col>
         </Row>
 
         <Row className={projectStyles.projectModalMetaData}>
-          <Col sm={12}>
+          <Col xs={12}>
             <h2 className={projectStyles.projectModalTitle}>{name}</h2>
           </Col>
-          <Col sm={12}>
+          <Col xs={12}>
             <a
               href={liveLink}
               className={cn(
@@ -90,7 +95,7 @@ function ProjectDetails({ project, show, handleModalClose }) {
           </Col>
         </Row>
 
-        <Row>
+        <Row className={projectStyles.projectModalBody}>
           <Col>{bodyComponent}</Col>
         </Row>
       </Container>
@@ -107,7 +112,7 @@ function createProjectCards(projects, handleModalOpen) {
 
     return (
       <Col key={id} md={6} lg={4} as="article">
-        <Card className={`${projectStyles.project} bg-dark text-white`}>
+        <Card className={cn(projectStyles.project, 'bg-dark')}>
           <Card.Img src={images[0]} alt="Card image" />
           <Card.ImgOverlay className={projectStyles.projectOverlay}>
             <button
@@ -176,7 +181,7 @@ function Projects() {
   const projectCards = createProjectCards(projects, handleModalOpen);
 
   return (
-    <Row className={mainStyles.contentSection}>
+    <Row className={mainStyles.contentSection} as="section">
       <Col>
         <section className="projects">
           <header className={mainStyles.sectionHeader}>

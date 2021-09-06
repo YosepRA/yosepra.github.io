@@ -43,3 +43,66 @@
     }
   }
 }
+
+// Breakpoints.
+
+@include media-breakpoint-up(sm) {
+  .why-web-application {
+    .carousel {
+      &-control {
+        &-prev,
+        &-next {
+          display: flex;
+          width: 5%;
+        }
+      }
+    }
+  }
+
+  .project {
+    &-modal {
+      .carousel {
+        &-control {
+          &-prev,
+          &-next {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .why-web-application {
+    .carousel {
+      &-control {
+        &-prev,
+        &-next {
+          width: 15%;
+        }
+      }
+    }
+  }
+
+  .project {
+    &-modal {
+      .modal-dialog {
+        max-width: 600px;
+      }
+    }
+  }
+}
+
+// @include media-breakpoint-up(md) {
+//   .why-web-application {
+//     .carousel {
+//       &-control {
+//         &-prev,
+//         &-next {
+//           width: 15%;
+//         }
+//       }
+//     }
+//   }
+// }

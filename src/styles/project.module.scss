@@ -42,6 +42,7 @@
     }
 
     &-title {
+      margin-bottom: 0.8rem;
       font-size: 1.4rem;
     }
 
@@ -56,6 +57,39 @@
 
       &:not(:last-child) {
         margin-right: 0.5rem;
+      }
+    }
+
+    &-body {
+      text-align: justify;
+    }
+  }
+}
+
+// Breakpoints.
+
+@include media-breakpoint-up(sm) {
+  .project {
+    &-modal {
+      &-title {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .project {
+    &-modal {
+      &-container {
+        &.modal-container-override {
+          padding: 0 3rem 2rem;
+        }
+      }
+
+      &-link-btn {
+        width: 110px;
+        font-size: 1rem;
       }
     }
   }

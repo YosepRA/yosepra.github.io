@@ -6,7 +6,13 @@ import {
   faPlay,
   faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub,
+  faTelegram,
+  faDiscord,
+  faInstagram,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 
 import Layout from './Layout.jsx';
 import Hero from './Hero.jsx';
@@ -19,7 +25,16 @@ import '../styles/bootstrap-overrides.scss';
 import '../styles/html.scss';
 
 // Fontawesome library build up.
-library.add(faEnvelope, faPlay, faWhatsapp, faGithub, faInfoCircle);
+library.add(
+  faEnvelope,
+  faPlay,
+  faDiscord,
+  faTelegram,
+  faInstagram,
+  faTwitter,
+  faGithub,
+  faInfoCircle,
+);
 
 function App() {
   return (

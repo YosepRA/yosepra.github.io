@@ -32,7 +32,7 @@ function Contacts() {
   };
 
   return (
-    <Row className={mainStyles.contentSection}>
+    <Row className={mainStyles.contentSection} as="section">
       <Col>
         <section className="contacts">
           <header className={mainStyles.sectionHeader}>
@@ -43,20 +43,41 @@ function Contacts() {
           </header>
 
           <div className="contact-list">
-            <Row>
+            <Row className={contactStyles.contactListRow}>
               <Col md={8} lg={4} className={contactStyles.contactInfo}>
-                <div className={mainStyles.contactPoint}>
-                  <span className={mainStyles.contactLogo}>
-                    <FontAwesomeIcon icon={['fab', 'whatsapp']} />
-                  </span>
-                  <span className="contact-text">+6285861251765</span>
-                </div>
-
                 <div className={contactStyles.contactPoint}>
                   <span className={contactStyles.contactLogo}>
                     <FontAwesomeIcon icon="envelope" />
                   </span>
                   <span className="contact-text">studioyosepra@gmail.com</span>
+                </div>
+
+                <div className={contactStyles.contactPoint}>
+                  <span className={contactStyles.contactLogo}>
+                    <FontAwesomeIcon icon={['fab', 'discord']} />
+                  </span>
+                  <span className="contact-text">YosepRA#4863</span>
+                </div>
+
+                <div className={contactStyles.contactPoint}>
+                  <span className={contactStyles.contactLogo}>
+                    <FontAwesomeIcon icon={['fab', 'telegram']} />
+                  </span>
+                  <span className="contact-text">YosepRA</span>
+                </div>
+
+                <div className={contactStyles.contactPoint}>
+                  <span className={contactStyles.contactLogo}>
+                    <FontAwesomeIcon icon={['fab', 'instagram']} />
+                  </span>
+                  <span className="contact-text">studioyosepra</span>
+                </div>
+
+                <div className={contactStyles.contactPoint}>
+                  <span className={contactStyles.contactLogo}>
+                    <FontAwesomeIcon icon={['fab', 'twitter']} />
+                  </span>
+                  <span className="contact-text">studioyosepra</span>
                 </div>
               </Col>
 

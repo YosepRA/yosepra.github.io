@@ -3,7 +3,36 @@
 .carousel {
   &-content {
     width: 90%;
+    max-width: 400px;
     margin: 3rem auto;
     font-size: 1.1rem;
+  }
+}
+
+// Breakpoints.
+
+@include media-breakpoint-up(sm) {
+  .carousel {
+    &-content {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .carousel {
+    &-content {
+      margin: 5rem auto;
+      max-width: 520px;
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .carousel {
+    &-content {
+      font-size: 1.5rem;
+      max-width: 560px;
+    }
   }
 }
