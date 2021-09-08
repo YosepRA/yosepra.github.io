@@ -12,13 +12,13 @@
   }
 
   &-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   &-subtitle {
     @include Lato();
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -33,6 +33,23 @@
       text-decoration: none;
       color: white;
     }
+  }
+}
+
+.toast {
+  bottom: 25px;
+  left: 15px;
+  z-index: 1030;
+  max-width: 400px;
+  transform: translateY(calc(150% + 25px));
+
+  &-active {
+    transform: translateY(0);
+  }
+
+  &.alert-override {
+    position: fixed;
+    transition: transform 200ms ease-out;
   }
 }
 

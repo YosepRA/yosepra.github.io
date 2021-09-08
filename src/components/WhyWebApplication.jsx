@@ -37,7 +37,7 @@ function WhyWebApplication() {
             </h3>
           </header>
 
-          <Carousel interval={null}>{carouselItems}</Carousel>
+          <Carousel interval={6000}>{carouselItems}</Carousel>
         </section>
       </Col>
     </Row>

@@ -1,26 +1,22 @@
 import axios from 'axios';
 
-import { handlePromise } from '../../utils/helpers';
-
-// axios.defaults.headers.authorization =
+import { handlePromise } from '../../utils/helpers.js';
 
 const { VITE_API_ENDPOINT } = import.meta.env;
 
-class DataSource {
-  constructor(errorHandler = () => {}) {
-    this.errorHandler = errorHandler;
-  }
+async function sendRequest(method, url, data, errorHandler, options = {}) {
+  const requestPromise = axios.request({ method, url, data, ...options });
+  const [result, error] = await handlePromise(requestPromise);
 
-  async postData(url, data) {
-    const ajaxPromise = axios.post(url, data);
-    const [result, error] = await handlePromise(ajaxPromise);
+  if (error) return errorHandler(error);
 
-    if (error) return this.errorHandler(error);
-
-    return result.data;
-  }
+  return result.data;
 }
 
-export { VITE_API_ENDPOINT };
+async function postData(url, data, errorHandler) {
+  const result = await sendRequest('POST', url, data, errorHandler);
 
-export default DataSource;
+  return result;
+}
+
+export { VITE_API_ENDPOINT, postData };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Row, Col, Form, Spinner } from 'react-bootstrap';
 import { Formik, Field, ErrorMessage } from 'formik';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,13 +8,9 @@ import * as yup from 'yup';
 import mainStyles from '../styles/main.module.scss';
 import contactStyles from '../styles/contact.module.scss';
 
-import DataSource, { VITE_API_ENDPOINT } from './data/DataSource.js';
+import { VITE_API_ENDPOINT, postData } from './data/DataSource.js';
+import { ToastContext } from './toast/index.jsx';
 
-function ajaxErrorHandler(error) {
-  console.log(error);
-}
-
-const dataSource = new DataSource(ajaxErrorHandler);
 const initialValues = {
   email: '',
   subject: '',
@@ -30,12 +26,23 @@ const schema = yup.object().shape({
 });
 
 function Contacts() {
+  const { showToast } = useContext(ToastContext);
+
+  const ajaxErrorHandler = (error) => {
+    const { response } = error;
+
+    if (response.status >= 300) {
+      showToast('danger', response.data.message);
+    }
+  };
+
   const handleSend = async (values, { resetForm }) => {
-    const result = await dataSource.postData(
+    const result = await postData(
       `${VITE_API_ENDPOINT}/mail`,
       values,
+      ajaxErrorHandler,
     );
-    console.log(result.message);
+    showToast('success', result.message);
 
     resetForm();
   };

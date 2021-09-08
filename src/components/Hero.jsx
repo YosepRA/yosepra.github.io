@@ -3,15 +3,22 @@ import { Row, Col } from 'react-bootstrap';
 
 import mainStyles from '../styles/main.module.scss';
 import heroStyles from '../styles/hero.module.scss';
+import logo from '../assets/logo.svg';
 
 function Hero() {
   return (
     <Row className={mainStyles.contentSection} as="section">
       <Col>
         <section className={heroStyles.hero}>
-          <div className={heroStyles.heroLogo}>
-            <h1>YosepRA</h1>
-          </div>
+          {/* <div className={heroStyles.heroLogoContainer}>
+            <img
+              src={logo}
+              alt="StudioYosepRA"
+              className={heroStyles.heroLogoImage}
+            />
+          </div> */}
+          <img src={logo} alt="StudioYosepRA" className={heroStyles.heroLogo} />
+
           <p className={heroStyles.heroSubtitle}>MERN Stack Web Developer</p>
         </section>
       </Col>

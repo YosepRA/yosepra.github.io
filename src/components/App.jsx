@@ -19,6 +19,7 @@ import Hero from './Hero.jsx';
 import WhyWebApplication from './WhyWebApplication.jsx';
 import Projects from './Projects.jsx';
 import Contacts from './Contacts.jsx';
+import { ToastProvider } from './toast/index.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/bootstrap-overrides.scss';
@@ -40,13 +41,15 @@ function App() {
   return (
     <Layout>
       <Container>
-        <Hero />
+        <ToastProvider>
+          <Hero />
 
-        <WhyWebApplication />
+          <WhyWebApplication />
 
-        <Projects />
+          <Projects />
 
-        <Contacts />
+          <Contacts />
+        </ToastProvider>
       </Container>
     </Layout>
   );
