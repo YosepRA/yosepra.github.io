@@ -49,6 +49,7 @@
 
   &.alert-override {
     position: fixed;
+    margin-bottom: 0;
     transition: transform 200ms ease-out;
   }
 }

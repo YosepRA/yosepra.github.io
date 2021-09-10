@@ -6,7 +6,12 @@ import mainStyles from '../../styles/main.module.scss';
 
 const ToastContext = createContext({ showToast: () => {} });
 
-function Toast({ show, setShow, variant, message }) {
+function Toast({ show, setShow, variant, message, timeoutId }) {
+  const handleClose = () => {
+    setShow(false);
+    clearTimeout(timeoutId);
+  };
+
   return (
     <Alert
       variant={variant}
@@ -14,7 +19,7 @@ function Toast({ show, setShow, variant, message }) {
         [mainStyles.toastActive]: show,
       })}
       dismissible
-      onClose={() => setShow(false)}
+      onClose={handleClose}
     >
       {message}
     </Alert>
@@ -24,18 +29,19 @@ function Toast({ show, setShow, variant, message }) {
 function ToastProvider({ children }) {
   const [show, setShow] = useState(false);
   const [variant, setVariant] = useState('success');
-  const [message, setMessage] = useState(
-    'Test message which will be somewhat long.',
-  );
+  const [message, setMessage] = useState('Default message');
+  const [timeoutId, setTimeoutId] = useState(null);
 
   const showToast = (toastVariant, toastMessage) => {
     setShow(true);
     setVariant(toastVariant);
     setMessage(toastMessage);
 
-    setTimeout(() => {
-      setShow(false);
-    }, 5000);
+    setTimeoutId(
+      setTimeout(() => {
+        setShow(false);
+      }, 5000),
+    );
   };
 
   return (
@@ -45,8 +51,8 @@ function ToastProvider({ children }) {
         setShow={setShow}
         variant={variant}
         message={message}
+        timeoutId={timeoutId}
       />
-
       {children}
     </ToastContext.Provider>
   );
