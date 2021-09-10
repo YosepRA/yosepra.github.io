@@ -74,11 +74,13 @@ function ProjectDetails({ project, show, handleModalClose }) {
               className={cn(
                 mainStyles.mainButtonLink,
                 projectStyles.projectModalLinkBtn,
+                { [mainStyles.btnDisabled]: !liveLink },
               )}
               rel="noreferrer"
               target="_blank"
             >
-              <FontAwesomeIcon icon="play" /> Live
+              <FontAwesomeIcon icon="play" />{' '}
+              {!liveLink ? 'Coming soon' : 'Live'}
             </a>
 
             <a
@@ -86,11 +88,13 @@ function ProjectDetails({ project, show, handleModalClose }) {
               className={cn(
                 mainStyles.mainButtonLink,
                 projectStyles.projectModalLinkBtn,
+                { [mainStyles.btnDisabled]: !githubLink },
               )}
               rel="noreferrer"
               target="_blank"
             >
-              <FontAwesomeIcon icon={['fab', 'github']} /> Github
+              <FontAwesomeIcon icon={['fab', 'github']} />{' '}
+              {!githubLink ? 'Coming soon' : 'Github'}
             </a>
           </Col>
         </Row>
@@ -131,11 +135,13 @@ function createProjectCards(projects, handleModalOpen) {
               className={cn(
                 mainStyles.mainButtonLink,
                 projectStyles.projectOverlayBtn,
+                { [mainStyles.btnDisabled]: !liveLink },
               )}
               rel="noreferrer"
               target="_blank"
             >
-              <FontAwesomeIcon icon="play" /> Live
+              <FontAwesomeIcon icon="play" />{' '}
+              {!liveLink ? 'Coming soon' : 'Live'}
             </a>
 
             <a
@@ -143,11 +149,13 @@ function createProjectCards(projects, handleModalOpen) {
               className={cn(
                 mainStyles.mainButtonLink,
                 projectStyles.projectOverlayBtn,
+                { [mainStyles.btnDisabled]: !githubLink },
               )}
               rel="noreferrer"
               target="_blank"
             >
-              <FontAwesomeIcon icon={['fab', 'github']} /> Github
+              <FontAwesomeIcon icon={['fab', 'github']} />{' '}
+              {!githubLink ? 'Coming soon' : 'Github'}
             </a>
           </Card.ImgOverlay>
         </Card>

@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import mainStyles from '../../styles/main.module.scss';
 
-const ToastContext = createContext();
+const ToastContext = createContext({ showToast: () => {} });
 
 function Toast({ show, setShow, variant, message }) {
   return (

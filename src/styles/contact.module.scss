@@ -36,11 +36,6 @@
     width: 120px;
     margin-top: 1.5rem;
 
-    &:disabled {
-      background-color: $main-color-dark-2;
-      cursor: not-allowed;
-    }
-
     &-spinner {
       &.spinner-border-override {
         width: 15px;
