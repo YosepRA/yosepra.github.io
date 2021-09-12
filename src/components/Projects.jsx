@@ -94,7 +94,7 @@ function ProjectDetails({ project, show, handleModalClose }) {
               target="_blank"
             >
               <FontAwesomeIcon icon={['fab', 'github']} />{' '}
-              {!githubLink ? 'Coming soon' : 'Github'}
+              {!githubLink ? 'Coming soon' : 'Source'}
             </a>
           </Col>
         </Row>
@@ -155,7 +155,7 @@ function createProjectCards(projects, handleModalOpen) {
               target="_blank"
             >
               <FontAwesomeIcon icon={['fab', 'github']} />{' '}
-              {!githubLink ? 'Coming soon' : 'Github'}
+              {!githubLink ? 'Coming soon' : 'Source'}
             </a>
           </Card.ImgOverlay>
         </Card>
