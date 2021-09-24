@@ -54,12 +54,94 @@
   }
 }
 
+.header {
+  background-color: $main-color;
+  box-shadow: 0px 1px 5px 0px #242626;
+  transition: transform 200ms ease-out;
+
+  &-scroll {
+    transform: translateY(-150%);
+  }
+
+  &-brand {
+    @include CarterOne();
+
+    &.navbar-brand-override {
+      font-size: 1rem;
+    }
+  }
+
+  &-social {
+    display: inline-block;
+    margin-left: 0.8rem;
+    color: white;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.content {
+  padding-top: 50px;
+}
+
 .footer {
   margin-top: 4rem;
   text-align: center;
 }
 
+.scroll-btn {
+  position: fixed;
+  right: 25px;
+  bottom: 35px;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+  color: $main-color;
+  font-size: 1.2rem;
+  text-align: center;
+  box-shadow: 0 0 3px $main-color-dark-1;
+  @include allTransition();
+  visibility: hidden;
+  transform: scale(0);
+
+  &:hover {
+    background-color: $main-color;
+    color: white;
+    border: 1px solid white;
+  }
+
+  &-down {
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
 // Breakpoints.
+
+@include media-breakpoint-up(sm) {
+  .header {
+    &-brand {
+      &.navbar-brand-override {
+        font-size: 1.3rem;
+      }
+    }
+
+    &-social {
+      margin-left: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .scroll-btn {
+    right: 35px;
+  }
+}
 
 @include media-breakpoint-up(md) {
   .content-section {
@@ -80,5 +162,10 @@
     &-subtitle {
       font-size: 1.3rem;
     }
+  }
+
+  .scroll-btn {
+    right: 55px;
+    bottom: 55px;
   }
 }

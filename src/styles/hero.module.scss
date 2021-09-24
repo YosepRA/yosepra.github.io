@@ -4,13 +4,13 @@
   @include flexCenter();
   flex-direction: column;
   height: 380px;
-  margin-bottom: -4rem; // Offset section margin bottom.
 
   &-logo {
     width: 300px;
   }
 
   &-subtitle {
+    margin-bottom: 0;
     font-weight: 300;
     font-size: 1.1rem;
   }

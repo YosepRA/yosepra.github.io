@@ -10,13 +10,6 @@ function Hero() {
     <Row className={mainStyles.contentSection} as="section">
       <Col>
         <section className={heroStyles.hero}>
-          {/* <div className={heroStyles.heroLogoContainer}>
-            <img
-              src={logo}
-              alt="StudioYosepRA"
-              className={heroStyles.heroLogoImage}
-            />
-          </div> */}
           <img src={logo} alt="StudioYosepRA" className={heroStyles.heroLogo} />
 
           <p className={heroStyles.heroSubtitle}>MERN Stack Web Developer</p>

@@ -5,14 +5,17 @@ import {
   faEnvelope,
   faPlay,
   faInfoCircle,
+  faAngleUp,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
   faTelegram,
   faDiscord,
   faInstagram,
-  faTwitter,
+  faLinkedin,
+  faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
+import { ScrollProvider } from '@foo-software/react-scroll-context';
 
 import Layout from './Layout.jsx';
 import Hero from './Hero.jsx';
@@ -20,6 +23,8 @@ import WhyWebApplication from './WhyWebApplication.jsx';
 import Projects from './Projects.jsx';
 import Contacts from './Contacts.jsx';
 import { ToastProvider } from './toast/index.jsx';
+import ScrollContext from './scroll/index.jsx';
+import ScrollUpButton from './ScrollUpButton.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/bootstrap-overrides.scss';
@@ -32,26 +37,32 @@ library.add(
   faDiscord,
   faTelegram,
   faInstagram,
-  faTwitter,
   faGithub,
+  faLinkedin,
+  faWhatsapp,
   faInfoCircle,
+  faAngleUp,
 );
 
 function App() {
   return (
-    <Layout>
-      <Container>
-        <ToastProvider>
-          <Hero />
+    <ScrollProvider Context={ScrollContext}>
+      <Layout>
+        <Container>
+          <ToastProvider>
+            <Hero />
 
-          <WhyWebApplication />
+            <WhyWebApplication />
 
-          <Projects />
+            <Projects />
 
-          <Contacts />
-        </ToastProvider>
-      </Container>
-    </Layout>
+            <Contacts />
+
+            <ScrollUpButton />
+          </ToastProvider>
+        </Container>
+      </Layout>
+    </ScrollProvider>
   );
 }
 
