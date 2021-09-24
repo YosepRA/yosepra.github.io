@@ -77,13 +77,6 @@ function Contacts() {
 
                 <div className={contactStyles.contactPoint}>
                   <span className={contactStyles.contactLogo}>
-                    <FontAwesomeIcon icon={['fab', 'discord']} />
-                  </span>
-                  <span className="contact-text">YosepRA#4863</span>
-                </div>
-
-                <div className={contactStyles.contactPoint}>
-                  <span className={contactStyles.contactLogo}>
                     <FontAwesomeIcon icon={['fab', 'telegram']} />
                   </span>
                   <span className="contact-text">YosepRA</span>
@@ -91,9 +84,9 @@ function Contacts() {
 
                 <div className={contactStyles.contactPoint}>
                   <span className={contactStyles.contactLogo}>
-                    <FontAwesomeIcon icon={['fab', 'instagram']} />
+                    <FontAwesomeIcon icon={['fab', 'discord']} />
                   </span>
-                  <span className="contact-text">studioyosepra</span>
+                  <span className="contact-text">YosepRA#4863</span>
                 </div>
               </Col>
 

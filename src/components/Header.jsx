@@ -43,6 +43,14 @@ function Header() {
           >
             <FontAwesomeIcon icon={['fab', 'linkedin']} />
           </a>
+          <a
+            href="https://www.instagram.com/studioyosepra/"
+            target="_blank"
+            rel="noreferrer"
+            className={mainStyles.headerSocial}
+          >
+            <FontAwesomeIcon icon={['fab', 'instagram']} />
+          </a>
         </div>
       </Container>
     </Navbar>
