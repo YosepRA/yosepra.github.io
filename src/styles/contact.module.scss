@@ -2,13 +2,14 @@
 
 .contact {
   &-list-row {
+    flex-direction: column;
     justify-content: center;
+    padding: 2rem;
   }
 
-  &-info {
+  &-section {
     @include flexCenter();
     flex-direction: column;
-    padding: 3rem;
     font-size: 1.1rem;
   }
 
@@ -23,26 +24,27 @@
   &-logo {
     font-size: 1.4rem;
   }
+}
 
-  &-message-input {
-    &.form-control-override {
-      height: 140px;
+// Breakpoints
+
+@include media-breakpoint-up(md) {
+  .contact {
+    &-list-row {
+      flex-direction: row;
+      padding: 1.5rem 0;
+    }
+
+    &-section {
+      display: block;
     }
   }
+}
 
-  &-send-btn {
-    @include mainButton();
-    @include flexCenter();
-    width: 120px;
-    margin-top: 1.5rem;
-
-    &-spinner {
-      &.spinner-border-override {
-        width: 15px;
-        height: 15px;
-        border-width: 2px;
-        margin-right: 0.3rem;
-      }
+@include media-breakpoint-up(lg) {
+  .contact {
+    &-section {
+      font-size: 1.2rem;
     }
   }
 }

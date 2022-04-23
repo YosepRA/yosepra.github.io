@@ -48,6 +48,8 @@ function App() {
   return (
     <ScrollProvider Context={ScrollContext}>
       <Layout>
+        <ScrollUpButton />
+
         <Container>
           <ToastProvider>
             <Hero />
@@ -57,8 +59,6 @@ function App() {
             <Projects />
 
             <Contacts />
-
-            <ScrollUpButton />
           </ToastProvider>
         </Container>
       </Layout>
