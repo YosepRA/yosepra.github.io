@@ -1,5 +1,3 @@
-// @import 'bootstrap/scss/functions';
-// @import 'bootstrap/scss/variables';
 @import 'bootstrap/scss/mixins/breakpoints';
 @import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Lato:wght@300;400;700&display=swap');
 
@@ -12,9 +10,6 @@ $main-color-grey: #495050;
 $secondary-color-dark-1: #00b4cc;
 $secondary-color-dark-2: #008c9e;
 $secondary-color-dark-3: #008c9e;
-
-// $grid-columns: 12;
-// $grid-gutter-width: 30px;
 
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
   'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,

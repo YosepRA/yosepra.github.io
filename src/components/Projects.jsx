@@ -111,12 +111,18 @@ function createProjectCards(projects, handleModalOpen) {
   return projects.map((project) => {
     const {
       sys: { id },
-      fields: { images, githubLink, liveLink },
+      fields: { name, summary, images, githubLink, liveLink },
     } = project;
 
     return (
-      <Col key={id} md={6} lg={4} as="article">
-        <Card className={cn(projectStyles.project, 'bg-dark')}>
+      <Col
+        key={id}
+        md={6}
+        lg={4}
+        as="article"
+        className={projectStyles.project}
+      >
+        <Card className={cn(projectStyles.projectCard, 'bg-dark')}>
           <Card.Img src={images[0]} alt="Card image" />
           <Card.ImgOverlay className={projectStyles.projectOverlay}>
             <button
@@ -159,6 +165,11 @@ function createProjectCards(projects, handleModalOpen) {
             </a>
           </Card.ImgOverlay>
         </Card>
+
+        <div className={projectStyles.projectMetadata}>
+          <h4 className={projectStyles.projectMetadataName}>{name}</h4>
+          <p className={projectStyles.projectMetadataSummary}>{summary}</p>
+        </div>
       </Col>
     );
   });
@@ -189,15 +200,16 @@ function Projects() {
   const projectCards = createProjectCards(projects, handleModalOpen);
 
   return (
-    <Row className={mainStyles.contentSection} as="section">
+    <Row
+      className={cn(mainStyles.contentSection, projectStyles.projects)}
+      as="section"
+    >
       <Col>
         <section className="projects">
           <header className={mainStyles.sectionHeader}>
-            <h2 className={mainStyles.sectionTitle}>
-              What I Have Built So Far
-            </h2>
+            <h2 className={mainStyles.sectionTitle}>My Projects</h2>
             <h3 className={mainStyles.sectionSubtitle}>
-              and it keeps counting.
+              A few of what I&apos;ve built so far
             </h3>
           </header>
 

@@ -1,9 +1,12 @@
 @import './config';
 
+// Don't delete. It's a useless class, but it's needed for structural purposes.
 .content-section {
-  &:not(:last-child) {
-    margin-bottom: 4rem;
-  }
+  margin-bottom: 0;
+
+  // &:not(:last-child) {
+  //   margin-bottom: 6rem;
+  // }
 }
 
 .section {
@@ -56,7 +59,7 @@
 
 .header {
   background-color: $main-color;
-  box-shadow: 0px 1px 5px 0px #242626;
+  box-shadow: 0px 4px 6px 0px rgba(35, 36, 36, 1);
   transition: transform 200ms ease-out;
 
   &-scroll {
