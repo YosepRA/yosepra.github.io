@@ -12,7 +12,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          npm ci
+          npm install
           npm run build
         env:
           VITE_API_ENDPOINT: ${{ secrets.VITE_API_ENDPOINT }}
