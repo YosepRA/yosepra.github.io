@@ -1,16 +1,19 @@
 @import './config';
 
 .hero {
-  justify-content: center;
-  align-items: center;
   padding: 1rem 0 3rem;
-  // background-color: darken($main-color, 3);
-  border-radius: 0 0 2rem 2rem;
+  background-color: $main-color;
+  border-radius: 0 0 $border-radius $border-radius;
   box-shadow: 0px 8px 6px 0px rgba(35, 36, 36, 1);
   transition: box-shadow 200ms ease-out;
 
   &:hover {
     box-shadow: 0px 14px 6px 0px rgba(35, 36, 36, 1);
+  }
+
+  &-row {
+    justify-content: center;
+    align-items: center;
   }
 
   &-identity {
@@ -27,11 +30,14 @@
     @include flexCenter();
 
     &-item {
-      width: 30px;
-      height: 30px;
+      width: 60px;
+      height: 60px;
       margin: 0 0.8rem;
-      background-color: white;
-      border-radius: 50%;
+
+      &-react {
+        width: 46px;
+        height: 46px;
+      }
     }
   }
 
@@ -40,7 +46,7 @@
   }
 
   &-title {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     font-weight: 300;
     font-size: 1.6rem;
 
@@ -58,18 +64,52 @@
   }
 }
 
-// Breakpoints.
+/* =============== Breakpoints =============== */
 
 @include media-breakpoint-up(md) {
   .hero {
-    height: 540px;
-
-    &-logo {
-      width: 400px;
+    &-row {
+      height: 480px;
     }
 
-    &-subtitle {
-      font-size: 1.5rem;
+    &-logo {
+      width: 100%;
+    }
+
+    &-introduction {
+      text-align: left;
+    }
+
+    &-title {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .hero {
+    &-logo {
+      width: 420px;
+    }
+
+    &-stack {
+      &-item {
+        width: 80px;
+        height: 80px;
+
+        &-react {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+
+    &-title {
+      font-size: 2rem;
+    }
+
+    &-catchphrase {
+      font-size: 1.3rem;
     }
   }
 }

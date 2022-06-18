@@ -1,12 +1,7 @@
 @import './config';
 
-// Don't delete. It's a useless class, but it's needed for structural purposes.
 .content-section {
   margin-bottom: 0;
-
-  // &:not(:last-child) {
-  //   margin-bottom: 6rem;
-  // }
 }
 
 .section {
@@ -61,6 +56,7 @@
   background-color: $main-color;
   box-shadow: 0px 4px 6px 0px rgba(35, 36, 36, 1);
   transition: transform 200ms ease-out;
+  border-radius: 0 0 $border-radius $border-radius;
 
   &-scroll {
     transform: translateY(-150%);
@@ -92,14 +88,23 @@
 }
 
 .footer {
-  margin-top: 4rem;
+  margin-top: 6rem;
+  background-color: $main-color;
+  border-radius: $border-radius $border-radius 0 0;
+  box-shadow: 0px -8px 6px 0px rgba(35, 36, 36, 1);
   text-align: center;
+
+  &-block {
+    margin-bottom: 0;
+    padding: 1rem 0;
+  }
 }
 
 .scroll-btn {
   position: fixed;
   right: 25px;
   bottom: 35px;
+  z-index: 100;
   width: 40px;
   height: 40px;
   background-color: white;
@@ -125,7 +130,7 @@
   }
 }
 
-// Breakpoints.
+/* =============== Breakpoints =============== */
 
 @include media-breakpoint-up(sm) {
   .header {
@@ -147,28 +152,18 @@
 }
 
 @include media-breakpoint-up(md) {
-  .content-section {
-    &:not(:last-child) {
-      margin-bottom: 6rem;
-    }
-  }
-
   .section {
     &-header {
-      margin-bottom: 2rem;
-    }
-
-    &-title {
-      font-size: 1.6rem;
-    }
-
-    &-subtitle {
-      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
     }
   }
 
   .scroll-btn {
     right: 55px;
     bottom: 55px;
+  }
+
+  .footer {
+    margin-top: 10rem;
   }
 }

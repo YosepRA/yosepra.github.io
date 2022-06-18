@@ -2,14 +2,14 @@
 
 .projects {
   margin-bottom: 6rem;
-  padding: 3rem 0 0;
-  // background-color: darken($main-color, 3);
-  border-radius: 2rem 2rem 0 0;
-  box-shadow: 0px -8px 6px 0px rgba(35, 36, 36, 1);
+  padding: 3rem 0;
+  background-color: $main-color;
+  border-radius: $border-radius;
+  box-shadow: 0px 0px 6px 7px rgba(35, 36, 36, 1);
   transition: box-shadow 200ms ease-out;
 
   &:hover {
-    box-shadow: 0px -14px 6px 0px rgba(35, 36, 36, 1);
+    box-shadow: 0px 0px 6px 10px rgba(35, 36, 36, 1);
   }
 }
 
@@ -113,7 +113,7 @@
   }
 }
 
-// Breakpoints.
+/* =============== Breakpoints =============== */
 
 @include media-breakpoint-up(sm) {
   .project {
@@ -126,7 +126,15 @@
 }
 
 @include media-breakpoint-up(md) {
+  .projects {
+    padding: 3rem 0 6rem;
+  }
+
   .project {
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+
     &-modal {
       &-container {
         &.modal-container-override {

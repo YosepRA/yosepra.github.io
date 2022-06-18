@@ -1,111 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  Modal,
-  Carousel,
-  Image,
-} from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cn from 'classnames';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+import ProjectDetails from './ProjectDetails.jsx';
 
 import mainStyles from '../styles/main.module.scss';
 import projectStyles from '../styles/project.module.scss';
 
 import { handlePromise } from '../utils/helpers.js';
 import contentfulClient from './data/Contentful.js';
-
-function createImagesCarousel(images, projectName) {
-  const carouselItems = images.map((imgUrl) => (
-    <Carousel.Item key={imgUrl}>
-      <Image src={imgUrl} alt={projectName} fluid />
-    </Carousel.Item>
-  ));
-
-  return (
-    <Carousel interval={null} className="project-slider">
-      {carouselItems}
-    </Carousel>
-  );
-}
-
-/*  Project modals.
-  1. Only use one modal with dynamic project content.
-  2. It must know which project card is clicked.
-*/
-function ProjectDetails({ project, show, handleModalClose }) {
-  const {
-    fields: { name, images, githubLink, liveLink, body },
-  } = project;
-
-  const imagesCarousel = createImagesCarousel(images, name);
-  const bodyComponent = documentToReactComponents(body);
-
-  return (
-    <Modal show={show} onHide={handleModalClose} className="project-modal">
-      <Modal.Header
-        closeButton
-        className={cn(
-          projectStyles.projectModalHeader,
-          projectStyles.modalHeaderOverride,
-        )}
-      />
-
-      <Container
-        className={cn(
-          projectStyles.projectModalContainer,
-          projectStyles.modalContainerOverride,
-        )}
-      >
-        <Row className={projectStyles.projectModalSlider}>
-          <Col>{imagesCarousel}</Col>
-        </Row>
-
-        <Row className={projectStyles.projectModalMetaData}>
-          <Col xs={12}>
-            <h2 className={projectStyles.projectModalTitle}>{name}</h2>
-          </Col>
-          <Col xs={12}>
-            <a
-              href={liveLink}
-              className={cn(
-                mainStyles.mainButtonLink,
-                projectStyles.projectModalLinkBtn,
-                { [mainStyles.btnDisabled]: !liveLink },
-              )}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon="play" />{' '}
-              {!liveLink ? 'Coming soon' : 'Live'}
-            </a>
-
-            <a
-              href={githubLink}
-              className={cn(
-                mainStyles.mainButtonLink,
-                projectStyles.projectModalLinkBtn,
-                { [mainStyles.btnDisabled]: !githubLink },
-              )}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <FontAwesomeIcon icon={['fab', 'github']} />{' '}
-              {!githubLink ? 'Coming soon' : 'Source'}
-            </a>
-          </Col>
-        </Row>
-
-        <Row className={projectStyles.projectModalBody}>
-          <Col>{bodyComponent}</Col>
-        </Row>
-      </Container>
-    </Modal>
-  );
-}
 
 function createProjectCards(projects, handleModalOpen) {
   return projects.map((project) => {
@@ -200,33 +104,34 @@ function Projects() {
   const projectCards = createProjectCards(projects, handleModalOpen);
 
   return (
-    <Row
-      className={cn(mainStyles.contentSection, projectStyles.projects)}
-      as="section"
-    >
-      <Col>
-        <section className="projects">
-          <header className={mainStyles.sectionHeader}>
-            <h2 className={mainStyles.sectionTitle}>My Projects</h2>
-            <h3 className={mainStyles.sectionSubtitle}>
-              A few of what I&apos;ve built so far
-            </h3>
-          </header>
+    <section className={cn(mainStyles.contentSection, projectStyles.projects)}>
+      <Container>
+        <Row>
+          <Col>
+            <section className="projects">
+              <header className={mainStyles.sectionHeader}>
+                <h2 className={mainStyles.sectionTitle}>My Projects</h2>
+                <h3 className={mainStyles.sectionSubtitle}>
+                  A few of what I&apos;ve built so far
+                </h3>
+              </header>
 
-          <div className="project-list">
-            <Row>{projectCards}</Row>
-          </div>
+              <div className="project-list">
+                <Row>{projectCards}</Row>
+              </div>
 
-          {activeProject !== null && (
-            <ProjectDetails
-              show={show}
-              handleModalClose={handleModalClose}
-              project={activeProject}
-            />
-          )}
-        </section>
-      </Col>
-    </Row>
+              {activeProject !== null && (
+                <ProjectDetails
+                  show={show}
+                  handleModalClose={handleModalClose}
+                  project={activeProject}
+                />
+              )}
+            </section>
+          </Col>
+        </Row>
+      </Container>
+    </section>
   );
 }
 

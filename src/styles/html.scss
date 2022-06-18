@@ -3,7 +3,7 @@
 html,
 body {
   height: 100%;
-  background-color: $main-color;
+  background-color: darken($main-color, 3);
   @include Lato();
   font-weight: 300;
   color: white;

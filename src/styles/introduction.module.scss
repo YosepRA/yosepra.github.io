@@ -1,5 +1,24 @@
 @import './config';
 
-.introduction {
-  padding: 6rem 0 6rem;
+.intro {
+  padding: 7rem 0;
+  font-size: 1.1rem;
+
+  &-col {
+    margin: 0 auto;
+  }
+}
+
+/* =============== Breakpoints =============== */
+
+@include media-breakpoint-up(md) {
+  .intro {
+    padding: 10rem 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .intro {
+    font-size: 1.2rem;
+  }
 }

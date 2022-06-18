@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import cn from 'classnames';
 
 import mainStyles from '../styles/main.module.scss';
 import heroStyles from '../styles/hero.module.scss';
 import logo from '../assets/logo.svg';
+import reactLogo from '../assets/react.svg';
+import nodejsLogo from '../assets/nodejs.svg';
+import mongodbLogo from '../assets/mongodb.svg';
+import expressLogo from '../assets/expressjs.svg';
 
 function Hero() {
   const purposes = [
@@ -46,42 +50,80 @@ function Hero() {
     else if (deleting) typingSpeed = 60;
     else typingSpeed = 120;
 
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       type();
     }, typingSpeed);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, [textIndex]);
 
   return (
-    <Row
-      className={cn(mainStyles.contentSection, heroStyles.hero)}
-      as="section"
-    >
-      <Col xs={12} md={6} as="section" className={heroStyles.heroIdentity}>
-        <img src={logo} alt="StudioYosepRA" className={heroStyles.heroLogo} />
+    <section className={cn(mainStyles.contentSection, heroStyles.hero)}>
+      <Container>
+        <Row className={heroStyles.heroRow}>
+          <Col xs={12} md={6} as="section" className={heroStyles.heroIdentity}>
+            <img
+              src={logo}
+              alt="StudioYosepRA"
+              className={heroStyles.heroLogo}
+            />
 
-        <div className={heroStyles.heroStack}>
-          <div className={heroStyles.heroStackItem}></div>
-          <div className={heroStyles.heroStackItem}></div>
-          <div className={heroStyles.heroStackItem}></div>
-          <div className={heroStyles.heroStackItem}></div>
-        </div>
-      </Col>
+            <div className={heroStyles.heroStack}>
+              <img
+                src={reactLogo}
+                className={cn(
+                  heroStyles.heroStackItem,
+                  heroStyles.heroStackItemReact,
+                )}
+                alt="React logo"
+              />
 
-      <Col xs={12} md={6} as="section" className={heroStyles.heroIntroduction}>
-        <p className={heroStyles.heroTitle}>
-          My name is{' '}
-          <span className={heroStyles.heroTitleName}>Yosep Ryan Agusta</span>
-        </p>
-        <p className={heroStyles.heroCatchphrase}>
-          I will build a <i>fully customized</i> web-based application for{' '}
-          <span
-            className={cn(heroStyles.heroCatchphrasePurpose, 'type-effect')}
+              <img
+                src={nodejsLogo}
+                className={heroStyles.heroStackItem}
+                alt="Node.js logo"
+              />
+
+              <img
+                src={mongodbLogo}
+                className={heroStyles.heroStackItem}
+                alt="MongoDB logo"
+              />
+
+              <img
+                src={expressLogo}
+                className={heroStyles.heroStackItem}
+                alt="Express logo"
+              />
+            </div>
+          </Col>
+
+          <Col
+            xs={12}
+            md={6}
+            as="section"
+            className={heroStyles.heroIntroduction}
           >
-            {textView}
-          </span>
-        </p>
-      </Col>
-    </Row>
+            <p className={heroStyles.heroTitle}>
+              My name is{' '}
+              <span className={heroStyles.heroTitleName}>
+                Yosep Ryan Agusta
+              </span>
+            </p>
+            <p className={heroStyles.heroCatchphrase}>
+              I will build a <i>fully customized</i> web-based application for{' '}
+              <span
+                className={cn(heroStyles.heroCatchphrasePurpose, 'type-effect')}
+              >
+                {textView}
+              </span>
+            </p>
+          </Col>
+        </Row>
+      </Container>
+    </section>
   );
 }
 

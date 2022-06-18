@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faEnvelope,
@@ -19,7 +18,6 @@ import { ScrollProvider } from '@foo-software/react-scroll-context';
 
 import Layout from './Layout.jsx';
 import Hero from './Hero.jsx';
-// import WhyWebApplication from './WhyWebApplication.jsx';
 import Introduction from './Introduction.jsx';
 import Projects from './Projects.jsx';
 import Contacts from './Contacts.jsx';
@@ -51,17 +49,15 @@ function App() {
       <Layout>
         <ScrollUpButton />
 
-        <Container>
-          <ToastProvider>
-            <Hero />
+        <ToastProvider>
+          <Hero />
 
-            <Introduction />
+          <Introduction />
 
-            <Projects />
+          <Projects />
 
-            <Contacts />
-          </ToastProvider>
-        </Container>
+          <Contacts />
+        </ToastProvider>
       </Layout>
     </ScrollProvider>
   );
