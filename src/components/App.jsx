@@ -14,7 +14,6 @@ import {
   faLinkedin,
   faWhatsapp,
 } from '@fortawesome/free-brands-svg-icons';
-import { ScrollProvider } from '@foo-software/react-scroll-context';
 
 import Layout from './Layout.jsx';
 import Hero from './Hero.jsx';
@@ -22,7 +21,7 @@ import Introduction from './Introduction.jsx';
 import Projects from './Projects.jsx';
 import Contacts from './Contacts.jsx';
 import { ToastProvider } from './toast/index.jsx';
-import ScrollContext from './scroll/index.jsx';
+import ScrollProvider from './scroll/ScrollProvider.jsx';
 import ScrollUpButton from './ScrollUpButton.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -45,7 +44,7 @@ library.add(
 
 function App() {
   return (
-    <ScrollProvider Context={ScrollContext}>
+    <ScrollProvider>
       <Layout>
         <ScrollUpButton />
 

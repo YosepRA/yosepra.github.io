@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cn from 'classnames';
 
-import ScrollContext from './scroll/index.jsx';
+import ScrollContext from './scroll/ScrollContext.jsx';
 
 import mainStyles from '../styles/main.module.scss';
 

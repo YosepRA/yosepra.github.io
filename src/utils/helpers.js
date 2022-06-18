@@ -38,4 +38,15 @@ async function handlePromise(promise) {
   }
 }
 
-export { generateProjects, capitalizeFirstLetter, handlePromise };
+function throttle(fn, wait) {
+  let time = Date.now();
+
+  return function throttleFunction() {
+    if (time + wait - Date.now() < 0) {
+      fn();
+      time = Date.now();
+    }
+  };
+}
+
+export { generateProjects, capitalizeFirstLetter, handlePromise, throttle };
