@@ -24,8 +24,8 @@
   @include mainButton();
 
   &-link {
-    @include mainButton();
     text-decoration: none;
+    @include mainButton();
 
     &:hover {
       text-decoration: none;
