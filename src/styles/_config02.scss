@@ -1,0 +1,184 @@
+@import 'bootstrap/scss/mixins/breakpoints';
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+$fsz-display-200: 10px;
+$fsz-display-300: 13px;
+$fsz-display-400: 16px;
+$fsz-display-500: 20px;
+$fsz-display-600: 25px;
+$fsz-display-700: 31px;
+$fsz-display-800: 39px;
+$fsz-display-900: 49px;
+$fsz-display-1000: 61px;
+
+$fsz-heading-h1: 61px;
+$fsz-heading-h2: 49px;
+$fsz-heading-h3: 39px;
+$fsz-heading-h4: 31px;
+$fsz-heading-h5: 25px;
+$fsz-heading-h6: 20px;
+
+$fsz-body-200: 10px;
+$fsz-body-300: 13px;
+$fsz-body-400: 16px;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+
+$c-primary-200: #a3a8a8;
+$c-primary-300: #565c5c;
+$c-primary-400: #2d3030;
+$c-primary-500: #1e2020;
+$c-primary-600: #0a0b0b;
+
+$c-shades-100: #ffffff;
+$c-shades-200: #cccccc;
+$c-shades-400: #999999;
+$c-shades-600: #666666;
+$c-shades-800: #333333;
+$c-shades-1000: #000000;
+
+$c-bp-default: #ffffff;
+$c-bp-hover: #d9d9d9;
+$c-bp-active: #bfbfbf;
+$c-bp-disabled: #a9a9a9;
+
+$c-bs-default: rgba(#ffffff, 0);
+$c-bs-hover: #ffffff;
+$c-bs-active: #bfbfbf;
+$c-bs-disabled: #a9a9a9;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+$border-radius: 3px;
+
+@mixin CarterOne {
+  font-family: 'Carter One', $font-family-sans-serif;
+}
+
+@mixin Inter {
+  font-family: 'Inter', $font-family-sans-serif;
+}
+
+@mixin display {
+  @include CarterOne();
+}
+
+@mixin display200 {
+  @include display();
+  font-size: $fsz-display-200;
+}
+
+@mixin display300 {
+  @include display();
+  font-size: $fsz-display-300;
+}
+
+@mixin display400 {
+  @include display();
+  font-size: $fsz-display-400;
+}
+
+@mixin display500 {
+  @include display();
+  font-size: $fsz-display-500;
+}
+
+@mixin display600 {
+  @include display();
+  font-size: $fsz-display-600;
+}
+
+@mixin display700 {
+  @include display();
+  font-size: $fsz-display-700;
+}
+
+@mixin display800 {
+  @include display();
+  font-size: $fsz-display-800;
+}
+
+@mixin display900 {
+  @include display();
+  font-size: $fsz-display-900;
+}
+
+@mixin display1000 {
+  @include display();
+  font-size: $fsz-display-1000;
+}
+
+@mixin heading {
+  @include Inter();
+}
+
+@mixin headingH1 {
+  @include heading();
+  font-size: $fsz-heading-h1;
+}
+
+@mixin headingH2 {
+  @include heading();
+  font-size: $fsz-heading-h2;
+}
+
+@mixin headingH3 {
+  @include heading();
+  font-size: $fsz-heading-h3;
+}
+
+@mixin headingH4 {
+  @include heading();
+  font-size: $fsz-heading-h4;
+}
+
+@mixin headingH5 {
+  @include heading();
+  font-size: $fsz-heading-h5;
+}
+
+@mixin headingH6 {
+  @include heading();
+  font-size: $fsz-heading-h6;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button {
+  display: block;
+  min-width: 100px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: $border-radius;
+  transition: all 300ms ease-out;
+  line-height: 1.2;
+}
+
+@mixin primaryButton {
+  @include button();
+  background-color: $c-bp-default;
+  color: $c-shades-800;
+
+  &:hover {
+    background-color: $c-bp-hover;
+  }
+}
+
+@mixin placeholderBox($size) {
+  width: $size;
+  height: $size;
+  border-radius: 3px;
+  background-color: $c-shades-100;
+}

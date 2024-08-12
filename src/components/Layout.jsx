@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from './Header.jsx';
+import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 
 import mainStyles from '../styles/main.module.scss';
@@ -10,7 +10,7 @@ function Layout(props) {
 
   return (
     <div className="layout">
-      <Header />
+      <Navbar />
 
       <main className={mainStyles.content}>{children}</main>
 

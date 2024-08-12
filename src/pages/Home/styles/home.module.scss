@@ -1,9 +1,12 @@
-@import '@styles/config';
+@import '@styles/config02';
 
 .header {
   &-title {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 3rem;
-    color: $secondary-color;
+    @include display500();
+    color: $c-shades-100;
+  }
+
+  &-button {
+    @include primaryButton();
   }
 }

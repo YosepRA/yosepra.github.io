@@ -1,0 +1,53 @@
+@import '@styles/config02';
+
+.navbar {
+  position: relative;
+  padding: 16px 0;
+  background-color: $c-primary-500;
+
+  &-brand {
+    @include display400();
+    margin-bottom: 0;
+  }
+
+  &-collapse {
+    display: none;
+    position: absolute;
+    top: 52px;
+    left: 0;
+    width: 100%;
+    padding: 0 12px;
+    background-color: $c-primary-500;
+
+    &-show {
+      display: block;
+    }
+  }
+
+  &-menu {
+    &-item {
+      display: block;
+      width: 100%;
+      padding: 18px 0;
+    }
+
+    &-toggle {
+      @include placeholderBox(20px);
+      margin-left: auto;
+    }
+  }
+
+  &-social {
+    @include flexCenter();
+    padding: 18px 0;
+
+    &-item {
+      @include placeholderBox(20px);
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
