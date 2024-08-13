@@ -24,7 +24,7 @@ const Navbar = function NavbarComponent() {
           <Col>
             <div
               className={cn(mainStyles.navbarCollapse, {
-                [mainStyles.navbarCollapseShow]: true,
+                [mainStyles.navbarCollapseShow]: false,
               })}
             >
               <div className={mainStyles.navbarMenu}>
