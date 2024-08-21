@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Projects = function ProjectsComponent() {
-  return <h1>Projects</h1>;
+const ProjectIndex = function ProjectIndexComponent() {
+  return <h1>ProjectIndex</h1>;
 };
 
-export default Projects;
+export default ProjectIndex;

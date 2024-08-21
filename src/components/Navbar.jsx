@@ -9,40 +9,42 @@ import mainStyles from '@styles/main02.module.scss';
 const Navbar = function NavbarComponent() {
   return (
     <header className={mainStyles.navbar}>
-      <Container className={mainStyles.navbarContainer}>
-        <Row className="align-items-center">
-          <Col>
-            <p className={mainStyles.navbarBrand}>StudioYosepRA</p>
-          </Col>
+      <nav>
+        <Container className={mainStyles.navbarContainer}>
+          <Row className="align-items-center">
+            <Col>
+              <p className={mainStyles.navbarBrand}>StudioYosepRA</p>
+            </Col>
 
-          <Col>
-            <div className={mainStyles.navbarMenuToggle} />
-          </Col>
-        </Row>
+            <Col>
+              <div className={mainStyles.navbarMenuToggle} />
+            </Col>
+          </Row>
 
-        <Row>
-          <Col>
-            <div
-              className={cn(mainStyles.navbarCollapse, {
-                [mainStyles.navbarCollapseShow]: false,
-              })}
-            >
-              <div className={mainStyles.navbarMenu}>
-                <span className={mainStyles.navbarMenuItem}>Home</span>
-                <span className={mainStyles.navbarMenuItem}>Projects</span>
-                <span className={mainStyles.navbarMenuItem}>Blog</span>
-                <span className={mainStyles.navbarMenuItem}>Contact</span>
+          <Row>
+            <Col>
+              <div
+                className={cn(mainStyles.navbarCollapse, {
+                  [mainStyles.navbarCollapseShow]: false,
+                })}
+              >
+                <ul className={mainStyles.navbarMenu}>
+                  <li className={mainStyles.navbarMenuItem}>Home</li>
+                  <li className={mainStyles.navbarMenuItem}>Projects</li>
+                  <li className={mainStyles.navbarMenuItem}>Blog</li>
+                  <li className={mainStyles.navbarMenuItem}>Contact</li>
+                </ul>
+
+                <div className={mainStyles.navbarSocial}>
+                  <div className={mainStyles.navbarSocialItem} />
+                  <div className={mainStyles.navbarSocialItem} />
+                  <div className={mainStyles.navbarSocialItem} />
+                </div>
               </div>
-
-              <div className={mainStyles.navbarSocial}>
-                <div className={mainStyles.navbarSocialItem} />
-                <div className={mainStyles.navbarSocialItem} />
-                <div className={mainStyles.navbarSocialItem} />
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+          </Row>
+        </Container>
+      </nav>
     </header>
   );
 };

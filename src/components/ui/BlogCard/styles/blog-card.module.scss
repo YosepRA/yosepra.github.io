@@ -1,0 +1,25 @@
+@import '@styles/config02';
+
+.blog-card {
+  &-meta {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $c-shades-100;
+  }
+
+  &-title {
+    margin-bottom: 8px;
+    font-size: $fsz-body-300;
+    font-weight: 700;
+  }
+
+  &-time {
+    margin-bottom: 0;
+    font-size: $fsz-body-200;
+    font-style: italic;
+  }
+
+  &-excerpt {
+    font-size: $fsz-body-300;
+  }
+}

@@ -182,3 +182,7 @@ $border-radius: 3px;
   border-radius: 3px;
   background-color: $c-shades-100;
 }
+
+@mixin textShadow {
+  text-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
+}
