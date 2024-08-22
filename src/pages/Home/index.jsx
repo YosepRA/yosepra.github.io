@@ -101,7 +101,7 @@ const Home = function HomeComponent() {
             </Col>
           </Row>
 
-          <Row>
+          <Row className={homeStyles.blogListBlogRow}>
             <Col xs={12}>
               <BlogCard />
             </Col>
@@ -117,43 +117,45 @@ const Home = function HomeComponent() {
 
           <Row>
             <Col>
-              <button type="button">More</button>
+              <button type="button" className={homeStyles.blogListMoreBtn}>
+                More
+              </button>
             </Col>
           </Row>
         </Container>
       </section>
 
-      <section className="contact">
+      <section id="contact" className={homeStyles.contact}>
         <Container>
           <Row>
             <Col>
-              <h2>Contact Me</h2>
+              <h2 className={homeStyles.contactTitle}>Contact Me</h2>
             </Col>
           </Row>
 
           <Row>
             <Col xs={12}>
-              <div className="contact-list">
-                <div className="contact-list__email">
-                  <span className="contact-list__icon" />
+              <div className={homeStyles.contactList}>
+                <div className={homeStyles.contactListItem}>
+                  <span className={homeStyles.contactListIcon} />
                   <span className="contact-list__text">
                     studioyosepra@gmail.com
                   </span>
                 </div>
-                <div className="contact-list__whatsapp">
-                  <span className="contact-list__icon" />
+                <div className={homeStyles.contactListItem}>
+                  <span className={homeStyles.contactListIcon} />
                   <span className="contact-list__text">(+62) 85861251765</span>
                 </div>
-                <div className="contact-list__discord">
-                  <span className="contact-list__icon" />
+                <div className={homeStyles.contactListItem}>
+                  <span className={homeStyles.contactListIcon} />
                   <span className="contact-list__text">yosepra</span>
                 </div>
               </div>
             </Col>
 
             <Col xs={12}>
-              <div className="contact-form">
-                <p className="contact-form__intro">
+              <div className={homeStyles.contactForm}>
+                <p className={homeStyles.contactFormIntro}>
                   Or, you can contact me using this form
                 </p>
 
@@ -165,10 +167,15 @@ const Home = function HomeComponent() {
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="contactEmail">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>Email</Form.Label>
 
                     <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text className="text-muted">
+                    <Form.Text
+                      className={cn(
+                        homeStyles.contactFormInputNote,
+                        homeStyles.contactFormInputNoteBsOverride,
+                      )}
+                    >
                       I will send my reply to your email.
                     </Form.Text>
                   </Form.Group>
@@ -183,7 +190,9 @@ const Home = function HomeComponent() {
                     />
                   </Form.Group>
 
-                  <button type="submit">Send</button>
+                  <button type="submit" className={homeStyles.contactFormSend}>
+                    Send
+                  </button>
                 </Form>
               </div>
             </Col>

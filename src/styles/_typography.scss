@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+$fsz-display-200: 10px;
+$fsz-display-300: 13px;
+$fsz-display-400: 16px;
+$fsz-display-500: 20px;
+$fsz-display-600: 25px;
+$fsz-display-700: 31px;
+$fsz-display-800: 39px;
+$fsz-display-900: 49px;
+$fsz-display-1000: 61px;
+
+$fsz-heading-h1: 61px;
+$fsz-heading-h2: 49px;
+$fsz-heading-h3: 39px;
+$fsz-heading-h4: 31px;
+$fsz-heading-h5: 25px;
+$fsz-heading-h6: 20px;
+
+$fsz-body-200: 10px;
+$fsz-body-300: 13px;
+$fsz-body-400: 16px;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+
+/* =============== Typography =============== */
+
+@mixin CarterOne {
+  font-family: 'Carter One', $font-family-sans-serif;
+}
+
+@mixin Inter {
+  font-family: 'Inter', $font-family-sans-serif;
+}
+
+/* =============== Typography: Display =============== */
+
+@mixin displayFont {
+  @include CarterOne();
+}
+
+@mixin display200 {
+  @include displayFont();
+  font-size: $fsz-display-200;
+}
+
+@mixin display300 {
+  @include displayFont();
+  font-size: $fsz-display-300;
+}
+
+@mixin display400 {
+  @include displayFont();
+  font-size: $fsz-display-400;
+}
+
+@mixin display500 {
+  @include displayFont();
+  font-size: $fsz-display-500;
+}
+
+@mixin display600 {
+  @include displayFont();
+  font-size: $fsz-display-600;
+}
+
+@mixin display700 {
+  @include displayFont();
+  font-size: $fsz-display-700;
+}
+
+@mixin display800 {
+  @include displayFont();
+  font-size: $fsz-display-800;
+}
+
+@mixin display900 {
+  @include displayFont();
+  font-size: $fsz-display-900;
+}
+
+@mixin display1000 {
+  @include displayFont();
+  font-size: $fsz-display-1000;
+}
+
+/* =============== Typography: Heading =============== */
+
+@mixin headingFont {
+  @include Inter();
+}
+
+@mixin headingH1 {
+  @include headingFont();
+  font-size: $fsz-heading-h1;
+}
+
+@mixin headingH2 {
+  @include headingFont();
+  font-size: $fsz-heading-h2;
+}
+
+@mixin headingH3 {
+  @include headingFont();
+  font-size: $fsz-heading-h3;
+}
+
+@mixin headingH4 {
+  @include headingFont();
+  font-size: $fsz-heading-h4;
+}
+
+@mixin headingH5 {
+  @include headingFont();
+  font-size: $fsz-heading-h5;
+}
+
+@mixin headingH6 {
+  @include headingFont();
+  font-size: $fsz-heading-h6;
+}
+
+/* =============== Typography: Body =============== */
+
+@mixin bodyFont {
+  @include Inter();
+}
+
+@mixin body400Regular {
+  @include bodyFont();
+  font-size: $fsz-body-400;
+}
+
+@mixin body400Bold {
+  @include bodyFont();
+  font-size: $fsz-body-400;
+  font-weight: 700;
+}
+
+@mixin body400Italic {
+  @include bodyFont();
+  font-size: $fsz-body-400;
+  font-style: italic;
+}
+
+@mixin body300Regular {
+  @include bodyFont();
+  font-size: $fsz-body-300;
+}
+
+@mixin body300Bold {
+  @include bodyFont();
+  font-size: $fsz-body-300;
+  font-weight: 700;
+}
+
+@mixin body300Italic {
+  @include bodyFont();
+  font-size: $fsz-body-300;
+  font-style: italic;
+}
+
+@mixin body300BoldItalic {
+  @include bodyFont();
+  font-size: $fsz-body-300;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@mixin body200Regular {
+  @include bodyFont();
+  font-size: $fsz-body-200;
+}
+
+@mixin body200Italic {
+  @include bodyFont();
+  font-size: $fsz-body-200;
+  font-style: italic;
+}

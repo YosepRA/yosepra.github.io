@@ -12,24 +12,32 @@ import './styles/html.scss';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: (
+      <Layout>
+        <Home />
+      </Layout>
+    ),
   },
   {
     path: '/project',
-    element: <ProjectIndex />,
+    element: (
+      <Layout>
+        <ProjectIndex />
+      </Layout>
+    ),
   },
   {
     path: '/blog',
-    element: <BlogIndex />,
+    element: (
+      <Layout>
+        <BlogIndex />
+      </Layout>
+    ),
   },
 ]);
 
 const App = function AppComponent() {
-  return (
-    <Layout>
-      <RouterProvider router={router} />
-    </Layout>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

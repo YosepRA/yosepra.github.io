@@ -1,30 +1,4 @@
 @import 'bootstrap/scss/mixins/breakpoints';
-@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-$fsz-display-200: 10px;
-$fsz-display-300: 13px;
-$fsz-display-400: 16px;
-$fsz-display-500: 20px;
-$fsz-display-600: 25px;
-$fsz-display-700: 31px;
-$fsz-display-800: 39px;
-$fsz-display-900: 49px;
-$fsz-display-1000: 61px;
-
-$fsz-heading-h1: 61px;
-$fsz-heading-h2: 49px;
-$fsz-heading-h3: 39px;
-$fsz-heading-h4: 31px;
-$fsz-heading-h5: 25px;
-$fsz-heading-h6: 20px;
-
-$fsz-body-200: 10px;
-$fsz-body-300: 13px;
-$fsz-body-400: 16px;
-
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-  'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
-  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
 
 $c-primary-200: #a3a8a8;
 $c-primary-300: #565c5c;
@@ -59,102 +33,31 @@ $grid-breakpoints: (
 
 $border-radius: 3px;
 
-@mixin CarterOne {
-  font-family: 'Carter One', $font-family-sans-serif;
-}
+/* =============== Typography =============== */
 
-@mixin Inter {
-  font-family: 'Inter', $font-family-sans-serif;
-}
+@import 'typography';
 
-@mixin display {
-  @include CarterOne();
-}
-
-@mixin display200 {
-  @include display();
-  font-size: $fsz-display-200;
-}
-
-@mixin display300 {
-  @include display();
-  font-size: $fsz-display-300;
-}
-
-@mixin display400 {
-  @include display();
-  font-size: $fsz-display-400;
-}
-
-@mixin display500 {
-  @include display();
-  font-size: $fsz-display-500;
-}
-
-@mixin display600 {
-  @include display();
-  font-size: $fsz-display-600;
-}
-
-@mixin display700 {
-  @include display();
-  font-size: $fsz-display-700;
-}
-
-@mixin display800 {
-  @include display();
-  font-size: $fsz-display-800;
-}
-
-@mixin display900 {
-  @include display();
-  font-size: $fsz-display-900;
-}
-
-@mixin display1000 {
-  @include display();
-  font-size: $fsz-display-1000;
-}
-
-@mixin heading {
-  @include Inter();
-}
-
-@mixin headingH1 {
-  @include heading();
-  font-size: $fsz-heading-h1;
-}
-
-@mixin headingH2 {
-  @include heading();
-  font-size: $fsz-heading-h2;
-}
-
-@mixin headingH3 {
-  @include heading();
-  font-size: $fsz-heading-h3;
-}
-
-@mixin headingH4 {
-  @include heading();
-  font-size: $fsz-heading-h4;
-}
-
-@mixin headingH5 {
-  @include heading();
-  font-size: $fsz-heading-h5;
-}
-
-@mixin headingH6 {
-  @include heading();
-  font-size: $fsz-heading-h6;
-}
+/* =============== Utilities =============== */
 
 @mixin flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+@mixin placeholderBox($size) {
+  display: block;
+  width: $size;
+  height: $size;
+  border-radius: 3px;
+  background-color: $c-shades-100;
+}
+
+@mixin textShadow {
+  text-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
+}
+
+/* =============== Components =============== */
 
 @mixin button {
   display: block;
@@ -174,15 +77,4 @@ $border-radius: 3px;
   &:hover {
     background-color: $c-bp-hover;
   }
-}
-
-@mixin placeholderBox($size) {
-  width: $size;
-  height: $size;
-  border-radius: 3px;
-  background-color: $c-shades-100;
-}
-
-@mixin textShadow {
-  text-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
 }

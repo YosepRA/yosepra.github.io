@@ -9,17 +9,16 @@
 
   &-title {
     margin-bottom: 8px;
-    font-size: $fsz-body-300;
-    font-weight: 700;
+    @include body300Bold();
   }
 
   &-time {
     margin-bottom: 0;
-    font-size: $fsz-body-200;
-    font-style: italic;
+    @include body200Italic();
   }
 
   &-excerpt {
+    margin-bottom: 0;
     font-size: $fsz-body-300;
   }
 }
