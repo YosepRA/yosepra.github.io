@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './styles/blog-card.module.scss';
 
@@ -6,9 +7,11 @@ const BlogCard = function BlogCardComponent() {
   return (
     <article className={styles.blogCard}>
       <div className={styles.blogCardMeta}>
-        <h3 className={styles.blogCardTitle}>
-          The Latest Happening in the News
-        </h3>
+        <Link to="/blog/1" className={styles.blogCardLinkTitle}>
+          <h3 className={styles.blogCardTitle}>
+            The Latest Happening in the News
+          </h3>
+        </Link>
 
         <p className={styles.blogCardTime}>7 hours ago</p>
       </div>

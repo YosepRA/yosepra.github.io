@@ -1,19 +1,26 @@
 import React from 'react';
+import { ScrollRestoration, Outlet } from 'react-router-dom';
+
+import mainStyles from '@styles/main02.module.scss';
 
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 
-function Layout(props) {
-  const { children } = props;
-
+function Layout() {
   return (
-    <div className="layout">
-      <Navbar />
+    <>
+      <ScrollRestoration />
 
-      <main>{children}</main>
+      <div className="layout">
+        <Navbar />
 
-      <Footer />
-    </div>
+        <main className={mainStyles.mainContainer}>
+          <Outlet />
+        </main>
+
+        <Footer />
+      </div>
+    </>
   );
 }
 

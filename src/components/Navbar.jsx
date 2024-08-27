@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -24,7 +24,9 @@ const Navbar = function NavbarComponent() {
         <Container className={mainStyles.navbarContainer}>
           <Row className="align-items-center">
             <Col>
-              <p className={mainStyles.navbarBrand}>StudioYosepRA</p>
+              <Link to="/" className={mainStyles.navbarBrand}>
+                StudioYosepRA
+              </Link>
             </Col>
 
             <Col>

@@ -1,0 +1,28 @@
+@import '@styles/config02';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 267px;
+  height: 33px;
+  margin: auto;
+  background-color: $c-shades-100;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
+
+  &-item {
+    flex: 1;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-decoration: none;
+    color: $c-primary-500;
+
+    &-active {
+      background-color: $c-primary-500;
+      color: $c-shades-100;
+    }
+  }
+}

@@ -90,6 +90,7 @@ $font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 
 @mixin headingFont {
   @include Inter();
+  font-weight: 700;
 }
 
 @mixin headingH1 {
@@ -126,6 +127,7 @@ $font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 
 @mixin bodyFont {
   @include Inter();
+  font-weight: 400;
 }
 
 @mixin body400Regular {

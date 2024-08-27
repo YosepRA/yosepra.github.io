@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -46,10 +47,13 @@ const Home = function HomeComponent() {
                 </div>
 
                 <div className={homeStyles.heroAction}>
-                  <button type="button" className={homeStyles.heroActionBtn}>
+                  <Link to="/project" className={homeStyles.heroActionProject}>
                     Projects
-                  </button>
-                  <button type="button" className={homeStyles.heroActionBtn}>
+                  </Link>
+                  <button
+                    type="button"
+                    className={homeStyles.heroActionContact}
+                  >
                     Contact
                   </button>
                 </div>
@@ -85,9 +89,11 @@ const Home = function HomeComponent() {
 
           <Row>
             <Col>
-              <button type="button" className={homeStyles.projectListMoreBtn}>
-                More
-              </button>
+              <div className={homeStyles.projectListAction}>
+                <Link to="project" className={homeStyles.projectListMoreBtn}>
+                  More
+                </Link>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -117,9 +123,11 @@ const Home = function HomeComponent() {
 
           <Row>
             <Col>
-              <button type="button" className={homeStyles.blogListMoreBtn}>
-                More
-              </button>
+              <div className={homeStyles.blogListAction}>
+                <Link to="blog" className={homeStyles.blogListMoreBtn}>
+                  More
+                </Link>
+              </div>
             </Col>
           </Row>
         </Container>

@@ -1,0 +1,40 @@
+@import '@styles/config02';
+
+.blog {
+  &-header {
+    margin: 24px 0 33px;
+  }
+
+  &-title {
+    margin-bottom: 8px;
+    @include display500();
+    text-align: center;
+  }
+
+  &-subtitle {
+    margin-bottom: 0;
+    @include body200Regular();
+    text-align: center;
+  }
+
+  &-index {
+    &-control {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      column-gap: 8px;
+      margin-bottom: 16px;
+
+      &-item {
+        @include placeholderBox(20px);
+      }
+    }
+
+    &-list {
+      &-row {
+        row-gap: 20px;
+        margin-bottom: 60px;
+      }
+    }
+  }
+}

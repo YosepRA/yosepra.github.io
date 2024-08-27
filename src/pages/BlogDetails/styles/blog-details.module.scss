@@ -1,0 +1,61 @@
+@import '@styles/config02';
+
+.blog {
+  &-header {
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  &-title {
+    @include headingH6();
+    width: 80%;
+    margin: 0 auto 8px;
+  }
+
+  &-date {
+    @include body200Italic();
+  }
+
+  &-cover {
+    margin-bottom: 24px;
+  }
+
+  &-image {
+    @include placeholderBox(100%, 157px);
+    margin-bottom: 8px;
+
+    &-credit {
+      @include body200Italic();
+    }
+  }
+
+  &-body {
+    margin-bottom: 20px;
+    text-align: justify;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-action {
+    &-back {
+      position: relative;
+      padding: 0;
+      background: none;
+      border: none;
+      color: $c-shades-100;
+      @include body300Italic();
+
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: $c-shades-100;
+      }
+    }
+  }
+}

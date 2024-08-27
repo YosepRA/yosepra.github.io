@@ -32,6 +32,7 @@ $grid-breakpoints: (
 );
 
 $border-radius: 3px;
+$footer-margin-top: 80px;
 
 /* =============== Typography =============== */
 
@@ -45,12 +46,19 @@ $border-radius: 3px;
   align-items: center;
 }
 
-@mixin placeholderBox($size) {
+@mixin placeholderBox($width, $height: 0) {
   display: block;
-  width: $size;
-  height: $size;
   border-radius: 3px;
   background-color: $c-shades-100;
+
+  // Rectangle or square.
+  @if $height != 0 {
+    width: $width;
+    height: $height;
+  } @else {
+    width: $width;
+    height: $width;
+  }
 }
 
 @mixin textShadow {
@@ -60,7 +68,7 @@ $border-radius: 3px;
 /* =============== Components =============== */
 
 @mixin button {
-  display: block;
+  display: inline-block;
   min-width: 100px;
   padding: 8px 10px;
   border: none;
@@ -77,4 +85,10 @@ $border-radius: 3px;
   &:hover {
     background-color: $c-bp-hover;
   }
+}
+
+@mixin primaryButtonLink {
+  @include primaryButton();
+  text-align: center;
+  text-decoration: none;
 }
