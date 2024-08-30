@@ -42,8 +42,10 @@
     }
 
     &-toggle {
-      @include placeholderBox(20px);
+      @include buttonReset();
+      display: block;
       margin-left: auto;
+      color: $c-shades-100;
     }
   }
 

@@ -12,6 +12,7 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './src/components'),
       '@features': path.resolve(__dirname, './src/features'),
       '@styles': path.resolve(__dirname, './src/styles'),
+      '@lib': path.resolve(__dirname, './src/lib'),
     },
   },
   server: {

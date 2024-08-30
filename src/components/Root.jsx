@@ -6,7 +6,7 @@ import mainStyles from '@styles/main02.module.scss';
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 
-function Layout() {
+function Root() {
   return (
     <>
       <ScrollRestoration />
@@ -24,4 +24,4 @@ function Layout() {
   );
 }
 
-export default Layout;
+export default Root;

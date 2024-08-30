@@ -1,19 +1,23 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Layout from './components/Layout.jsx';
+import Root from './components/Root.jsx';
 import Home from './pages/Home/index.jsx';
 import ProjectIndex from './pages/ProjectIndex/index.jsx';
 import BlogIndex from './pages/BlogIndex/index.jsx';
 import BlogDetails from './pages/BlogDetails/index.jsx';
+import iconLibrary from './lib/fontawesome/index.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/html.scss';
 
+// FontAwesome icons library.
+iconLibrary.start();
+
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <Root />,
     children: [
       {
         index: true,

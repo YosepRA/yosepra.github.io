@@ -89,6 +89,14 @@ $footer-margin-top: 80px;
 
 @mixin primaryButtonLink {
   @include primaryButton();
-  text-align: center;
-  text-decoration: none;
+
+  & {
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+@mixin buttonReset {
+  border: none;
+  background-color: transparent;
 }

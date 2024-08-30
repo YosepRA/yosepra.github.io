@@ -4,6 +4,7 @@ import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import mainStyles from '@styles/main02.module.scss';
 
@@ -30,10 +31,14 @@ const Navbar = function NavbarComponent() {
             </Col>
 
             <Col>
-              <div
+              <button
+                type="button"
                 className={mainStyles.navbarMenuToggle}
                 onClick={handleCollapseToggle}
-              />
+                aria-label="menu"
+              >
+                <FontAwesomeIcon icon="bars" />
+              </button>
             </Col>
           </Row>
 
