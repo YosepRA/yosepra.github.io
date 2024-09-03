@@ -84,9 +84,35 @@ const Navbar = function NavbarComponent() {
                 </ul>
 
                 <div className={mainStyles.navbarSocial}>
-                  <div className={mainStyles.navbarSocialItem} />
-                  <div className={mainStyles.navbarSocialItem} />
-                  <div className={mainStyles.navbarSocialItem} />
+                  <a
+                    href="https://www.google.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={mainStyles.navbarSocialItem}
+                    aria-label="GitHub"
+                  >
+                    <FontAwesomeIcon icon={['fab', 'github']} />
+                  </a>
+
+                  <a
+                    href="https://www.google.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={mainStyles.navbarSocialItem}
+                    aria-label="LinkedIn"
+                  >
+                    <FontAwesomeIcon icon={['fab', 'linkedin']} />
+                  </a>
+
+                  <a
+                    href="https://www.google.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={mainStyles.navbarSocialItem}
+                    aria-label="X/Twitter"
+                  >
+                    <FontAwesomeIcon icon={['fab', 'square-x-twitter']} />
+                  </a>
                 </div>
               </div>
             </Col>

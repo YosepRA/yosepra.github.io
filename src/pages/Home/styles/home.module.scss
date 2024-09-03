@@ -22,7 +22,8 @@
   }
 
   &-tech-item {
-    @include placeholderBox(30px);
+    width: auto;
+    height: 24px;
   }
 
   &-intro {
@@ -109,12 +110,21 @@
     margin: 0 auto 46px;
 
     &-item {
-      @include flexCenter();
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      align-items: center;
       column-gap: 16px;
     }
 
     &-icon {
-      @include placeholderBox(30px);
+      display: inline-flex;
+      justify-content: center;
+      width: 100%;
+      font-size: 24px;
+
+      &-whatsapp {
+        font-size: 28px;
+      }
     }
   }
 

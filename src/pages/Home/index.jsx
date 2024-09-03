@@ -5,9 +5,14 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import ProjectCard from '@components/ui/ProjectCard/index.jsx';
 import BlogCard from '@components/ui/BlogCard/index.jsx';
+
+import mongoDBIcon from '@assets/icons/MongoDB-White.svg';
+import nodeJSIcon from '@assets/icons/NodeJS-White.svg';
+import reactIcon from '@assets/icons/React-White.svg';
 
 import homeStyles from './styles/home.module.scss';
 
@@ -24,9 +29,21 @@ const Home = function HomeComponent() {
                 </h1>
 
                 <div className={homeStyles.heroTechStack}>
-                  <div className={homeStyles.heroTechItem} />
-                  <div className={homeStyles.heroTechItem} />
-                  <div className={homeStyles.heroTechItem} />
+                  <img
+                    src={reactIcon}
+                    alt="React"
+                    className={homeStyles.heroTechItem}
+                  />
+                  <img
+                    src={nodeJSIcon}
+                    alt="NodeJS"
+                    className={homeStyles.heroTechItem}
+                  />
+                  <img
+                    src={mongoDBIcon}
+                    alt="MongoDB"
+                    className={homeStyles.heroTechItem}
+                  />
                 </div>
               </div>
             </Col>
@@ -145,17 +162,33 @@ const Home = function HomeComponent() {
             <Col xs={12}>
               <div className={homeStyles.contactList}>
                 <div className={homeStyles.contactListItem}>
-                  <span className={homeStyles.contactListIcon} />
+                  <span className={homeStyles.contactListIcon}>
+                    <FontAwesomeIcon icon="envelope" />
+                  </span>
+
                   <span className="contact-list__text">
                     studioyosepra@gmail.com
                   </span>
                 </div>
+
                 <div className={homeStyles.contactListItem}>
-                  <span className={homeStyles.contactListIcon} />
+                  <span
+                    className={cn(
+                      homeStyles.contactListIcon,
+                      homeStyles.contactListIconWhatsapp,
+                    )}
+                  >
+                    <FontAwesomeIcon icon={['fab', 'whatsapp']} />
+                  </span>
+
                   <span className="contact-list__text">(+62) 85861251765</span>
                 </div>
+
                 <div className={homeStyles.contactListItem}>
-                  <span className={homeStyles.contactListIcon} />
+                  <span className={homeStyles.contactListIcon}>
+                    <FontAwesomeIcon icon={['fab', 'discord']} />
+                  </span>
+
                   <span className="contact-list__text">yosepra</span>
                 </div>
               </div>

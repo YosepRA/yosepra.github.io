@@ -5,6 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import blogImage from '@assets/images/daniel-j-schwarz-Uz768OCP0O8-unsplash.jpg';
+
 import blogDetailsStyles from './styles/blog-details.module.scss';
 
 const BlogDetails = function BlogDetailsComponent() {
@@ -33,7 +35,11 @@ const BlogDetails = function BlogDetailsComponent() {
         <Container>
           <Row>
             <Col>
-              <div className={blogDetailsStyles.blogImage} />
+              <img
+                src={blogImage}
+                className={blogDetailsStyles.blogImage}
+                alt="Mountain Apex"
+              />
 
               <small className={blogDetailsStyles.blogImageCredit}>
                 <i>Picture by Alex Kosniak 2024</i>

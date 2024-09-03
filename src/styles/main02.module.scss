@@ -1,9 +1,13 @@
 @import '@styles/config02';
 
 .navbar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 16px 0;
   background-color: $c-primary-500;
+  z-index: 100;
 
   &-brand {
     @include display400();
@@ -28,6 +32,7 @@
 
   &-menu {
     list-style: none;
+    margin-bottom: 0;
     padding-left: 0;
 
     &-item {
@@ -52,24 +57,27 @@
   &-social {
     @include flexCenter();
     padding: 18px 0;
+    column-gap: 16px;
 
     &-item {
-      @include placeholderBox(20px);
-      display: inline-block;
-
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
+      display: inline-flex;
+      align-items: center;
+      font-size: 24px;
+      color: $c-shades-100;
+      text-decoration: none;
     }
   }
 }
 
 .main-container {
   width: 100%;
+  padding-top: $navbar-height;
   /* Sticky footer:
     100 view height - footer top margin - navbar height - footer height
   */
-  min-height: calc(100vh - $footer-margin-top - 52px - 61px);
+  min-height: calc(
+    100vh - $footer-margin-top - $navbar-height - $footer-height
+  );
 }
 
 .footer {

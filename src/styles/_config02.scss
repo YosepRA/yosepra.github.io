@@ -32,6 +32,10 @@ $grid-breakpoints: (
 );
 
 $border-radius: 3px;
+/* Navbar and footer heights are determined from the element size results on
+render. Values are adjusted according to screen sizes. */
+$navbar-height: 53px;
+$footer-height: 61px;
 $footer-margin-top: 80px;
 
 /* =============== Typography =============== */
@@ -77,6 +81,17 @@ $footer-margin-top: 80px;
   line-height: 1.2;
 }
 
+@mixin iconButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  border-radius: $border-radius;
+  background-color: transparent;
+}
+
 @mixin primaryButton {
   @include button();
   background-color: $c-bp-default;
@@ -85,6 +100,13 @@ $footer-margin-top: 80px;
   &:hover {
     background-color: $c-bp-hover;
   }
+}
+
+@mixin secondaryIconButton {
+  @include iconButton();
+  background-color: $c-primary-500;
+  color: $c-shades-100;
+  border: 2px solid $c-shades-100;
 }
 
 @mixin primaryButtonLink {

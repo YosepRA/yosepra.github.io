@@ -9,7 +9,7 @@ import Footer from './Footer.jsx';
 function Root() {
   return (
     <>
-      <ScrollRestoration />
+      {/* <ScrollRestoration /> */}
 
       <div className="layout">
         <Navbar />

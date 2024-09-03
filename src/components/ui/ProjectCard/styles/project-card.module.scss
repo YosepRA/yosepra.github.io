@@ -1,17 +1,38 @@
 @import '@styles/config02';
 
 .project-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  position: relative;
   width: 100%;
   height: 186px;
-  padding: 16px 12px;
   border-radius: $border-radius;
-  background-color: #b0e7f2;
-  color: $c-shades-100;
+  z-index: 1;
+  transition: height 300ms ease-out;
 
-  &-main {
+  &:hover {
+    height: 360px;
+
+    .project-card {
+      &-details {
+        display: flex;
+      }
+    }
+  }
+
+  &-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    padding: 16px 12px;
+    border-radius: inherit;
+    background-color: #b0e7f2;
+    color: $c-shades-100;
+    z-index: 1;
+
     &-title {
       margin-bottom: 10px;
       @include display500();
@@ -22,6 +43,43 @@
       margin-bottom: 0;
       font-size: $fsz-body-300;
       @include textShadow();
+    }
+  }
+
+  &-details {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: start;
+    gap: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 16px 12px;
+    background-color: $c-primary-500;
+    border-radius: inherit;
+    z-index: 2;
+
+    &-title {
+      @include display500();
+      margin-bottom: 0;
+    }
+
+    &-description {
+      margin-bottom: 0;
+    }
+
+    &-action {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      column-gap: 10px;
+
+      &-link {
+        @include secondaryIconButton();
+      }
     }
   }
 }
