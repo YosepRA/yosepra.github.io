@@ -18,8 +18,8 @@ const BlogDetails = function BlogDetailsComponent() {
     <>
       <header className={blogDetailsStyles.blogHeader}>
         <Container>
-          <Row>
-            <Col>
+          <Row className={blogDetailsStyles.blogHeaderRow}>
+            <Col md={9}>
               <h1 className={blogDetailsStyles.blogTitle}>
                 The Implementation of Wireframe in UI Design
               </h1>
@@ -33,8 +33,8 @@ const BlogDetails = function BlogDetailsComponent() {
 
       <section className={blogDetailsStyles.blogCover}>
         <Container>
-          <Row>
-            <Col>
+          <Row className={blogDetailsStyles.blogCoverRow}>
+            <Col md={9}>
               <img
                 src={blogImage}
                 className={blogDetailsStyles.blogImage}
@@ -51,8 +51,8 @@ const BlogDetails = function BlogDetailsComponent() {
 
       <section className={blogDetailsStyles.blogBody}>
         <Container>
-          <Row>
-            <Col>
+          <Row className={blogDetailsStyles.blogBodyRow}>
+            <Col md={9}>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
                 laborum nostrum unde architecto eligendi. Alias dolores
@@ -84,10 +84,10 @@ const BlogDetails = function BlogDetailsComponent() {
         </Container>
       </section>
 
-      <section className="blog-action">
+      <section className={blogDetailsStyles.blogAction}>
         <Container>
-          <Row>
-            <Col>
+          <Row className={blogDetailsStyles.blogActionRow}>
+            <Col md={9}>
               <button
                 type="button"
                 onClick={handleBackButton}

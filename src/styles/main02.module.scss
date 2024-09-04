@@ -19,7 +19,7 @@
   &-collapse {
     display: none;
     position: absolute;
-    top: 52px;
+    top: $navbar-height;
     left: 0;
     width: 100%;
     padding: 0 12px;
@@ -92,6 +92,73 @@
 
   &-copy {
     margin-bottom: 0;
-    @include body200Regular();
+    @include body200Italic();
+  }
+}
+
+/* =============== Breakpoints =============== */
+
+@include media-breakpoint-up(md) {
+  $navbar-height: 131px;
+  $footer-height: 61px;
+  $footer-margin-top: 100px;
+
+  .navbar {
+    padding: 18px 0;
+
+    &-brand {
+      display: block;
+      margin-bottom: 12px;
+      @include display500();
+      text-align: center;
+    }
+
+    &-collapse {
+      position: static;
+      display: block;
+      padding: 0;
+    }
+
+    &-menu {
+      @include flexCenter();
+      column-gap: 28px;
+      margin-bottom: 16px;
+
+      &-item {
+        display: inline;
+        padding: 0;
+        @include body300Regular();
+      }
+
+      &-toggle {
+        display: none;
+      }
+    }
+
+    &-social {
+      padding: 0;
+      column-gap: 24px;
+    }
+  }
+
+  .main-container {
+    padding-top: $navbar-height;
+    min-height: calc(
+      100vh - $footer-margin-top - $navbar-height - $footer-height
+    );
+  }
+
+  .footer {
+    margin-top: $footer-margin-top;
+    padding: 16px 0;
+
+    &-brand {
+      margin-bottom: 7px;
+      @include display500();
+    }
+
+    &-copy {
+      @include body300Italic();
+    }
   }
 }

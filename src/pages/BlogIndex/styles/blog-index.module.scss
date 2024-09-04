@@ -38,3 +38,34 @@
     }
   }
 }
+
+/* =============== Breakpoints =============== */
+
+@include media-breakpoint-up(md) {
+  .blog {
+    &-header {
+      margin: 60px 0 38px;
+    }
+
+    &-title {
+      margin-bottom: 10px;
+      @include display600();
+    }
+
+    &-subtitle {
+      @include body300Regular();
+    }
+
+    &-index {
+      &-control {
+        margin-bottom: 24px;
+      }
+
+      &-list {
+        &-row {
+          row-gap: 32px;
+        }
+      }
+    }
+  }
+}

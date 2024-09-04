@@ -24,7 +24,7 @@ const Navbar = function NavbarComponent() {
       <nav>
         <Container className={mainStyles.navbarContainer}>
           <Row className="align-items-center">
-            <Col>
+            <Col xs="auto" md={12}>
               <Link to="/" className={mainStyles.navbarBrand}>
                 StudioYosepRA
               </Link>

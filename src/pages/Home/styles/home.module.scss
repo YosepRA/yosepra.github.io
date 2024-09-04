@@ -150,3 +150,89 @@
     }
   }
 }
+
+/* =============== Breakpoints =============== */
+
+@include media-breakpoint-up(md) {
+  .hero {
+    margin: 86px 0;
+
+    &-row {
+      align-items: center;
+    }
+
+    &-left {
+      margin-bottom: 0;
+    }
+
+    &-title {
+      width: 100%;
+      max-width: 377px;
+      margin-bottom: 32px;
+      @include display700();
+    }
+
+    &-tech-stack {
+      column-gap: 32px;
+    }
+
+    &-tech-item {
+      height: 38px;
+    }
+
+    &-intro {
+      margin-bottom: 24px;
+    }
+
+    p {
+      text-align: left;
+      // @include body300Regular();
+    }
+
+    &-action {
+      justify-content: start;
+    }
+  }
+
+  .project-list {
+    margin-bottom: 86px;
+
+    &-title {
+      margin-bottom: 24px;
+    }
+
+    &-project-row {
+      margin-bottom: 60px;
+      gap: 16px 0;
+    }
+  }
+
+  .blog-list {
+    margin-bottom: 86px;
+
+    &-title {
+      margin-bottom: 24px;
+    }
+
+    &-blog-row {
+      margin-bottom: 60px;
+      gap: 32px;
+    }
+  }
+
+  .contact {
+    &-title {
+      margin-bottom: 24px;
+    }
+
+    &-list {
+      margin: 0 auto 0 0;
+    }
+
+    &-form {
+      &-intro {
+        text-align: left;
+      }
+    }
+  }
+}

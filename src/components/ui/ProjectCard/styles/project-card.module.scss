@@ -83,3 +83,32 @@
     }
   }
 }
+
+/* =============== Breakpoints =============== */
+
+@include media-breakpoint-up(md) {
+  .project-card {
+    height: 380px;
+
+    &:hover {
+      height: 380px;
+    }
+
+    &-thumbnail {
+      padding: 30px 16px;
+
+      &-title {
+        @include display600();
+      }
+    }
+
+    &-details {
+      display: none;
+      padding: 24px 16px;
+
+      &-title {
+        @include display600();
+      }
+    }
+  }
+}
