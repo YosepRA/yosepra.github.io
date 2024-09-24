@@ -44,6 +44,7 @@
     &-link {
       color: $c-shades-100;
       text-decoration: none;
+      line-height: 1;
     }
 
     &-toggle {
@@ -99,8 +100,8 @@
 /* =============== Breakpoints =============== */
 
 @include media-breakpoint-up(md) {
-  $navbar-height: 131px;
-  $footer-height: 61px;
+  $navbar-height: 130px;
+  $footer-height: 89px;
   $footer-margin-top: 100px;
 
   .navbar {
@@ -108,7 +109,7 @@
 
     &-brand {
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       @include display500();
       text-align: center;
     }
@@ -160,5 +161,22 @@
     &-copy {
       @include body300Italic();
     }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  $navbar-height: 130px;
+  $footer-height: 89px;
+  $footer-margin-top: 145px;
+
+  .main-container {
+    padding-top: $navbar-height;
+    min-height: calc(
+      100vh - $footer-margin-top - $navbar-height - $footer-height
+    );
+  }
+
+  .footer {
+    margin-top: $footer-margin-top;
   }
 }

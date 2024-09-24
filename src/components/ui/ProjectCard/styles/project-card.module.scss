@@ -112,3 +112,29 @@
     }
   }
 }
+
+@include media-breakpoint-up(lg) {
+  .project-card {
+    &-details {
+      &-description {
+        @include body300Regular();
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .project-card {
+    height: 480px;
+
+    &:hover {
+      height: 480px;
+    }
+
+    &-details {
+      &-description {
+        @include body400Regular();
+      }
+    }
+  }
+}

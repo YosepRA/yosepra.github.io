@@ -69,3 +69,27 @@
     }
   }
 }
+
+@include media-breakpoint-up(xl) {
+  .project {
+    &-header {
+      margin-bottom: 42px;
+    }
+
+    &-title {
+      @include display700();
+    }
+
+    &-subtitle {
+      @include body400Regular();
+    }
+
+    &-index {
+      &-list {
+        &-row {
+          margin-bottom: 100px;
+        }
+      }
+    }
+  }
+}

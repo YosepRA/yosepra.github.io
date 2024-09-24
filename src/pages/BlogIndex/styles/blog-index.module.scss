@@ -69,3 +69,45 @@
     }
   }
 }
+
+@include media-breakpoint-up(lg) {
+  .blog {
+    &-index {
+      &-control {
+        &-row {
+          justify-content: center;
+        }
+      }
+
+      &-list {
+        &-row {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .blog {
+    &-header {
+      margin-bottom: 42px;
+    }
+
+    &-title {
+      @include display700();
+    }
+
+    &-subtitle {
+      @include body400Regular();
+    }
+
+    &-index {
+      &-list {
+        &-row {
+          margin-bottom: 100px;
+        }
+      }
+    }
+  }
+}

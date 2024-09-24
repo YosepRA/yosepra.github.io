@@ -29,13 +29,14 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
+  xxl: 1400px,
 );
 
 $border-radius: 3px;
 /* Navbar and footer heights are determined from the element size results on
 render. Values are adjusted according to screen sizes. */
-$navbar-height: 53px;
-$footer-height: 61px;
+$navbar-height: 58px;
+$footer-height: 69px;
 $footer-margin-top: 80px;
 
 /* =============== Typography =============== */

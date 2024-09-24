@@ -40,23 +40,23 @@ const ProjectIndex = function ProjectIndexComponent() {
           <Row
             className={cn(projectIndexStyles.projectIndexListRow, 'gx-md-3')}
           >
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} lg={4}>
               <ProjectCard />
             </Col>
 
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} lg={4}>
               <ProjectCard />
             </Col>
 
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} lg={4}>
               <ProjectCard />
             </Col>
 
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} lg={4}>
               <ProjectCard />
             </Col>
 
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} lg={4}>
               <ProjectCard />
             </Col>
           </Row>

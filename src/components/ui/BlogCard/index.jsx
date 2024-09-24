@@ -19,7 +19,10 @@ const BlogCard = function BlogCardComponent() {
       <p className={styles.blogCardExcerpt}>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat neque
         molestiae, debitis consequatur nesciunt voluptas cumque ab molestias
-        facere autem?
+        facere autem? Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Eligendi nulla doloribus quidem a natus, iste veritatis fuga enim
+        suscipit quae, laborum dolore blanditiis libero consequatur cumque,
+        adipisci ea voluptatibus eveniet?
       </p>
     </article>
   );

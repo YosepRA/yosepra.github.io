@@ -115,3 +115,24 @@
     }
   }
 }
+
+@include media-breakpoint-up(xl) {
+  .blog {
+    &-header {
+      margin-bottom: 32px;
+    }
+
+    &-title {
+      @include headingH4();
+    }
+
+    &-cover {
+      margin-bottom: 32px;
+    }
+
+    &-image {
+      height: 386px;
+      margin-bottom: 10px;
+    }
+  }
+}

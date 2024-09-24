@@ -168,7 +168,7 @@
     &-title {
       width: 100%;
       max-width: 377px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       @include display700();
     }
 
@@ -186,7 +186,6 @@
 
     p {
       text-align: left;
-      // @include body300Regular();
     }
 
     &-action {
@@ -233,6 +232,72 @@
       &-intro {
         text-align: left;
       }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .blog-list {
+    &-blog-row {
+      justify-content: center;
+    }
+  }
+
+  .contact {
+    &-row {
+      justify-content: center;
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .hero {
+    margin: 124px 0;
+
+    &-row {
+      justify-content: center;
+    }
+
+    &-title {
+      max-width: none;
+      @include display900();
+    }
+
+    &-tech-stack {
+      column-gap: 47px;
+    }
+
+    &-tech-item {
+      height: 52px;
+    }
+  }
+
+  .project-list {
+    margin-bottom: 145px;
+
+    &-title {
+      margin-bottom: 32px;
+      @include display600();
+    }
+  }
+
+  .blog-list {
+    margin-bottom: 145px;
+
+    &-title {
+      margin-bottom: 32px;
+      @include display600();
+    }
+  }
+
+  .contact {
+    &-title {
+      margin-bottom: 32px;
+      @include display600();
+    }
+
+    &-list {
+      margin: 0 auto;
     }
   }
 }

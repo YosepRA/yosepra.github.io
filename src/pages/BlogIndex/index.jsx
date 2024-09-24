@@ -27,8 +27,8 @@ const BlogIndex = function BlogIndexComponent() {
 
       <section className={blogIndexStyles.blogIndex}>
         <Container>
-          <Row>
-            <Col>
+          <Row className={blogIndexStyles.blogIndexControlRow}>
+            <Col lg={10}>
               <div className={blogIndexStyles.blogIndexControl}>
                 <div className={blogIndexStyles.blogIndexControlItem} />
                 <div className={blogIndexStyles.blogIndexControlItem} />
@@ -38,23 +38,23 @@ const BlogIndex = function BlogIndexComponent() {
           </Row>
 
           <Row className={blogIndexStyles.blogIndexListRow}>
-            <Col xs={12}>
+            <Col xs={12} lg={10}>
               <BlogCard />
             </Col>
 
-            <Col xs={12}>
+            <Col xs={12} lg={10}>
               <BlogCard />
             </Col>
 
-            <Col xs={12}>
+            <Col xs={12} lg={10}>
               <BlogCard />
             </Col>
 
-            <Col xs={12}>
+            <Col xs={12} lg={10}>
               <BlogCard />
             </Col>
 
-            <Col xs={12}>
+            <Col xs={12} lg={10}>
               <BlogCard />
             </Col>
           </Row>

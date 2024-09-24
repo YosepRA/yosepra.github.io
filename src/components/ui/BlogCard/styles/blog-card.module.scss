@@ -27,3 +27,13 @@
     font-size: $fsz-body-300;
   }
 }
+
+/* =============== Breakpoints =============== */
+
+@include media-breakpoint-up(xl) {
+  .blog-card {
+    &-title {
+      @include body400Bold();
+    }
+  }
+}

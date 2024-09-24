@@ -22,7 +22,7 @@ const Home = function HomeComponent() {
       <section className={homeStyles.hero}>
         <Container>
           <Row className={homeStyles.heroRow}>
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} xl={5}>
               <div className={homeStyles.heroLeft}>
                 <h1 className={homeStyles.heroTitle}>
                   A Simple Man Who Loves to Create
@@ -48,7 +48,7 @@ const Home = function HomeComponent() {
               </div>
             </Col>
 
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} xl={5}>
               <div className="hero__right">
                 <div className={homeStyles.heroIntro}>
                   <p>
@@ -91,15 +91,20 @@ const Home = function HomeComponent() {
           </Row>
 
           <Row className={cn(homeStyles.projectListProjectRow, 'gx-md-3')}>
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} lg={4}>
+              <ProjectCard />
+            </Col>
+            <Col xs={12} md={6} lg={4}>
+              <ProjectCard />
+            </Col>
+            <Col xs={12} md={6} lg={4}>
+              <ProjectCard />
+            </Col>
+            <Col xs={12} md={6} lg={4}>
               <ProjectCard />
             </Col>
 
-            <Col xs={12} md={6}>
-              <ProjectCard />
-            </Col>
-
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} lg={4}>
               <ProjectCard />
             </Col>
           </Row>
@@ -125,15 +130,15 @@ const Home = function HomeComponent() {
           </Row>
 
           <Row className={homeStyles.blogListBlogRow}>
-            <Col xs={12}>
+            <Col xs={12} lg={10}>
               <BlogCard />
             </Col>
 
-            <Col xs={12}>
+            <Col xs={12} lg={10}>
               <BlogCard />
             </Col>
 
-            <Col xs={12}>
+            <Col xs={12} lg={10}>
               <BlogCard />
             </Col>
           </Row>
@@ -158,8 +163,8 @@ const Home = function HomeComponent() {
             </Col>
           </Row>
 
-          <Row>
-            <Col xs={12} md={5}>
+          <Row className={homeStyles.contactRow}>
+            <Col xs={12} md={5} lg={4} xl={5}>
               <div className={homeStyles.contactList}>
                 <div className={homeStyles.contactListItem}>
                   <span className={homeStyles.contactListIcon}>
@@ -194,7 +199,7 @@ const Home = function HomeComponent() {
               </div>
             </Col>
 
-            <Col xs={12} md={7}>
+            <Col xs={12} md={7} lg={6} xl={5}>
               <div className={homeStyles.contactForm}>
                 <p className={homeStyles.contactFormIntro}>
                   Or, you can contact me using this form
@@ -226,7 +231,7 @@ const Home = function HomeComponent() {
 
                     <Form.Control
                       as="textarea"
-                      rows={3}
+                      rows={6}
                       placeholder="What can I help you with..."
                     />
                   </Form.Group>
