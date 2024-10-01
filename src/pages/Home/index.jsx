@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import ProjectCard from '@components/ui/ProjectCard/index.jsx';
 import BlogCard from '@components/ui/BlogCard/index.jsx';
+import projectFeature from '@Features/project/index.js';
 
 import mongoDBIcon from '@assets/icons/MongoDB-White.svg';
 import nodeJSIcon from '@assets/icons/NodeJS-White.svg';
@@ -17,6 +18,16 @@ import reactIcon from '@assets/icons/React-White.svg';
 import homeStyles from './styles/home.module.scss';
 
 const Home = function HomeComponent() {
+  useEffect(() => {
+    async function fetchData() {
+      const result = await projectFeature.getProjects();
+
+      console.log(result);
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <section className={homeStyles.hero}>
