@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -7,26 +8,33 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import ProjectCard from '@components/ui/ProjectCard/index.jsx';
-import BlogCard from '@components/ui/BlogCard/index.jsx';
-import projectFeature from '@Features/project/index.js';
+import {
+  selectProjects,
+  fetchProjects,
+} from '@Features/project/projectSlice.js';
 
-import mongoDBIcon from '@assets/icons/MongoDB-White.svg';
-import nodeJSIcon from '@assets/icons/NodeJS-White.svg';
-import reactIcon from '@assets/icons/React-White.svg';
+import ProjectCard from '@Components/ui/ProjectCard/index.jsx';
+import BlogCard from '@Components/ui/BlogCard/index.jsx';
+
+import mongoDBIcon from '@Assets/icons/MongoDB-White.svg';
+import nodeJSIcon from '@Assets/icons/NodeJS-White.svg';
+import reactIcon from '@Assets/icons/React-White.svg';
 
 import homeStyles from './styles/home.module.scss';
 
 const Home = function HomeComponent() {
+  const projects = useSelector(selectProjects);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    async function fetchData() {
-      const result = await projectFeature.getProjects();
+    const searchParams = {
+      limit: 5,
+    };
 
-      console.log(result);
-    }
-
-    fetchData();
+    dispatch(fetchProjects(searchParams));
   }, []);
+
+  console.log('🚀 ~ Home ~ projects:', projects);
 
   return (
     <>

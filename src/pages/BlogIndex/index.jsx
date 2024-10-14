@@ -4,8 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import BlogCard from '@components/ui/BlogCard/index.jsx';
-import Pagination from '@components/ui/Pagination/index.jsx';
+import BlogCard from '@Components/ui/BlogCard/index.jsx';
+import Pagination from '@Components/ui/Pagination/index.jsx';
 
 import blogIndexStyles from './styles/blog-index.module.scss';
 

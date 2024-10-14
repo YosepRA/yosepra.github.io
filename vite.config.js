@@ -8,12 +8,13 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@assets': path.resolve(__dirname, './src/assets'),
-      '@components': path.resolve(__dirname, './src/components'),
+      '@App': path.resolve(__dirname, './src/app'),
+      '@Assets': path.resolve(__dirname, './src/assets'),
+      '@Components': path.resolve(__dirname, './src/components'),
       '@Features': path.resolve(__dirname, './src/features'),
       '@Services': path.resolve(__dirname, './src/services'),
-      '@styles': path.resolve(__dirname, './src/styles'),
-      '@lib': path.resolve(__dirname, './src/lib'),
+      '@Styles': path.resolve(__dirname, './src/styles'),
+      '@Lib': path.resolve(__dirname, './src/lib'),
     },
   },
   server: {

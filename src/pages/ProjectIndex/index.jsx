@@ -4,8 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import ProjectCard from '@components/ui/ProjectCard/index.jsx';
-import Pagination from '@components/ui/Pagination/index.jsx';
+import ProjectCard from '@Components/ui/ProjectCard/index.jsx';
+import Pagination from '@Components/ui/Pagination/index.jsx';
 
 import projectIndexStyles from './styles/project-index.module.scss';
 

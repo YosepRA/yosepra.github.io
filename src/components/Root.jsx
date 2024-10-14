@@ -1,14 +1,17 @@
 import React from 'react';
 import { ScrollRestoration, Outlet } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import mainStyles from '@styles/main02.module.scss';
+import store from '@App/store/index.js';
+
+import mainStyles from '@Styles/main02.module.scss';
 
 import Navbar from './Navbar.jsx';
 import Footer from './Footer.jsx';
 
 function Root() {
   return (
-    <>
+    <Provider store={store}>
       {/* <ScrollRestoration /> */}
 
       <div className="layout">
@@ -20,7 +23,7 @@ function Root() {
 
         <Footer />
       </div>
-    </>
+    </Provider>
   );
 }
 

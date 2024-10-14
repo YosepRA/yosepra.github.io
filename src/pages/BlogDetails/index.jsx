@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import blogImage from '@assets/images/daniel-j-schwarz-Uz768OCP0O8-unsplash.jpg';
+import blogImage from '@Assets/images/daniel-j-schwarz-Uz768OCP0O8-unsplash.jpg';
 
 import blogDetailsStyles from './styles/blog-details.module.scss';
 

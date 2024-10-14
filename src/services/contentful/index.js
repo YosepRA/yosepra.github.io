@@ -1,9 +1,7 @@
-import projectService from './project.js';
-import blogService from './blog.js';
+import client from './client.js';
 
 const contentfulService = {
-  project: projectService,
-  blog: blogService,
+  contentfulClient: client,
 };
 
 export default contentfulService;
