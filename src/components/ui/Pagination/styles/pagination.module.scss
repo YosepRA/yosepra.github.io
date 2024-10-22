@@ -1,28 +1,48 @@
 @import '@Styles/config02';
 
+$pagination-width: 267px;
+/* 
+  - Prev button
+  - Five in-between page buttons
+  - Next button
+*/
+$button-amount: 7;
+
 .pagination {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  width: 267px;
-  height: 33px;
-  margin: auto;
-  background-color: $c-shades-100;
-  border-radius: $border-radius;
-  box-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
+  @include flexCenter();
+  // border-radius: $border-radius;
+  // box-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
+
+  &-container {
+    display: inline;
+    background-color: $c-bp-default;
+  }
 
   &-item {
-    flex: 1;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    width: $pagination-width / $button-amount;
+    height: 33px;
+    background-color: $c-bp-default;
     text-decoration: none;
     color: $c-primary-500;
+    // transition: all 200ms ease-out;
+
+    &:hover {
+      background-color: $c-bp-hover;
+    }
 
     &-active {
       background-color: $c-primary-500;
       color: $c-shades-100;
+      pointer-events: none;
+      // transition: none;
+    }
+
+    &-disabled {
+      pointer-events: none;
+      background-color: $c-bp-disabled;
     }
   }
 }

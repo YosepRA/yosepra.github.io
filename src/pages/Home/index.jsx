@@ -34,7 +34,13 @@ const Home = function HomeComponent() {
     dispatch(fetchProjects(searchParams));
   }, []);
 
-  console.log('🚀 ~ Home ~ projects:', projects);
+  const projectList =
+    projects.items.length > 0 &&
+    projects.items.map((project) => (
+      <Col key={project.sys.id} xs={12} md={6} lg={4}>
+        <ProjectCard project={project} />
+      </Col>
+    ));
 
   return (
     <>
@@ -110,22 +116,11 @@ const Home = function HomeComponent() {
           </Row>
 
           <Row className={cn(homeStyles.projectListProjectRow, 'gx-md-3')}>
-            <Col xs={12} md={6} lg={4}>
-              <ProjectCard />
-            </Col>
-            <Col xs={12} md={6} lg={4}>
-              <ProjectCard />
-            </Col>
-            <Col xs={12} md={6} lg={4}>
-              <ProjectCard />
-            </Col>
-            <Col xs={12} md={6} lg={4}>
-              <ProjectCard />
-            </Col>
+            {projects.items.length === 0 && projects.status === 'loading' && (
+              <p>Loading...</p>
+            )}
 
-            <Col xs={12} md={6} lg={4}>
-              <ProjectCard />
-            </Col>
+            {projects.items.length > 0 && projectList}
           </Row>
 
           <Row>

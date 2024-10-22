@@ -3,19 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './styles/project-card.module.scss';
 
-const ProjectCard = function ProjectCardComponent() {
+const ProjectCard = function ProjectCardComponent({ project: { fields } }) {
   return (
     <article className={styles.projectCard}>
       <div className={styles.projectCardThumbnail}>
-        <h3 className={styles.projectCardThumbnailTitle}>Project Name</h3>
+        <h3 className={styles.projectCardThumbnailTitle}>{fields.name}</h3>
 
-        <p className={styles.projectCardThumbnailShortDesc}>
-          Short description of the project
-        </p>
+        <p className={styles.projectCardThumbnailShortDesc}>{fields.summary}</p>
       </div>
 
       <div className={styles.projectCardDetails}>
-        <h3 className={styles.projectCardDetailsTitle}>Project Name</h3>
+        <h3 className={styles.projectCardDetailsTitle}>{fields.name}</h3>
 
         <p className={styles.projectCardDetailsDescription}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem eum
@@ -24,30 +22,38 @@ const ProjectCard = function ProjectCardComponent() {
 
         <div className={styles.projectCardDetailsAction}>
           <a
-            href="https://www.google.com"
+            href={fields.liveLink}
             className={styles.projectCardDetailsActionLink}
             target="_blank"
             rel="noreferrer"
             aria-label="Live preview"
+            title="Live preview"
           >
             <FontAwesomeIcon icon="play" />
           </a>
           <a
-            href="https://www.github.com"
+            href={fields.githubLink}
             className={styles.projectCardDetailsActionLink}
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub repository"
+            title="GitHub repository"
           >
             <FontAwesomeIcon icon={['fab', 'github']} />
           </a>
-          <a
-            href="https://www.google.com"
-            className={styles.projectCardDetailsActionLink}
-            aria-label="Project details"
-          >
-            <FontAwesomeIcon icon="file-alt" />
-          </a>
+
+          {/* If the project details page are ready, there will be slug URL from CMS.
+          Therefore, show the button to that page. */}
+          {fields.slug && (
+            <a
+              href="#"
+              className={styles.projectCardDetailsActionLink}
+              aria-label="Project details"
+              title="Project details"
+            >
+              <FontAwesomeIcon icon="file-alt" />
+            </a>
+          )}
         </div>
       </div>
     </article>

@@ -60,14 +60,22 @@ export const projectReducer = projectSlice.reducer;
 /* ======================= Selectors ======================= */
 
 export const selectProjectItems = (state) => state.project.items;
+export const selectLoadingStatus = (state) => state.project.status;
 export const selectPage = (state) => state.project.page;
 export const selectTotalItems = (state) => state.project.total;
 export const selectPageCount = (state) => state.project.pageCount;
 
 export const selectProjects = createSelector(
-  [selectProjectItems, selectPage, selectTotalItems, selectPageCount],
-  (items, page, total, pageCount) => ({
+  [
+    selectProjectItems,
+    selectLoadingStatus,
+    selectPage,
+    selectTotalItems,
+    selectPageCount,
+  ],
+  (items, status, page, total, pageCount) => ({
     items,
+    status,
     page,
     total,
     pageCount,
