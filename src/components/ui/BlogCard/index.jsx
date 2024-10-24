@@ -1,29 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { formatDistanceToNow } from 'date-fns';
 
 import styles from './styles/blog-card.module.scss';
 
-const BlogCard = function BlogCardComponent() {
+const BlogCard = function BlogCardComponent({ blog: { sys, fields } }) {
   return (
     <article className={styles.blogCard}>
       <div className={styles.blogCardMeta}>
-        <Link to="/blog/1" className={styles.blogCardLinkTitle}>
-          <h3 className={styles.blogCardTitle}>
-            The Latest Happening in the News
-          </h3>
+        <Link to={`/blog/${sys.id}`} className={styles.blogCardLinkTitle}>
+          <h3 className={styles.blogCardTitle}>{fields.title}</h3>
         </Link>
 
-        <p className={styles.blogCardTime}>7 hours ago</p>
+        <p className={styles.blogCardTime}>
+          {formatDistanceToNow(sys.createdAt, {
+            addSuffix: true,
+          })}
+        </p>
       </div>
 
-      <p className={styles.blogCardExcerpt}>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat neque
-        molestiae, debitis consequatur nesciunt voluptas cumque ab molestias
-        facere autem? Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Eligendi nulla doloribus quidem a natus, iste veritatis fuga enim
-        suscipit quae, laborum dolore blanditiis libero consequatur cumque,
-        adipisci ea voluptatibus eveniet?
-      </p>
+      <p className={styles.blogCardExcerpt}>{fields.excerpt}</p>
     </article>
   );
 };

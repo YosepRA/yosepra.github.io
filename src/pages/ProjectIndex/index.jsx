@@ -42,7 +42,9 @@ const ProjectIndex = function ProjectIndexComponent() {
         - Page count: 8
         -Expected result: valid
     */
+
     if (!isPageParamsValid) {
+      // If page params is not valid, go to page 1 by default.
       setSearchParams({ page: 1 });
 
       return undefined;
@@ -100,11 +102,15 @@ const ProjectIndex = function ProjectIndexComponent() {
             className={cn(projectIndexStyles.projectIndexListRow, 'gx-md-3')}
           >
             {projects.items.length === 0 && projects.status === 'loading' && (
-              <p>Loading...</p>
+              <Col>
+                <p>Loading...</p>
+              </Col>
             )}
 
             {projects.items.length === 0 && projects.status === 'idle' && (
-              <p>No data</p>
+              <Col>
+                <p>No data</p>
+              </Col>
             )}
 
             {projects.items.length > 0 && projectList}

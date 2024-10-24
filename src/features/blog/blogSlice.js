@@ -4,7 +4,7 @@ import {
   createSelector,
 } from '@reduxjs/toolkit';
 
-import projectAPI from './projectAPI.js';
+import blogAPI from './blogAPI.js';
 
 const initialState = {
   items: [],
@@ -15,17 +15,17 @@ const initialState = {
   error: '',
 };
 
-export const fetchProjects = createAsyncThunk(
-  'project/fetchProjects',
+export const fetchBlogs = createAsyncThunk(
+  'blog/fetchBlogs',
   async (searchParams) => {
-    const result = await projectAPI.getProjects(searchParams);
+    const result = await blogAPI.getBlogs(searchParams);
 
     return result;
   },
 );
 
-export const projectSlice = createSlice({
-  name: 'project',
+export const blogSlice = createSlice({
+  name: 'blog',
   initialState,
   reducers: {
     setStatus(state, action) {
@@ -34,41 +34,41 @@ export const projectSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProjects.pending, (state) => {
+      .addCase(fetchBlogs.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(
-        fetchProjects.fulfilled,
+        fetchBlogs.fulfilled,
         (state, { payload: { items, total, skip, limit } }) => {
           state.status = 'idle';
           state.items = items;
           state.total = total;
-          state.page = skip / limit + 1;
+          state.page = skip / total + 1;
           state.pageCount = Math.ceil(total / limit);
         },
       )
-      .addCase(fetchProjects.rejected, (state, { payload }) => {
+      .addCase(fetchBlogs.rejected, (state, { payload }) => {
         state.status = 'error';
         state.error = payload.message;
       });
   },
 });
 
-export const { setStatus } = projectSlice.actions;
+export const { setStatus } = blogSlice.actions;
 
-export default projectSlice.reducer;
+export default blogSlice.reducer;
 
 /* ======================= Selectors ======================= */
 
-export const selectProjectItems = (state) => state.project.items;
-export const selectLoadingStatus = (state) => state.project.status;
-export const selectPage = (state) => state.project.page;
-export const selectTotalItems = (state) => state.project.total;
-export const selectPageCount = (state) => state.project.pageCount;
+export const selectBlogItems = (state) => state.blog.items;
+export const selectLoadingStatus = (state) => state.blog.status;
+export const selectPage = (state) => state.blog.page;
+export const selectTotalItems = (state) => state.blog.total;
+export const selectPageCount = (state) => state.blog.pageCount;
 
-export const selectProjects = createSelector(
+export const selectBlogs = createSelector(
   [
-    selectProjectItems,
+    selectBlogItems,
     selectLoadingStatus,
     selectPage,
     selectTotalItems,
@@ -77,15 +77,6 @@ export const selectProjects = createSelector(
   (items, status, page, total, pageCount) => ({
     items,
     status,
-    page,
-    total,
-    pageCount,
-  }),
-);
-
-export const selectPagination = createSelector(
-  [selectPage, selectTotalItems, selectPageCount],
-  (page, total, pageCount) => ({
     page,
     total,
     pageCount,

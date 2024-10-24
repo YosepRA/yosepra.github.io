@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+import { selectBlogs, fetchBlogs } from '@Features/blog/blogSlice.js';
 
 import BlogCard from '@Components/ui/BlogCard/index.jsx';
 import Pagination from '@Components/ui/Pagination/index.jsx';
@@ -10,6 +14,42 @@ import Pagination from '@Components/ui/Pagination/index.jsx';
 import blogIndexStyles from './styles/blog-index.module.scss';
 
 const BlogIndex = function BlogIndexComponent() {
+  const blogs = useSelector(selectBlogs);
+  const dispatch = useDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const pageParams = parseInt(searchParams.get('page'), 10);
+
+  useEffect(() => {
+    const isPageParamsValid = !Number.isNaN(pageParams) && pageParams >= 1;
+
+    if (!isPageParamsValid) {
+      setSearchParams({ page: 1 });
+
+      return undefined;
+    }
+
+    const limit = 10;
+    const skip = (pageParams - 1) * limit;
+
+    const contentfulParams = {
+      limit,
+      skip,
+    };
+
+    dispatch(fetchBlogs(contentfulParams));
+
+    return undefined;
+  }, [pageParams]);
+
+  const blogList =
+    blogs.items.length > 0 &&
+    blogs.items.map((blog) => (
+      <Col key={blog.sys.id} xs={12} lg={10}>
+        <BlogCard blog={blog} />
+      </Col>
+    ));
+
   return (
     <>
       <header className={blogIndexStyles.blogHeader}>
@@ -38,30 +78,28 @@ const BlogIndex = function BlogIndexComponent() {
           </Row>
 
           <Row className={blogIndexStyles.blogIndexListRow}>
-            <Col xs={12} lg={10}>
-              <BlogCard />
-            </Col>
+            {blogs.items.length === 0 && blogs.status === 'loading' && (
+              <Col xs={12} lg={10}>
+                <p>Loading...</p>
+              </Col>
+            )}
 
-            <Col xs={12} lg={10}>
-              <BlogCard />
-            </Col>
+            {blogs.items.length === 0 && blogs.status === 'idle' && (
+              <Col xs={12} lg={10}>
+                <p>No data</p>
+              </Col>
+            )}
 
-            <Col xs={12} lg={10}>
-              <BlogCard />
-            </Col>
-
-            <Col xs={12} lg={10}>
-              <BlogCard />
-            </Col>
-
-            <Col xs={12} lg={10}>
-              <BlogCard />
-            </Col>
+            {blogs.items.length > 0 && blogList}
           </Row>
 
           <Row>
             <Col>
-              <Pagination />
+              <Pagination
+                currentPage={pageParams}
+                pageCount={blogs.pageCount}
+                baseUrl="/blog"
+              />
             </Col>
           </Row>
         </Container>

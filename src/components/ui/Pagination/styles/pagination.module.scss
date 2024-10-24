@@ -10,24 +10,31 @@ $button-amount: 7;
 
 .pagination {
   @include flexCenter();
-  // border-radius: $border-radius;
-  // box-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
 
   &-container {
     display: inline;
     background-color: $c-bp-default;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
   }
 
   &-item {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: $pagination-width / $button-amount;
+    width: calc($pagination-width / $button-amount);
     height: 33px;
     background-color: $c-bp-default;
     text-decoration: none;
     color: $c-primary-500;
-    // transition: all 200ms ease-out;
+
+    &:first-child {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 $border-radius $border-radius 0;
+    }
 
     &:hover {
       background-color: $c-bp-hover;
@@ -37,7 +44,6 @@ $button-amount: 7;
       background-color: $c-primary-500;
       color: $c-shades-100;
       pointer-events: none;
-      // transition: none;
     }
 
     &-disabled {

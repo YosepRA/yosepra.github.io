@@ -12,6 +12,7 @@ import {
   selectProjects,
   fetchProjects,
 } from '@Features/project/projectSlice.js';
+import { selectBlogs, fetchBlogs } from '@Features/blog/blogSlice.js';
 
 import ProjectCard from '@Components/ui/ProjectCard/index.jsx';
 import BlogCard from '@Components/ui/BlogCard/index.jsx';
@@ -24,14 +25,19 @@ import homeStyles from './styles/home.module.scss';
 
 const Home = function HomeComponent() {
   const projects = useSelector(selectProjects);
+  const blogs = useSelector(selectBlogs);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const searchParams = {
+    const projectParams = {
       limit: 5,
     };
+    const blogParams = {
+      limit: 3,
+    };
 
-    dispatch(fetchProjects(searchParams));
+    dispatch(fetchProjects(projectParams));
+    dispatch(fetchBlogs(blogParams));
   }, []);
 
   const projectList =
@@ -39,6 +45,14 @@ const Home = function HomeComponent() {
     projects.items.map((project) => (
       <Col key={project.sys.id} xs={12} md={6} lg={4}>
         <ProjectCard project={project} />
+      </Col>
+    ));
+
+  const blogList =
+    blogs.items.length > 0 &&
+    blogs.items.map((blog) => (
+      <Col key={blog.sys.id} xs={12} lg={10}>
+        <BlogCard blog={blog} />
       </Col>
     ));
 
@@ -120,6 +134,10 @@ const Home = function HomeComponent() {
               <p>Loading...</p>
             )}
 
+            {projects.items.length === 0 && projects.status === 'data' && (
+              <p>No data</p>
+            )}
+
             {projects.items.length > 0 && projectList}
           </Row>
 
@@ -144,17 +162,15 @@ const Home = function HomeComponent() {
           </Row>
 
           <Row className={homeStyles.blogListBlogRow}>
-            <Col xs={12} lg={10}>
-              <BlogCard />
-            </Col>
+            {blogs.items.length === 0 && blogs.status === 'loading' && (
+              <p>Loading...</p>
+            )}
 
-            <Col xs={12} lg={10}>
-              <BlogCard />
-            </Col>
+            {blogs.items.length === 0 && blogs.status === 'data' && (
+              <p>No data</p>
+            )}
 
-            <Col xs={12} lg={10}>
-              <BlogCard />
-            </Col>
+            {blogs.items.length > 0 && blogList}
           </Row>
 
           <Row>

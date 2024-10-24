@@ -49,71 +49,77 @@ const Navbar = function NavbarComponent() {
                   [mainStyles.navbarCollapseShow]: collapse,
                 })}
               >
-                <ul className={mainStyles.navbarMenu}>
-                  <NavLink
-                    to="/"
-                    className={mainStyles.navbarMenuLink}
-                    onClick={handleCollapseClose}
-                  >
-                    <li className={mainStyles.navbarMenuItem}>Home</li>
-                  </NavLink>
+                <Container>
+                  <Row>
+                    <Col>
+                      <ul className={mainStyles.navbarMenu}>
+                        <NavLink
+                          to="/"
+                          className={mainStyles.navbarMenuLink}
+                          onClick={handleCollapseClose}
+                        >
+                          <li className={mainStyles.navbarMenuItem}>Home</li>
+                        </NavLink>
 
-                  <NavLink
-                    to="/project"
-                    className={mainStyles.navbarMenuLink}
-                    onClick={handleCollapseClose}
-                  >
-                    <li className={mainStyles.navbarMenuItem}>Project</li>
-                  </NavLink>
+                        <NavLink
+                          to="/project"
+                          className={mainStyles.navbarMenuLink}
+                          onClick={handleCollapseClose}
+                        >
+                          <li className={mainStyles.navbarMenuItem}>Project</li>
+                        </NavLink>
 
-                  <NavLink
-                    to="/blog"
-                    className={mainStyles.navbarMenuLink}
-                    onClick={handleCollapseClose}
-                  >
-                    <li className={mainStyles.navbarMenuItem}>Blog</li>
-                  </NavLink>
+                        <NavLink
+                          to="/blog"
+                          className={mainStyles.navbarMenuLink}
+                          onClick={handleCollapseClose}
+                        >
+                          <li className={mainStyles.navbarMenuItem}>Blog</li>
+                        </NavLink>
 
-                  <NavLink
-                    to="/"
-                    className={mainStyles.navbarMenuLink}
-                    onClick={handleCollapseClose}
-                  >
-                    <li className={mainStyles.navbarMenuItem}>Contact</li>
-                  </NavLink>
-                </ul>
+                        <NavLink
+                          to="/"
+                          className={mainStyles.navbarMenuLink}
+                          onClick={handleCollapseClose}
+                        >
+                          <li className={mainStyles.navbarMenuItem}>Contact</li>
+                        </NavLink>
+                      </ul>
 
-                <div className={mainStyles.navbarSocial}>
-                  <a
-                    href="https://www.google.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={mainStyles.navbarSocialItem}
-                    aria-label="GitHub"
-                  >
-                    <FontAwesomeIcon icon={['fab', 'github']} />
-                  </a>
+                      <div className={mainStyles.navbarSocial}>
+                        <a
+                          href="https://www.google.com"
+                          target="_blank"
+                          rel="noreferrer"
+                          className={mainStyles.navbarSocialItem}
+                          aria-label="GitHub"
+                        >
+                          <FontAwesomeIcon icon={['fab', 'github']} />
+                        </a>
 
-                  <a
-                    href="https://www.google.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={mainStyles.navbarSocialItem}
-                    aria-label="LinkedIn"
-                  >
-                    <FontAwesomeIcon icon={['fab', 'linkedin']} />
-                  </a>
+                        <a
+                          href="https://www.google.com"
+                          target="_blank"
+                          rel="noreferrer"
+                          className={mainStyles.navbarSocialItem}
+                          aria-label="LinkedIn"
+                        >
+                          <FontAwesomeIcon icon={['fab', 'linkedin']} />
+                        </a>
 
-                  <a
-                    href="https://www.google.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={mainStyles.navbarSocialItem}
-                    aria-label="X/Twitter"
-                  >
-                    <FontAwesomeIcon icon={['fab', 'square-x-twitter']} />
-                  </a>
-                </div>
+                        <a
+                          href="https://www.google.com"
+                          target="_blank"
+                          rel="noreferrer"
+                          className={mainStyles.navbarSocialItem}
+                          aria-label="X/Twitter"
+                        >
+                          <FontAwesomeIcon icon={['fab', 'square-x-twitter']} />
+                        </a>
+                      </div>
+                    </Col>
+                  </Row>
+                </Container>
               </div>
             </Col>
           </Row>
