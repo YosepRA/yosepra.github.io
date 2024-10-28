@@ -9,10 +9,10 @@ import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
-  selectProjects,
-  fetchProjects,
+  selectProjectList,
+  fetchProjectList,
 } from '@Features/project/projectSlice.js';
-import { selectBlogs, fetchBlogs } from '@Features/blog/blogSlice.js';
+import { selectBlogList, fetchBlogList } from '@Features/blog/blogSlice.js';
 
 import ProjectCard from '@Components/ui/ProjectCard/index.jsx';
 import BlogCard from '@Components/ui/BlogCard/index.jsx';
@@ -24,8 +24,8 @@ import reactIcon from '@Assets/icons/React-White.svg';
 import homeStyles from './styles/home.module.scss';
 
 const Home = function HomeComponent() {
-  const projects = useSelector(selectProjects);
-  const blogs = useSelector(selectBlogs);
+  const projects = useSelector(selectProjectList);
+  const blogs = useSelector(selectBlogList);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,8 +36,8 @@ const Home = function HomeComponent() {
       limit: 3,
     };
 
-    dispatch(fetchProjects(projectParams));
-    dispatch(fetchBlogs(blogParams));
+    dispatch(fetchProjectList(projectParams));
+    dispatch(fetchBlogList(blogParams));
   }, []);
 
   const projectList =

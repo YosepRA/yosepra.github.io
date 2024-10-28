@@ -11,14 +11,27 @@ const initialState = {
   page: 1,
   total: 0,
   pageCount: 0,
+  blogPost: null,
   status: 'idle', // idle, loading, error
-  error: '',
+  error: {
+    id: '',
+    message: '',
+  },
 };
 
-export const fetchBlogs = createAsyncThunk(
-  'blog/fetchBlogs',
+export const fetchBlogList = createAsyncThunk(
+  'blog/fetchBlogList',
   async (searchParams) => {
-    const result = await blogAPI.getBlogs(searchParams);
+    const result = await blogAPI.getBlogList(searchParams);
+
+    return result;
+  },
+);
+
+export const fetchBlogPost = createAsyncThunk(
+  'blog/fetchBlogPost',
+  async (id) => {
+    const result = await blogAPI.getBlogPost(id);
 
     return result;
   },
@@ -31,14 +44,17 @@ export const blogSlice = createSlice({
     setStatus(state, action) {
       state.status = action.payload;
     },
+    resetBlogPost(state) {
+      state.blogPost = null;
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchBlogs.pending, (state) => {
+      .addCase(fetchBlogList.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(
-        fetchBlogs.fulfilled,
+        fetchBlogList.fulfilled,
         (state, { payload: { items, total, skip, limit } }) => {
           state.status = 'idle';
           state.items = items;
@@ -47,14 +63,25 @@ export const blogSlice = createSlice({
           state.pageCount = Math.ceil(total / limit);
         },
       )
-      .addCase(fetchBlogs.rejected, (state, { payload }) => {
+      .addCase(fetchBlogList.rejected, (state, { payload }) => {
         state.status = 'error';
-        state.error = payload.message;
+        state.error.message = payload.message;
+      })
+      .addCase(fetchBlogPost.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchBlogPost.fulfilled, (state, { payload }) => {
+        state.blogPost = payload;
+        state.status = 'idle';
+      })
+      .addCase(fetchBlogPost.rejected, (state, { payload }) => {
+        state.status = 'error';
+        state.error.message = payload;
       });
   },
 });
 
-export const { setStatus } = blogSlice.actions;
+export const { setStatus, resetBlogPost } = blogSlice.actions;
 
 export default blogSlice.reducer;
 
@@ -65,8 +92,9 @@ export const selectLoadingStatus = (state) => state.blog.status;
 export const selectPage = (state) => state.blog.page;
 export const selectTotalItems = (state) => state.blog.total;
 export const selectPageCount = (state) => state.blog.pageCount;
+export const selectBlogPost = (state) => state.blog.blogPost;
 
-export const selectBlogs = createSelector(
+export const selectBlogList = createSelector(
   [
     selectBlogItems,
     selectLoadingStatus,
@@ -81,4 +109,9 @@ export const selectBlogs = createSelector(
     total,
     pageCount,
   }),
+);
+
+export const selectBlogPostAndStatus = createSelector(
+  [selectBlogPost, selectLoadingStatus],
+  (blog, status) => ({ blog, status }),
 );

@@ -15,10 +15,10 @@ const initialState = {
   error: '',
 };
 
-export const fetchProjects = createAsyncThunk(
+export const fetchProjectList = createAsyncThunk(
   'project/fetchProjects',
   async (searchParams) => {
-    const result = await projectAPI.getProjects(searchParams);
+    const result = await projectAPI.getProjectList(searchParams);
 
     return result;
   },
@@ -34,11 +34,11 @@ export const projectSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProjects.pending, (state) => {
+      .addCase(fetchProjectList.pending, (state) => {
         state.status = 'loading';
       })
       .addCase(
-        fetchProjects.fulfilled,
+        fetchProjectList.fulfilled,
         (state, { payload: { items, total, skip, limit } }) => {
           state.status = 'idle';
           state.items = items;
@@ -47,7 +47,7 @@ export const projectSlice = createSlice({
           state.pageCount = Math.ceil(total / limit);
         },
       )
-      .addCase(fetchProjects.rejected, (state, { payload }) => {
+      .addCase(fetchProjectList.rejected, (state, { payload }) => {
         state.status = 'error';
         state.error = payload.message;
       });
@@ -66,7 +66,7 @@ export const selectPage = (state) => state.project.page;
 export const selectTotalItems = (state) => state.project.total;
 export const selectPageCount = (state) => state.project.pageCount;
 
-export const selectProjects = createSelector(
+export const selectProjectList = createSelector(
   [
     selectProjectItems,
     selectLoadingStatus,

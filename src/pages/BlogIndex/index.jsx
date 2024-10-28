@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { selectBlogs, fetchBlogs } from '@Features/blog/blogSlice.js';
+import { selectBlogList, fetchBlogList } from '@Features/blog/blogSlice.js';
 
 import BlogCard from '@Components/ui/BlogCard/index.jsx';
 import Pagination from '@Components/ui/Pagination/index.jsx';
@@ -14,7 +14,7 @@ import Pagination from '@Components/ui/Pagination/index.jsx';
 import blogIndexStyles from './styles/blog-index.module.scss';
 
 const BlogIndex = function BlogIndexComponent() {
-  const blogs = useSelector(selectBlogs);
+  const blogs = useSelector(selectBlogList);
   const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -37,7 +37,7 @@ const BlogIndex = function BlogIndexComponent() {
       skip,
     };
 
-    dispatch(fetchBlogs(contentfulParams));
+    dispatch(fetchBlogList(contentfulParams));
 
     return undefined;
   }, [pageParams]);
