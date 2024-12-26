@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import mainStyles from '@Styles/main02.module.scss';
+import mainStyles from '@Styles/main.module.scss';
 
 const Navbar = function NavbarComponent() {
   const [collapse, setCollapse] = useState(false);
@@ -78,7 +78,7 @@ const Navbar = function NavbarComponent() {
                         </NavLink>
 
                         <NavLink
-                          to="/"
+                          to="/#contact"
                           className={mainStyles.navbarMenuLink}
                           onClick={handleCollapseClose}
                         >

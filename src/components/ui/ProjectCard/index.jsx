@@ -9,15 +9,18 @@ const ProjectCard = function ProjectCardComponent({ project: { fields } }) {
       <div className={styles.projectCardThumbnail}>
         <h3 className={styles.projectCardThumbnailTitle}>{fields.name}</h3>
 
-        <p className={styles.projectCardThumbnailShortDesc}>{fields.summary}</p>
+        <p className={styles.projectCardThumbnailShortDesc}>
+          {fields.shortDescription}
+        </p>
       </div>
 
       <div className={styles.projectCardDetails}>
         <h3 className={styles.projectCardDetailsTitle}>{fields.name}</h3>
 
         <p className={styles.projectCardDetailsDescription}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem eum
-          repudiandae voluptas reiciendis quas ut eos, ipsum beatae?
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae
+          ab explicabo a in veritatis alias accusamus maxime molestiae,
+          cupiditate excepturi.
         </p>
 
         <div className={styles.projectCardDetailsAction}>

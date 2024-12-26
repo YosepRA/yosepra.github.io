@@ -1,12 +1,12 @@
-@import './config02';
+@use './config';
 
 html,
 body {
   height: 100%;
-  background-color: $c-primary-400;
-  @include Inter();
+  background-color: config.$c-primary-400;
+  @include config.Inter();
   font-weight: 400;
-  color: $c-shades-100;
+  color: config.$c-shades-100;
   line-height: 1.5;
 }
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
@@ -27,6 +27,7 @@ const Home = function HomeComponent() {
   const projects = useSelector(selectProjectList);
   const blogs = useSelector(selectBlogList);
   const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     const projectParams = {
@@ -39,6 +40,15 @@ const Home = function HomeComponent() {
     dispatch(fetchProjectList(projectParams));
     dispatch(fetchBlogList(blogParams));
   }, []);
+
+  useEffect(() => {
+    if (location.hash === '#contact') {
+      const contact = document.getElementById('contact');
+
+      contact.scrollIntoView();
+      // window.scrollTo({ top: 300, behavior: 'smooth' });
+    }
+  }, [location.hash]);
 
   const projectList =
     projects.items.length > 0 &&
@@ -90,15 +100,23 @@ const Home = function HomeComponent() {
             <Col xs={12} md={6} xl={5}>
               <div className="hero__right">
                 <div className={homeStyles.heroIntro}>
+                  {/* <p>
+                    I&apos;m a full-stack web developer who specializes in React
+                    and Node.js. I build web applications to make my life a bit
+                    easier. And I hope, by providing service to others, my
+                    skills can make other people&apos;s life easier too.
+                  </p> */}
+
                   <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Repellendus esse officia molestias hic ipsa a dignissimos
-                    repellat error at non? Porro pariatur nisi reprehenderit
-                    corporis totam repellat architecto aperiam enim!
+                    Software development can be difficult and gritty. However,
+                    when the building blocks are integrating together and works
+                    well, there is no more satisfying feeling than that. That is
+                    why I continue to build and learn.
                   </p>
+
                   <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Illum, labore.
+                    Feel free to check out my works and contact me if you need
+                    me to help you build your apps.
                   </p>
                 </div>
 

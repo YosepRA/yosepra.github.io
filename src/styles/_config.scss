@@ -1,35 +1,49 @@
-@import 'bootstrap/scss/mixins/breakpoints';
-@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Lato:wght@300;400;700&display=swap');
+@forward 'bootstrap/scss/mixins/breakpoints';
 
-$main-color: #343838;
-$secondary-color: #00dffc;
+$c-primary-200: #a3a8a8;
+$c-primary-300: #565c5c;
+$c-primary-400: #2d3030;
+$c-primary-500: #1e2020;
+$c-primary-600: #0a0b0b;
 
-$main-color-dark-1: #242626;
-$main-color-dark-2: #181a1a;
-$main-color-grey: #495050;
-$secondary-color-dark-1: #00b4cc;
-$secondary-color-dark-2: #008c9e;
-$secondary-color-dark-3: #008c9e;
-$border-radius: 1.3rem;
+$c-shades-100: #ffffff;
+$c-shades-200: #cccccc;
+$c-shades-400: #999999;
+$c-shades-600: #666666;
+$c-shades-800: #333333;
+$c-shades-1000: #000000;
 
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-  'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
-  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+$c-bp-default: #ffffff;
+$c-bp-hover: #d9d9d9;
+$c-bp-active: #bfbfbf;
+$c-bp-disabled: #a9a9a9;
+
+$c-bs-default: rgba(#ffffff, 0);
+$c-bs-hover: #ffffff;
+$c-bs-active: #bfbfbf;
+$c-bs-disabled: #a9a9a9;
+
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
   lg: 992px,
   xl: 1200px,
+  xxl: 1400px,
 );
 
-@mixin Lato {
-  font-family: 'Lato', $font-family-sans-serif;
-}
+$border-radius: 3px;
+/* Navbar and footer heights are determined from the element size results on
+render. Values are adjusted according to screen sizes. */
+$navbar-height: 58px;
+$footer-height: 69px;
+$footer-margin-top: 80px;
 
-@mixin CarterOne {
-  font-family: 'Carter One', 'Lato', $font-family-sans-serif;
-}
+/* =============== Typography =============== */
+
+@forward 'typography';
+
+/* =============== Utilities =============== */
 
 @mixin flexCenter {
   display: flex;
@@ -37,38 +51,75 @@ $grid-breakpoints: (
   align-items: center;
 }
 
-@mixin allTransition {
-  transition: all 200ms ease-out;
+@mixin placeholderBox($width, $height: 0) {
+  display: block;
+  border-radius: 3px;
+  background-color: $c-shades-100;
+
+  // Rectangle or square.
+  @if $height != 0 {
+    width: $width;
+    height: $height;
+  } @else {
+    width: $width;
+    height: $width;
+  }
 }
 
-@mixin mainButton {
-  display: block;
-  width: 140px;
-  background-color: $main-color;
-  padding: 0.3rem 0.8rem;
-  border: 1px solid white;
-  color: white;
-  font-weight: 300;
-  text-align: center;
-  @include allTransition();
+@mixin textShadow {
+  text-shadow: 0 4px 4px rgba($c-shades-1000, 0.25);
+}
+
+/* =============== Components =============== */
+
+@mixin button {
+  display: inline-block;
+  min-width: 100px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: $border-radius;
+  transition: all 300ms ease-out;
+  line-height: 1.2;
+}
+
+@mixin iconButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  border-radius: $border-radius;
+  background-color: transparent;
+}
+
+@mixin primaryButton {
+  @include button();
+  background-color: $c-bp-default;
+  color: $c-shades-800;
 
   &:hover {
-    background-color: $main-color-dark-1;
-  }
-
-  &:disabled,
-  &.btn-disabled {
-    background-color: $main-color-grey;
-    border: 1px solid $main-color-grey;
-    cursor: not-allowed;
+    background-color: $c-bp-hover;
   }
 }
 
-@mixin carouselIndicators {
-  li {
-    width: 8px;
-    height: 8px;
-    margin: 0 0.3rem;
-    border-radius: 50%;
+@mixin secondaryIconButton {
+  @include iconButton();
+  background-color: $c-primary-500;
+  color: $c-shades-100;
+  border: 2px solid $c-shades-100;
+}
+
+@mixin primaryButtonLink {
+  @include primaryButton();
+
+  & {
+    text-align: center;
+    text-decoration: none;
   }
+}
+
+@mixin buttonReset {
+  border: none;
+  background-color: transparent;
 }

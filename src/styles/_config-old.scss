@@ -1,0 +1,74 @@
+@import 'bootstrap/scss/mixins/breakpoints';
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Lato:wght@300;400;700&display=swap');
+
+$main-color: #343838;
+$secondary-color: #00dffc;
+
+$main-color-dark-1: #242626;
+$main-color-dark-2: #181a1a;
+$main-color-grey: #495050;
+$secondary-color-dark-1: #00b4cc;
+$secondary-color-dark-2: #008c9e;
+$secondary-color-dark-3: #008c9e;
+$border-radius: 1.3rem;
+
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+  'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@mixin Lato {
+  font-family: 'Lato', $font-family-sans-serif;
+}
+
+@mixin CarterOne {
+  font-family: 'Carter One', 'Lato', $font-family-sans-serif;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin allTransition {
+  transition: all 200ms ease-out;
+}
+
+@mixin mainButton {
+  display: block;
+  width: 140px;
+  background-color: $main-color;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid white;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+  @include allTransition();
+
+  &:hover {
+    background-color: $main-color-dark-1;
+  }
+
+  &:disabled,
+  &.btn-disabled {
+    background-color: $main-color-grey;
+    border: 1px solid $main-color-grey;
+    cursor: not-allowed;
+  }
+}
+
+@mixin carouselIndicators {
+  li {
+    width: 8px;
+    height: 8px;
+    margin: 0 0.3rem;
+    border-radius: 50%;
+  }
+}

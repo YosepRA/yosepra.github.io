@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
-import mainStyles from '../styles/main02.module.scss';
+import mainStyles from '../styles/main.module.scss';
 
 function Footer() {
   return (

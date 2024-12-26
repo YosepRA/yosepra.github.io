@@ -1,10 +1,10 @@
-@import '@Styles/config02';
+@use '@Styles/config';
 
 .project-card {
   position: relative;
   width: 100%;
   height: 186px;
-  border-radius: $border-radius;
+  border-radius: config.$border-radius;
   z-index: 1;
   transition: height 300ms ease-out;
 
@@ -30,19 +30,19 @@
     padding: 16px 12px;
     border-radius: inherit;
     background-color: #b0e7f2;
-    color: $c-shades-100;
+    color: config.$c-shades-100;
     z-index: 1;
 
     &-title {
       margin-bottom: 10px;
-      @include display500();
-      @include textShadow();
+      @include config.display500();
+      @include config.textShadow();
     }
 
     &-short-desc {
       margin-bottom: 0;
-      font-size: $fsz-body-300;
-      @include textShadow();
+      font-size: config.$fsz-body-300;
+      @include config.textShadow();
     }
   }
 
@@ -58,12 +58,12 @@
     width: 100%;
     height: 100%;
     padding: 16px 12px;
-    background-color: $c-primary-500;
+    background-color: config.$c-primary-500;
     border-radius: inherit;
     z-index: 2;
 
     &-title {
-      @include display500();
+      @include config.display500();
       margin-bottom: 0;
     }
 
@@ -78,7 +78,7 @@
       column-gap: 10px;
 
       &-link {
-        @include secondaryIconButton();
+        @include config.secondaryIconButton();
       }
     }
   }
@@ -86,7 +86,7 @@
 
 /* =============== Breakpoints =============== */
 
-@include media-breakpoint-up(md) {
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
   .project-card {
     height: 380px;
 
@@ -98,7 +98,7 @@
       padding: 30px 16px;
 
       &-title {
-        @include display600();
+        @include config.display600();
       }
     }
 
@@ -107,23 +107,23 @@
       padding: 24px 16px;
 
       &-title {
-        @include display600();
+        @include config.display600();
       }
     }
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include config.media-breakpoint-up(lg, config.$grid-breakpoints) {
   .project-card {
     &-details {
       &-description {
-        @include body300Regular();
+        @include config.body300Regular();
       }
     }
   }
 }
 
-@include media-breakpoint-up(xl) {
+@include config.media-breakpoint-up(xl, config.$grid-breakpoints) {
   .project-card {
     height: 480px;
 
@@ -133,7 +133,7 @@
 
     &-details {
       &-description {
-        @include body400Regular();
+        @include config.body400Regular();
       }
     }
   }
