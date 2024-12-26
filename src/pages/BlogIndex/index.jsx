@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { selectBlogList, fetchBlogList } from '@Features/blog/blogSlice.js';
+import { selectBlogList, fetchBlogList } from '@Features/blog/blog-slice.js';
 
 import BlogCard from '@Components/ui/BlogCard/index.jsx';
 import Pagination from '@Components/ui/Pagination/index.jsx';
@@ -67,7 +66,7 @@ const BlogIndex = function BlogIndexComponent() {
 
       <section className={blogIndexStyles.blogIndex}>
         <Container>
-          <Row className={blogIndexStyles.blogIndexControlRow}>
+          {/* <Row className={blogIndexStyles.blogIndexControlRow}>
             <Col lg={10}>
               <div className={blogIndexStyles.blogIndexControl}>
                 <div className={blogIndexStyles.blogIndexControlItem} />
@@ -75,7 +74,7 @@ const BlogIndex = function BlogIndexComponent() {
                 <div className={blogIndexStyles.blogIndexControlItem} />
               </div>
             </Col>
-          </Row>
+          </Row> */}
 
           <Row className={blogIndexStyles.blogIndexListRow}>
             {blogs.items.length === 0 && blogs.status === 'loading' && (

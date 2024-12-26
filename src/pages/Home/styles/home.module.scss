@@ -94,63 +94,6 @@
   }
 }
 
-.contact {
-  &-title {
-    margin-bottom: 46px;
-    @include config.display500();
-    text-align: center;
-  }
-
-  &-list {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    row-gap: 24px;
-    width: 240px;
-    margin: 0 auto 46px;
-
-    &-item {
-      display: grid;
-      grid-template-columns: 24px 1fr;
-      align-items: center;
-      column-gap: 16px;
-    }
-
-    &-icon {
-      display: inline-flex;
-      justify-content: center;
-      width: 100%;
-      font-size: 24px;
-
-      &-whatsapp {
-        font-size: 28px;
-      }
-    }
-  }
-
-  &-form {
-    &-intro {
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    &-input {
-      &-note {
-        &.contact-form-input-note-bs-override {
-          display: block;
-          margin-top: 10px;
-          color: config.$c-shades-100;
-          @include config.body200Italic();
-        }
-      }
-    }
-
-    &-send {
-      @include config.primaryButton();
-    }
-  }
-}
-
 /* =============== Breakpoints =============== */
 
 @include config.media-breakpoint-up(md, config.$grid-breakpoints) {
@@ -218,33 +161,11 @@
       gap: 32px;
     }
   }
-
-  .contact {
-    &-title {
-      margin-bottom: 24px;
-    }
-
-    &-list {
-      margin: 0 auto 0 0;
-    }
-
-    &-form {
-      &-intro {
-        text-align: left;
-      }
-    }
-  }
 }
 
 @include config.media-breakpoint-up(lg, config.$grid-breakpoints) {
   .blog-list {
     &-blog-row {
-      justify-content: center;
-    }
-  }
-
-  .contact {
-    &-row {
       justify-content: center;
     }
   }
@@ -287,17 +208,6 @@
     &-title {
       margin-bottom: 32px;
       @include config.display600();
-    }
-  }
-
-  .contact {
-    &-title {
-      margin-bottom: 32px;
-      @include config.display600();
-    }
-
-    &-list {
-      margin: 0 auto;
     }
   }
 }

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import projectReducer from '@Features/project/projectSlice.js';
-import blogReducer from '@Features/blog/blogSlice.js';
+import projectReducer from '@Features/project/project-slice.js';
+import blogReducer from '@Features/blog/blog-slice.js';
 
 const store = configureStore({
   reducer: {

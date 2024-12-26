@@ -4,7 +4,7 @@ import {
   createSelector,
 } from '@reduxjs/toolkit';
 
-import blogAPI from './blogAPI.js';
+import blogAPI from './blog-api.js';
 
 const initialState = {
   items: [],

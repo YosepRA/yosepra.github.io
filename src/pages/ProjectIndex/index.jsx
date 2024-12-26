@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import {
   selectProjectList,
   fetchProjectList,
-} from '@Features/project/projectSlice.js';
+} from '@Features/project/project-slice.js';
 
 import ProjectCard from '@Components/ui/ProjectCard/index.jsx';
 import Pagination from '@Components/ui/Pagination/index.jsx';
@@ -88,7 +88,7 @@ const ProjectIndex = function ProjectIndexComponent() {
 
       <section className={projectIndexStyles.projectIndex}>
         <Container>
-          <Row>
+          {/* <Row>
             <Col>
               <div className={projectIndexStyles.projectIndexControl}>
                 <div className={projectIndexStyles.projectIndexControlItem} />
@@ -96,7 +96,7 @@ const ProjectIndex = function ProjectIndexComponent() {
                 <div className={projectIndexStyles.projectIndexControlItem} />
               </div>
             </Col>
-          </Row>
+          </Row> */}
 
           <Row
             className={cn(projectIndexStyles.projectIndexListRow, 'gx-md-3')}

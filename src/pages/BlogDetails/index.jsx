@@ -11,7 +11,7 @@ import {
   selectBlogPostAndStatus,
   fetchBlogPost,
   resetBlogPost,
-} from '@Features/blog/blogSlice.js';
+} from '@Features/blog/blog-slice.js';
 
 import blogDetailsStyles from './styles/blog-details.module.scss';
 

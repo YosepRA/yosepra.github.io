@@ -5,14 +5,12 @@ import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
   selectProjectList,
   fetchProjectList,
-} from '@Features/project/projectSlice.js';
-import { selectBlogList, fetchBlogList } from '@Features/blog/blogSlice.js';
+} from '@Features/project/project-slice.js';
+import { selectBlogList, fetchBlogList } from '@Features/blog/blog-slice.js';
 
 import ProjectCard from '@Components/ui/ProjectCard/index.jsx';
 import BlogCard from '@Components/ui/BlogCard/index.jsx';
@@ -21,6 +19,7 @@ import mongoDBIcon from '@Assets/icons/MongoDB-White.svg';
 import nodeJSIcon from '@Assets/icons/NodeJS-White.svg';
 import reactIcon from '@Assets/icons/React-White.svg';
 
+import Contact from './Contact.jsx';
 import homeStyles from './styles/home.module.scss';
 
 const Home = function HomeComponent() {
@@ -46,7 +45,6 @@ const Home = function HomeComponent() {
       const contact = document.getElementById('contact');
 
       contact.scrollIntoView();
-      // window.scrollTo({ top: 300, behavior: 'smooth' });
     }
   }, [location.hash]);
 
@@ -100,13 +98,6 @@ const Home = function HomeComponent() {
             <Col xs={12} md={6} xl={5}>
               <div className="hero__right">
                 <div className={homeStyles.heroIntro}>
-                  {/* <p>
-                    I&apos;m a full-stack web developer who specializes in React
-                    and Node.js. I build web applications to make my life a bit
-                    easier. And I hope, by providing service to others, my
-                    skills can make other people&apos;s life easier too.
-                  </p> */}
-
                   <p>
                     Software development can be difficult and gritty. However,
                     when the building blocks are integrating together and works
@@ -203,96 +194,7 @@ const Home = function HomeComponent() {
         </Container>
       </section>
 
-      <section id="contact" className={homeStyles.contact}>
-        <Container>
-          <Row>
-            <Col>
-              <h2 className={homeStyles.contactTitle}>Contact Me</h2>
-            </Col>
-          </Row>
-
-          <Row className={homeStyles.contactRow}>
-            <Col xs={12} md={5} lg={4} xl={5}>
-              <div className={homeStyles.contactList}>
-                <div className={homeStyles.contactListItem}>
-                  <span className={homeStyles.contactListIcon}>
-                    <FontAwesomeIcon icon="envelope" />
-                  </span>
-
-                  <span className="contact-list__text">
-                    studioyosepra@gmail.com
-                  </span>
-                </div>
-
-                <div className={homeStyles.contactListItem}>
-                  <span
-                    className={cn(
-                      homeStyles.contactListIcon,
-                      homeStyles.contactListIconWhatsapp,
-                    )}
-                  >
-                    <FontAwesomeIcon icon={['fab', 'whatsapp']} />
-                  </span>
-
-                  <span className="contact-list__text">(+62) 85861251765</span>
-                </div>
-
-                <div className={homeStyles.contactListItem}>
-                  <span className={homeStyles.contactListIcon}>
-                    <FontAwesomeIcon icon={['fab', 'discord']} />
-                  </span>
-
-                  <span className="contact-list__text">yosepra</span>
-                </div>
-              </div>
-            </Col>
-
-            <Col xs={12} md={7} lg={6} xl={5}>
-              <div className={homeStyles.contactForm}>
-                <p className={homeStyles.contactFormIntro}>
-                  Or, you can contact me using this form
-                </p>
-
-                <Form>
-                  <Form.Group className="mb-3" controlId="contactName">
-                    <Form.Label>Name</Form.Label>
-
-                    <Form.Control type="text" placeholder="Enter name" />
-                  </Form.Group>
-
-                  <Form.Group className="mb-3" controlId="contactEmail">
-                    <Form.Label>Email</Form.Label>
-
-                    <Form.Control type="email" placeholder="Enter email" />
-                    <Form.Text
-                      className={cn(
-                        homeStyles.contactFormInputNote,
-                        homeStyles.contactFormInputNoteBsOverride,
-                      )}
-                    >
-                      I will send my reply to your email.
-                    </Form.Text>
-                  </Form.Group>
-
-                  <Form.Group className="mb-3" controlId="contactMessage">
-                    <Form.Label>Message</Form.Label>
-
-                    <Form.Control
-                      as="textarea"
-                      rows={6}
-                      placeholder="What can I help you with..."
-                    />
-                  </Form.Group>
-
-                  <button type="submit" className={homeStyles.contactFormSend}>
-                    Send
-                  </button>
-                </Form>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <Contact />
     </>
   );
 };
