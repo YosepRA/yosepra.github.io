@@ -1,0 +1,138 @@
+@use '@Styles/config';
+
+.blog {
+  &-header {
+    margin: 24px 0;
+    text-align: center;
+  }
+
+  &-title {
+    width: 80%;
+    margin: 0 auto 8px;
+    @include config.headingH6();
+  }
+
+  &-date {
+    margin-bottom: 0;
+    @include config.body200Italic();
+  }
+
+  &-cover {
+    margin-bottom: 24px;
+  }
+
+  &-image {
+    width: 100%;
+    height: 157px;
+    margin-bottom: 8px;
+    object-fit: cover;
+
+    &-credit {
+      @include config.body200Italic();
+    }
+  }
+
+  &-body {
+    margin-bottom: 20px;
+    text-align: justify;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-action {
+    &-back {
+      position: relative;
+      padding: 0;
+      background: none;
+      border: none;
+      color: config.$c-shades-100;
+      @include config.body300Italic();
+
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: config.$c-shades-100;
+      }
+    }
+  }
+}
+
+/* =============== Breakpoints =============== */
+
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
+  .blog {
+    &-header {
+      margin: 60px 0 24px;
+
+      &-row {
+        justify-content: center;
+      }
+    }
+
+    &-title {
+      width: 100%;
+      margin: 0 auto 10px;
+      @include config.headingH5();
+    }
+
+    &-date {
+      @include config.body300Italic();
+    }
+
+    &-cover {
+      &-row {
+        justify-content: center;
+      }
+    }
+
+    &-image {
+      height: 294px;
+
+      &-credit {
+        @include config.body300Italic();
+      }
+    }
+
+    &-body {
+      margin-bottom: 24px;
+      text-align: left;
+
+      &-row {
+        justify-content: center;
+      }
+    }
+
+    &-action {
+      &-row {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@include config.media-breakpoint-up(xl, config.$grid-breakpoints) {
+  .blog {
+    &-header {
+      margin-bottom: 32px;
+    }
+
+    &-title {
+      @include config.headingH4();
+    }
+
+    &-cover {
+      margin-bottom: 32px;
+    }
+
+    &-image {
+      height: 386px;
+      margin-bottom: 10px;
+    }
+  }
+}

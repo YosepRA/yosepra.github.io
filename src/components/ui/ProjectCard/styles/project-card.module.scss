@@ -1,0 +1,140 @@
+@use '@Styles/config';
+
+.project-card {
+  position: relative;
+  width: 100%;
+  height: 186px;
+  border-radius: config.$border-radius;
+  z-index: 1;
+  transition: height 300ms ease-out;
+
+  &:hover {
+    height: 360px;
+
+    .project-card {
+      &-details {
+        display: flex;
+      }
+    }
+  }
+
+  &-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    padding: 16px 12px;
+    border-radius: inherit;
+    background-color: #b0e7f2;
+    color: config.$c-shades-100;
+    z-index: 1;
+
+    &-title {
+      margin-bottom: 10px;
+      @include config.display500();
+      @include config.textShadow();
+    }
+
+    &-short-desc {
+      margin-bottom: 0;
+      font-size: config.$fsz-body-300;
+      @include config.textShadow();
+    }
+  }
+
+  &-details {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: start;
+    gap: 16px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 16px 12px;
+    background-color: config.$c-primary-500;
+    border-radius: inherit;
+    z-index: 2;
+
+    &-title {
+      @include config.display500();
+      margin-bottom: 0;
+    }
+
+    &-description {
+      margin-bottom: 0;
+    }
+
+    &-action {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      column-gap: 10px;
+
+      &-link {
+        @include config.secondaryIconButton();
+      }
+    }
+  }
+}
+
+/* =============== Breakpoints =============== */
+
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
+  .project-card {
+    height: 380px;
+
+    &:hover {
+      height: 380px;
+    }
+
+    &-thumbnail {
+      padding: 30px 16px;
+
+      &-title {
+        @include config.display600();
+      }
+    }
+
+    &-details {
+      display: none;
+      padding: 24px 16px;
+
+      &-title {
+        @include config.display600();
+      }
+    }
+  }
+}
+
+@include config.media-breakpoint-up(lg, config.$grid-breakpoints) {
+  .project-card {
+    &-details {
+      &-description {
+        @include config.body300Regular();
+      }
+    }
+  }
+}
+
+@include config.media-breakpoint-up(xl, config.$grid-breakpoints) {
+  .project-card {
+    height: 480px;
+
+    &:hover {
+      height: 480px;
+    }
+
+    &-details {
+      &-description {
+        @include config.body400Regular();
+      }
+    }
+  }
+}

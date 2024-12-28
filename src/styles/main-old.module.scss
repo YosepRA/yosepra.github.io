@@ -1,0 +1,169 @@
+@import './config';
+
+.content-section {
+  margin-bottom: 0;
+}
+
+.section {
+  &-header {
+    margin-bottom: 1rem;
+  }
+
+  &-title {
+    font-size: 1.3rem;
+  }
+
+  &-subtitle {
+    @include Lato();
+    font-weight: 300;
+    font-size: 1.1rem;
+  }
+}
+
+.main-button {
+  @include mainButton();
+
+  &-link {
+    text-decoration: none;
+    @include mainButton();
+
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+
+.toast {
+  bottom: 25px;
+  left: 15px;
+  z-index: 1030;
+  max-width: 400px;
+  transform: translateY(calc(150% + 25px));
+
+  &-active {
+    transform: translateY(0);
+  }
+
+  &.alert-override {
+    position: fixed;
+    margin-bottom: 0;
+    transition: transform 200ms ease-out;
+  }
+}
+
+.header {
+  background-color: $main-color;
+  box-shadow: 0px 4px 6px 0px rgba(35, 36, 36, 1);
+  transition: transform 200ms ease-out;
+  border-radius: 0 0 $border-radius $border-radius;
+
+  &-scroll {
+    transform: translateY(-150%);
+  }
+
+  &-brand {
+    @include CarterOne();
+
+    &.navbar-brand-override {
+      font-size: 1rem;
+    }
+  }
+
+  &-social {
+    display: inline-block;
+    margin-left: 0.8rem;
+    color: white;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+.content {
+  padding-top: 50px;
+}
+
+.footer {
+  margin-top: 6rem;
+  background-color: $main-color;
+  border-radius: $border-radius $border-radius 0 0;
+  box-shadow: 0px -8px 6px 0px rgba(35, 36, 36, 1);
+  text-align: center;
+
+  &-block {
+    margin-bottom: 0;
+    padding: 1rem 0;
+  }
+}
+
+.scroll-btn {
+  position: fixed;
+  right: 25px;
+  bottom: 35px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+  color: $main-color;
+  font-size: 1.2rem;
+  text-align: center;
+  box-shadow: 0 0 3px $main-color-dark-1;
+  @include allTransition();
+  visibility: hidden;
+  transform: scale(0);
+
+  &:hover {
+    background-color: $main-color;
+    color: white;
+    border: 1px solid white;
+  }
+
+  &-down {
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
+/* =============== Breakpoints =============== */
+
+@include media-breakpoint-up(sm) {
+  .header {
+    &-brand {
+      &.navbar-brand-override {
+        font-size: 1.3rem;
+      }
+    }
+
+    &-social {
+      margin-left: 1rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  .scroll-btn {
+    right: 35px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .section {
+    &-header {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .scroll-btn {
+    right: 55px;
+    bottom: 55px;
+  }
+
+  .footer {
+    margin-top: 10rem;
+  }
+}

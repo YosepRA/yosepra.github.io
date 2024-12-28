@@ -5,15 +5,22 @@ import mainStyles from '../styles/main.module.scss';
 
 function Footer() {
   return (
-    <Container fluid as="footer" className={mainStyles.footer}>
-      <Row>
-        <Col>
-          <p className={mainStyles.footerBlock}>
-            StudioYosepRA &copy; {new Date().getFullYear()}
-          </p>
-        </Col>
-      </Row>
-    </Container>
+    <footer className={mainStyles.footer}>
+      <Container>
+        <Row>
+          <Col xs={12}>
+            <p className={mainStyles.footerBrand}>StudioYosepRA</p>
+          </Col>
+
+          <Col xs={12}>
+            <p className={mainStyles.footerCopy}>
+              &copy; {new Date().getFullYear()} StudioYosepRA. All rights
+              reserved.
+            </p>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
   );
 }
 

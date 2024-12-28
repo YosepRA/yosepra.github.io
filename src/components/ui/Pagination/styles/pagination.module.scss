@@ -1,0 +1,54 @@
+@use '@Styles/config';
+
+$pagination-width: 267px;
+/* 
+  - Prev button
+  - Five in-between page buttons
+  - Next button
+*/
+$button-amount: 7;
+
+.pagination {
+  @include config.flexCenter();
+
+  &-container {
+    display: inline;
+    background-color: config.$c-bp-default;
+    border-radius: config.$border-radius;
+    box-shadow: 0 4px 4px rgba(config.$c-shades-1000, 0.25);
+  }
+
+  &-item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: calc($pagination-width / $button-amount);
+    height: 33px;
+    background-color: config.$c-bp-default;
+    text-decoration: none;
+    color: config.$c-primary-500;
+
+    &:first-child {
+      border-radius: config.$border-radius 0 0 config.$border-radius;
+    }
+
+    &:last-child {
+      border-radius: 0 config.$border-radius config.$border-radius 0;
+    }
+
+    &:hover {
+      background-color: config.$c-bp-hover;
+    }
+
+    &-active {
+      background-color: config.$c-primary-500;
+      color: config.$c-shades-100;
+      pointer-events: none;
+    }
+
+    &-disabled {
+      pointer-events: none;
+      background-color: config.$c-bp-disabled;
+    }
+  }
+}

@@ -1,27 +1,24 @@
-@import './config';
+@use './config';
 
 html,
 body {
   height: 100%;
-  background-color: darken($main-color, 3);
-  @include Lato();
-  font-weight: 300;
-  color: white;
+  background-color: config.$c-primary-400;
+  @include config.Inter();
+  font-weight: 400;
+  color: config.$c-shades-100;
+  line-height: 1.5;
 }
 
+// React container.
 #root {
   height: 100%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @include CarterOne();
-}
-
 b {
   font-weight: 700;
+}
+
+p {
+  margin-bottom: 16px;
 }

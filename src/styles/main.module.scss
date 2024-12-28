@@ -1,169 +1,179 @@
-@import './config';
+@use '@Styles/config';
 
-.content-section {
-  margin-bottom: 0;
-}
-
-.section {
-  &-header {
-    margin-bottom: 1rem;
-  }
-
-  &-title {
-    font-size: 1.3rem;
-  }
-
-  &-subtitle {
-    @include Lato();
-    font-weight: 300;
-    font-size: 1.1rem;
-  }
-}
-
-.main-button {
-  @include mainButton();
-
-  &-link {
-    @include mainButton();
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-      color: white;
-    }
-  }
-}
-
-.toast {
-  bottom: 25px;
-  left: 15px;
-  z-index: 1030;
-  max-width: 400px;
-  transform: translateY(calc(150% + 25px));
-
-  &-active {
-    transform: translateY(0);
-  }
-
-  &.alert-override {
-    position: fixed;
-    margin-bottom: 0;
-    transition: transform 200ms ease-out;
-  }
-}
-
-.header {
-  background-color: $main-color;
-  box-shadow: 0px 4px 6px 0px rgba(35, 36, 36, 1);
-  transition: transform 200ms ease-out;
-  border-radius: 0 0 $border-radius $border-radius;
-
-  &-scroll {
-    transform: translateY(-150%);
-  }
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 0;
+  background-color: config.$c-primary-500;
+  z-index: 100;
 
   &-brand {
-    @include CarterOne();
+    @include config.display400();
+    margin-bottom: 0;
+    color: config.$c-shades-100;
+    text-decoration: none;
+  }
 
-    &.navbar-brand-override {
-      font-size: 1rem;
+  &-collapse {
+    display: none;
+    position: absolute;
+    top: config.$navbar-height;
+    left: 0;
+    width: 100%;
+    background-color: config.$c-primary-500;
+
+    &-show {
+      display: block;
+    }
+  }
+
+  &-menu {
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    &-item {
+      display: block;
+      width: 100%;
+      padding: 18px 0;
+    }
+
+    &-link {
+      color: config.$c-shades-100;
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    &-toggle {
+      @include config.buttonReset();
+      display: block;
+      margin-left: auto;
+      color: config.$c-shades-100;
     }
   }
 
   &-social {
-    display: inline-block;
-    margin-left: 0.8rem;
-    color: white;
-    font-size: 1.2rem;
+    @include config.flexCenter();
+    padding: 18px 0;
+    column-gap: 16px;
 
-    &:hover {
-      color: white;
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      font-size: 24px;
+      color: config.$c-shades-100;
       text-decoration: none;
     }
   }
 }
 
-.content {
-  padding-top: 50px;
+.main-container {
+  width: 100%;
+  padding-top: config.$navbar-height;
+  /* Sticky footer:
+    100 view height - footer top margin - footer height
+  */
+  min-height: calc(100vh - config.$footer-margin-top - config.$footer-height);
 }
 
 .footer {
-  margin-top: 6rem;
-  background-color: $main-color;
-  border-radius: $border-radius $border-radius 0 0;
-  box-shadow: 0px -8px 6px 0px rgba(35, 36, 36, 1);
-  text-align: center;
+  margin-top: config.$footer-margin-top;
+  padding: 12px 0;
+  background-color: config.$c-primary-500;
 
-  &-block {
+  &-brand {
+    margin-bottom: 6px;
+    @include config.display400();
+  }
+
+  &-copy {
     margin-bottom: 0;
-    padding: 1rem 0;
-  }
-}
-
-.scroll-btn {
-  position: fixed;
-  right: 25px;
-  bottom: 35px;
-  z-index: 100;
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  border-radius: 50%;
-  border: none;
-  color: $main-color;
-  font-size: 1.2rem;
-  text-align: center;
-  box-shadow: 0 0 3px $main-color-dark-1;
-  @include allTransition();
-  visibility: hidden;
-  transform: scale(0);
-
-  &:hover {
-    background-color: $main-color;
-    color: white;
-    border: 1px solid white;
-  }
-
-  &-down {
-    visibility: visible;
-    transform: scale(1);
+    @include config.body200Italic();
   }
 }
 
 /* =============== Breakpoints =============== */
 
-@include media-breakpoint-up(sm) {
-  .header {
+@include config.media-breakpoint-up(md, config.$grid-breakpoints) {
+  $navbar-height: 130px;
+  $footer-height: 89px;
+  $footer-margin-top: 100px;
+
+  .navbar {
+    padding: 18px 0;
+
     &-brand {
-      &.navbar-brand-override {
-        font-size: 1.3rem;
+      display: block;
+      margin-bottom: 8px;
+      @include config.display500();
+      text-align: center;
+    }
+
+    &-collapse {
+      position: static;
+      display: block;
+      padding: 0;
+    }
+
+    &-menu {
+      @include config.flexCenter();
+      column-gap: 28px;
+      margin-bottom: 16px;
+
+      &-item {
+        display: inline;
+        padding: 0;
+        @include config.body300Regular();
+      }
+
+      &-toggle {
+        display: none;
       }
     }
 
     &-social {
-      margin-left: 1rem;
-      font-size: 1.5rem;
+      padding: 0;
+      column-gap: 24px;
     }
   }
 
-  .scroll-btn {
-    right: 35px;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .section {
-    &-header {
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  .scroll-btn {
-    right: 55px;
-    bottom: 55px;
+  .main-container {
+    padding-top: $navbar-height;
+    min-height: calc(
+      100vh - $footer-margin-top - $navbar-height - $footer-height
+    );
   }
 
   .footer {
-    margin-top: 10rem;
+    margin-top: $footer-margin-top;
+    padding: 16px 0;
+
+    &-brand {
+      margin-bottom: 7px;
+      @include config.display500();
+    }
+
+    &-copy {
+      @include config.body300Italic();
+    }
+  }
+}
+
+@include config.media-breakpoint-up(xl, config.$grid-breakpoints) {
+  $navbar-height: 130px;
+  $footer-height: 89px;
+  $footer-margin-top: 145px;
+
+  .main-container {
+    padding-top: $navbar-height;
+    min-height: calc(
+      100vh - $footer-margin-top - $navbar-height - $footer-height
+    );
+  }
+
+  .footer {
+    margin-top: $footer-margin-top;
   }
 }
