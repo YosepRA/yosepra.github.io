@@ -38,14 +38,29 @@ async function handlePromise(promise) {
   }
 }
 
-function throttle(fn, wait) {
-  let time = Date.now();
+function throttle(fn, delay = 300) {
+  let lastRun;
+  let lastFn;
 
-  return function throttleFunction() {
-    if (time + wait - Date.now() < 0) {
-      fn();
-      time = Date.now();
+  return function throttleFunction(...args) {
+    const context = this;
+
+    if (!lastRun) {
+      fn.apply(context, args);
+      lastRun = Date.now();
+
+      return undefined;
     }
+
+    clearTimeout(lastFn);
+    lastFn = setTimeout(() => {
+      if (Date.now() - lastRun >= delay) {
+        fn.apply(context, args);
+        lastRun = Date.now();
+      }
+    }, delay - (Date.now() - lastRun));
+
+    return undefined;
   };
 }
 

@@ -20,7 +20,9 @@ const Navbar = function NavbarComponent() {
   };
 
   return (
-    <header className={mainStyles.navbar}>
+    <header
+      className={cn(mainStyles.navbar, { [mainStyles.navbarHide]: false })}
+    >
       <nav>
         <Container className={mainStyles.navbarContainer}>
           <Row className="align-items-center">
