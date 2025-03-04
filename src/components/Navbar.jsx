@@ -95,7 +95,7 @@ const Navbar = function NavbarComponent() {
 
                       <div className={mainStyles.navbarSocial}>
                         <a
-                          href="https://www.google.com"
+                          href="https://github.com/YosepRA"
                           target="_blank"
                           rel="noreferrer"
                           className={mainStyles.navbarSocialItem}
@@ -105,7 +105,7 @@ const Navbar = function NavbarComponent() {
                         </a>
 
                         <a
-                          href="https://www.google.com"
+                          href="https://www.linkedin.com/in/studioyosepra"
                           target="_blank"
                           rel="noreferrer"
                           className={mainStyles.navbarSocialItem}
@@ -115,7 +115,7 @@ const Navbar = function NavbarComponent() {
                         </a>
 
                         <a
-                          href="https://www.google.com"
+                          href="https://x.com/studioyosepra"
                           target="_blank"
                           rel="noreferrer"
                           className={mainStyles.navbarSocialItem}
