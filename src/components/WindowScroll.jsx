@@ -1,12 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import {
-  setPosition,
-  setDirection,
-  selectY,
-  selectDirectionY,
-} from '@Features/scroll/scroll-slice.js';
+import { setPosition, setDirection } from '@Features/scroll/scroll-slice.js';
 import { throttle } from '@Utils/helpers.js';
 
 const WindowScroll = function WindowScrollComponent() {
@@ -20,30 +15,14 @@ const WindowScroll = function WindowScrollComponent() {
       const scrollYDirection =
         scrollYPos > lastYPosition.current ? 'down' : 'up';
 
-      console.log(
-        '🚀 ~ handleScroll ~ lastYPosition.current:',
-        lastYPosition.current,
-      );
-      console.log('🚀 ~ handleScroll ~ scrollYPos:', scrollYPos);
-
-      console.log(
-        '🚀 ~ handleScroll ~ lastYDirection.current:',
-        lastYDirection.current,
-      );
-      console.log('🚀 ~ handleScroll ~ scrollYDirection:', scrollYDirection);
-
       lastYPosition.current = scrollYPos;
       lastYDirection.current = scrollYDirection;
 
       dispatch(setPosition({ x: 0, y: scrollYPos }));
-
-      // Only change state direction if the scroll goes to a different way.
-      if (lastYDirection.current !== scrollYDirection) {
-        dispatch(setDirection({ x: '', y: scrollYDirection }));
-      }
+      dispatch(setDirection({ x: '', y: scrollYDirection }));
     };
 
-    const throttledHandleScroll = throttle(handleScroll, 3000);
+    const throttledHandleScroll = throttle(handleScroll, 300);
 
     window.addEventListener('scroll', throttledHandleScroll);
 
