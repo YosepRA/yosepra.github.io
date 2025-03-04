@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { selectDirectionY } from '@Features/scroll/scroll-slice.js';
 import mainStyles from '@Styles/main.module.scss';
 
 const Navbar = function NavbarComponent() {
   const [collapse, setCollapse] = useState(false);
+  const directionY = useSelector(selectDirectionY);
 
   const handleCollapseToggle = () => {
     setCollapse((state) => !state);
@@ -20,7 +23,11 @@ const Navbar = function NavbarComponent() {
   };
 
   return (
-    <header className={mainStyles.navbar}>
+    <header
+      className={cn(mainStyles.navbar, {
+        [mainStyles.navbarHide]: directionY === 'down',
+      })}
+    >
       <nav>
         <Container className={mainStyles.navbarContainer}>
           <Row className="align-items-center">
@@ -88,7 +95,7 @@ const Navbar = function NavbarComponent() {
 
                       <div className={mainStyles.navbarSocial}>
                         <a
-                          href="https://www.google.com"
+                          href="https://github.com/YosepRA"
                           target="_blank"
                           rel="noreferrer"
                           className={mainStyles.navbarSocialItem}
@@ -98,7 +105,7 @@ const Navbar = function NavbarComponent() {
                         </a>
 
                         <a
-                          href="https://www.google.com"
+                          href="https://www.linkedin.com/in/studioyosepra"
                           target="_blank"
                           rel="noreferrer"
                           className={mainStyles.navbarSocialItem}
@@ -108,7 +115,7 @@ const Navbar = function NavbarComponent() {
                         </a>
 
                         <a
-                          href="https://www.google.com"
+                          href="https://x.com/studioyosepra"
                           target="_blank"
                           rel="noreferrer"
                           className={mainStyles.navbarSocialItem}

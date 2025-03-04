@@ -1,5 +1,4 @@
 import service from '@Services/studioyosepra-inbox/index.js';
-console.log('🚀 ~ service:', service);
 
 const messageAPI = {
   async sendMessage(message) {
