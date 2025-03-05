@@ -101,6 +101,14 @@ $footer-margin-top: 80px;
   &:hover {
     background-color: $c-bp-hover;
   }
+
+  &:disabled {
+    background-color: $c-bp-disabled;
+
+    &:hover {
+      background-color: $c-bp-disabled;
+    }
+  }
 }
 
 @mixin secondaryIconButton {
