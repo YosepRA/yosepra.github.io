@@ -89,6 +89,7 @@ const Contact = function ContactComponent() {
                         placeholder="Enter name"
                         value={values.name}
                         onChange={handleChange}
+                        disabled
                       />
                     </Form.Group>
 
@@ -101,6 +102,7 @@ const Contact = function ContactComponent() {
                         placeholder="Enter email"
                         value={values.email}
                         onChange={handleChange}
+                        disabled
                       />
                       <Form.Text
                         className={cn(
@@ -122,10 +124,15 @@ const Contact = function ContactComponent() {
                         placeholder="What can I help you with..."
                         value={values.body}
                         onChange={handleChange}
+                        disabled
                       />
                     </Form.Group>
 
-                    <button type="submit" className={styles.contactFormSend}>
+                    <button
+                      type="submit"
+                      className={styles.contactFormSend}
+                      disabled
+                    >
                       Send
                     </button>
                   </Form>
